@@ -1,9 +1,8 @@
-# Your Project's Title...
-Your project's description...
+# Terri Scheer
 
 ## Environments
-- Preview: https://main--{repo}--{owner}.hlx.page/
-- Live: https://main--{repo}--{owner}.hlx.live/
+- Preview: https://main--suncorp--aemsites.hlx.page/
+- Live: https://main--suncorp--aemsites.hlx.live/
 
 ## Installation
 
