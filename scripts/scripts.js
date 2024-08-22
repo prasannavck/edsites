@@ -42,6 +42,18 @@ async function loadFonts() {
 }
 
 /**
+ * load icons.css and set a session storage flag
+ */
+async function loadIcons() {
+  await loadCSS(`${window.hlx.codeBasePath}/styles/icons.css`);
+  try {
+    if (!window.location.hostname.includes('localhost')) sessionStorage.setItem('icons-loaded', 'true');
+  } catch (e) {
+    // do nothing
+  }
+}
+
+/**
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
  */
@@ -88,6 +100,7 @@ async function loadEager(doc) {
     /* if desktop (proxy for fast connection) or fonts already loaded, load fonts.css */
     if (window.innerWidth >= 900 || sessionStorage.getItem('fonts-loaded')) {
       loadFonts();
+      loadIcons();
     }
   } catch (e) {
     // do nothing
