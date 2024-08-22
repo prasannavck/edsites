@@ -22,7 +22,7 @@
 }
 
 .icon {
-  font-family: terrisheer;
+  font-family: terrisheer, var(--body-font-family);
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -72,7 +72,7 @@
 }
 
 .icon-font-down-arrow {
-  font-family: terrisheer;
+  font-family: terrisheer, var(--body-font-family);
   font-style: normal;
 }
 
