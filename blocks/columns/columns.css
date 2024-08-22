@@ -74,7 +74,7 @@
 }
 
 .columns.products > div.active {
-  border: 3px solid rgb(22, 146, 156);
+  border: 3px solid #16929c;
   border-radius: 20px;
 }
 
@@ -98,13 +98,13 @@
     position: relative;
   }
 
-  .columns.products > div:not(.no-separator):not(:last-of-type) {
-    background: url('../../images/bg-products-divider.png') no-repeat 99% 50%;
-  }
-
   .columns.products > div > div {
      padding-inline: 15px;
      max-width: 217.5px;
+  }
+
+  .columns.products > div:not(.no-separator) {
+    background: url('../../images/bg-products-divider.png') no-repeat 99% 50%;
   }
 
   .columns.products .product-description {
