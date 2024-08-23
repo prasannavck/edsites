@@ -68,6 +68,8 @@ function decorateProductsVariantColumn(col) {
   if (btnGroup) productDescriptionDiv.append(btnGroup);
   col.appendChild(productNameDiv);
   col.appendChild(productDescriptionDiv);
+
+  // remove empty <p> tags
   col.querySelectorAll('p')?.forEach((para) => {
     if (para.textContent.trim() === '') {
       para.remove();
@@ -102,6 +104,8 @@ function decorateBenefitsVariantColumn(col) {
   col.prepend(titleDiv);
   const description = col.querySelector('p:last-of-type');
   if (description) description.classList.add('description');
+
+  // remove empty <p> tags
   col.querySelectorAll('p')?.forEach((para) => {
     if (para.textContent.trim() === '') {
       para.remove();
