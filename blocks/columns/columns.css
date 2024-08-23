@@ -1,3 +1,24 @@
+.columns {
+  --products-icon-width: 3.75rem; /* 60px */
+  --products-icon-height: 3.4375rem; /* 55px */
+  --products-icon-font-size: 3.75rem; /* 60px */
+  --products-name-height: 5rem; /* 80px */
+  --products-name-font-size: 1.75rem; /* 28px */
+  --products-name-font-color: black;
+  --products-name-icon-color: var(--teal);
+  --products-description-font-color: var(--text-color);
+  --products-description-font-size: 0.875rem; /* 14px */
+  --products-description-line-height: 1.125rem; /* 18px */
+  --benefits-icon-width: 3.125rem; /* 50px */
+  --benefits-icon-height: 3.125rem; /* 50px */
+  --benefits-title-font-color: var(--teal);
+  --benefits-title-font-size: 1.375rem; /* 22px */
+  --benefits-title-line-height: 1.625rem; /* 26px */
+  --benefits-description-font-color: var(--text-color);
+  --benefits-description-font-size: 0.875rem; /* 14px */
+  --benefits-description-line-height: 1.125rem; /* 18px */
+}
+
 /* Default Columns mobile view */
 .columns > div {
   display: flex;
@@ -22,34 +43,34 @@
 
 /* Columns variants(products, benefits) mobile view */
 .columns.products p > strong {
-  color: #16929c;
+  color: var(--teal);
 }
 
 .columns.products .product-name {
   display: flex;
   align-items: center;
-  gap: 10px;
-  height: 80px;
+  gap: 0.625rem;
+  height: var(--products-name-height);
 }
 
 .columns.products .product-name .icon {
   display: flex;
   align-items: center;
-  width: 60px;
-  height: 55px;
+  width: var(--products-icon-width);
+  height: var(--products-icon-height);
   min-width: fit-content;
-  font-size: 60px;
-  color: #16929c;
+  font-size: var(--products-icon-font-size);
+  color: var(--products-name-icon-color);
 }
 
 .columns.products .product-name picture {
-  width: 60px;
-  height: 55px;
+  width: var(--products-icon-width);
+  height: var(--products-icon-height);
 }
 
 .columns.products h3 {
   all: unset;
-  font-size: 28px;
+  font-size: var(--products-name-font-size);
   font-weight: 400;
   line-height: 1;
 }
@@ -60,34 +81,34 @@
 }
 
 .columns.products h3 a {
-  color: black;
+  color: var(--products-name-font-color);
 }
 
 .columns.products .product-description {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  font-size: 14px;
-  line-height: 18px;
-  color: #485560;
+  font-size: var(--products-description-font-size);
+  line-height: var(--products-description-line-height);
+  color: var(--products-description-font-color);
 }
 
 .columns.products > div > div {
   display: flex;
   flex-direction: column;
   justify-content: stretch;
-  padding: 15px;
+  padding: 0.9375rem; /* 15px */
 }
 
 .columns.products > div.active {
-  border: 3px solid #16929c;
-  border-radius: 20px;
+  border: 0.1875rem solid var(--teal); /* 3px */
+  border-radius: 1.25rem; /* 20px */
 }
 
 .columns.products .btn-group {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 15px;
+  gap: 0.9375rem; /* 15px */
 }
 
 .columns.products .btn-group .button {
@@ -97,20 +118,20 @@
 .columns.benefits .title {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 1.25rem; /* 20px */
 }
 
 .columns.benefits .title .icon {
-  width: 50px;
-  height: 50px;
+  width: var(--products-icon-width);
+  height: var(--benefits-icon-height);
 }
 
 .columns.benefits .title h3 {
   all: unset;
-  font-size: 22px;
-  line-height: 26px;
+  font-size: var(--benefits-title-font-size);
+  line-height: var(--benefits-title-line-height);
   font-weight: 400;
-  color: #16929c;
+  color: var(--benefits-title-font-color);
 }
 
 .columns.benefits .description {
@@ -122,7 +143,7 @@
   /* Default column tablet view */
   .columns > div {
     flex-direction: unset;
-    gap: 24px;
+    gap: 1.5rem; /* 24px */
   }
 
   .columns > div > div {
@@ -142,20 +163,20 @@
   }
 
   .columns.products > div > div {
-     padding-inline: 15px;
-     max-width: 217.5px;
+     padding-inline: 0.9375rem; /* 15px */
+     max-width: 13.5938rem; /* 217.5px */
   }
 
   .columns.benefits > div > div {
-    max-width: 270px;
+    max-width: 16.875rem; /* 270px */
   }
 
   .columns.products h3 {
-    font-size: 20px;
+    font-size: 1.25rem; /* 20px */
   }
 
   .columns.products .product-name .icon {
-     font-size: 55px;
+     font-size: 3.4375rem; /* 55px */
   }
 
   .columns.products > div:not(.no-separator) {
@@ -163,27 +184,27 @@
   }
 
   .columns.products .product-description {
-    min-height: 262px;
+    min-height: 16.375rem; /* 262px */
   }
 
   .columns.products .btn-group {
-    gap: 5px;
+    gap: 0.3125rem; /* 5px */
   }
 
   .columns.benefits .description {
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
-    font-size: 14px;
-    line-height: 18px;
-    color: #485560;
+    margin-top: 1.25rem; /* 20px */
+    font-size: var(--benefits-description-font-size);
+    line-height: var(--benefits-description-line-height);
+    color: var(--benefits-description-font-color);
     text-align: center;
   }
 
   .columns.benefits .description::before {
     content: '';
-    border-bottom: 1px solid #16929c;
-    margin-bottom: 20px;
+    border-bottom: 1px solid var(--teal);
+    margin-bottom: 1.25rem; /* 20px */
   }
 }
 
@@ -191,14 +212,14 @@
 @media (width > 75rem) {
   /* Variants */
   .columns.products > div > div {
-    max-width: 277.5px;
+    max-width: 17.3438rem; /* 277.5px */
   }
 
   .columns.products .product-description {
-    min-height: 230px;
+    min-height: 14.375rem; /* 230px */
   }
 
   .columns.benefits > div > div {
-    max-width: 350px;
+    max-width: 21.875rem; /* 350px */
   }
 }
