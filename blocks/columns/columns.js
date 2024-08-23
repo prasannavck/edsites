@@ -1,17 +1,21 @@
 const BLOCK_VARIANTS = {
   default: 'default',
   products: 'products',
+  benefits: 'benefits',
 };
 
 function getBlockVariant(block) {
-  if (block.classList.contains(BLOCK_VARIANTS.products)) {
-    return BLOCK_VARIANTS.products;
-  }
-  return BLOCK_VARIANTS.default;
+  const blockVariant = Object.values(BLOCK_VARIANTS)
+    .find((variant) => block.classList.contains(variant));
+  return blockVariant || BLOCK_VARIANTS.default;
 }
 
 function isProductsBlockVariant(block) {
   return BLOCK_VARIANTS.products === getBlockVariant(block);
+}
+
+function isBenefitsBlockVariant(block) {
+  return BLOCK_VARIANTS.benefits === getBlockVariant(block);
 }
 
 // Valid response is a value > 0
@@ -26,11 +30,80 @@ function getActiveProductColumn(block) {
   return activeCol;
 }
 
+function decorateProductsVariantColumn(col) {
+  const productNameDiv = document.createElement('div');
+  productNameDiv.classList.add('product-name');
+  const firstPara = col.querySelector('p:first-of-type');
+  const iconSpan = col.querySelector('span.icon');
+  const h3 = col.querySelector('h3');
+  if (firstPara) {
+    if (iconSpan) productNameDiv.appendChild(iconSpan);
+    if (h3) productNameDiv.appendChild(h3);
+  }
+  const productDescriptionDiv = document.createElement('div');
+  const secondPara = firstPara.nextElementSibling;
+  const pricePara = secondPara?.nextElementSibling;
+  if (secondPara && secondPara.tagName.toLowerCase() === 'p') {
+    productDescriptionDiv.appendChild(secondPara);
+    productDescriptionDiv.classList.add('product-description');
+  }
+  const lastPara = col.querySelector('p:last-of-type');
+  const links = lastPara?.querySelectorAll('a');
+  if (lastPara && lastPara.classList.length === 0 && links.length > 0) {
+    lastPara.classList.add('btn-group');
+    links.forEach((link) => {
+      link.classList.add('button');
+      if (link.parentElement.tagName === 'EM') {
+        link.classList.add('orange');
+      }
+    });
+  }
+  if (pricePara !== lastPara) pricePara.classList.add('product-price');
+  const price = col.querySelector('.product-price');
+  if (price) productDescriptionDiv.append(price);
+  const btnGroup = col.querySelector('.btn-group');
+  if (btnGroup) productDescriptionDiv.append(btnGroup);
+  col.appendChild(productNameDiv);
+  col.appendChild(productDescriptionDiv);
+  firstPara.remove();
+}
+
+function decorateProductsVariantRow(index, row, rowsCount, block) {
+  const activeProduct = getActiveProductColumn(block);
+  if (activeProduct === index + 2 || rowsCount === index + 1) {
+    row.classList.add('no-separator');
+  }
+  if (activeProduct === index + 1) { // active product
+    row.classList.add('active');
+    row.classList.add('no-separator');
+  }
+}
+
+function decorateBenefitsVariantColumn(col) {
+  const titleDiv = document.createElement('div');
+  titleDiv.classList.add('title');
+  const iconSpan = col.querySelector('span.icon');
+  const titlePicture = col.querySelector('picture');
+  const h3 = col.querySelector('h3');
+  if (iconSpan) {
+    titleDiv.appendChild(iconSpan);
+  } else if (titlePicture) {
+    titleDiv.appendChild(titlePicture);
+  }
+  if (h3) titleDiv.appendChild(h3);
+
+  col.prepend(titleDiv);
+  const description = col.querySelector('p:last-of-type');
+  if (description) description.classList.add('description');
+  col.querySelectorAll('p:empty')?.forEach((para) => para.remove());
+}
+
 export default function decorate(block) {
   const cols = [...block.firstElementChild.children];
   block.classList.add(`columns-${cols.length}-cols`);
   const isProductsVariant = isProductsBlockVariant(block);
-  const activeProduct = getActiveProductColumn(block);
+  const isBenefitsVariant = isBenefitsBlockVariant(block);
+
   const rowsCount = block.children?.length;
   // setup image columns
   [...block.children].forEach((row, index) => {
@@ -44,46 +117,9 @@ export default function decorate(block) {
         }
       }
 
-      if (isProductsVariant) {
-        const productNameDiv = document.createElement('div');
-        productNameDiv.classList.add('product-name');
-        const firstPara = col.querySelector('p:first-of-type');
-        const iconSpan = col.querySelector('span.icon');
-        const h3 = col.querySelector('h3');
-        if (firstPara) {
-          if (iconSpan) productNameDiv.appendChild(iconSpan);
-          if (h3) productNameDiv.appendChild(h3);
-        }
-        const productDescriptionDiv = document.createElement('div');
-        const secondPara = firstPara.nextElementSibling;
-        const pricePara = secondPara?.nextElementSibling;
-        if (secondPara && secondPara.tagName.toLowerCase() === 'p') {
-          productDescriptionDiv.appendChild(secondPara);
-          productDescriptionDiv.classList.add('product-description');
-        }
-        const lastPara = col.querySelector('p:last-of-type');
-        const linksCount = lastPara?.querySelectorAll('a').length;
-        if (lastPara && lastPara.classList.length === 0 && linksCount > 0) {
-          lastPara.classList.add('btn-group');
-        }
-        if (pricePara !== lastPara) pricePara.classList.add('product-price');
-        const price = col.querySelector('.product-price');
-        if (price) productDescriptionDiv.append(price);
-        const btnGroup = col.querySelector('.btn-group');
-        if (btnGroup) productDescriptionDiv.append(btnGroup);
-        col.appendChild(productNameDiv);
-        col.appendChild(productDescriptionDiv);
-        firstPara.remove();
-      }
+      if (isProductsVariant) decorateProductsVariantColumn(col);
+      if (isBenefitsVariant) decorateBenefitsVariantColumn(col);
     });
-    if (isProductsVariant && activeProduct > 0) {
-      if (activeProduct === index + 2 || rowsCount === index + 1) {
-        row.classList.add('no-separator');
-      }
-      if (activeProduct === index + 1) { // active product
-        row.classList.add('active');
-        row.classList.add('no-separator');
-      }
-    }
+    if (isProductsVariant) decorateProductsVariantRow(index, row, rowsCount, block);
   });
 }
