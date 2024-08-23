@@ -42,6 +42,11 @@
   color: #16929c;
 }
 
+.columns.products .product-name picture {
+  width: 60px;
+  height: 55px;
+}
+
 .columns.products h3 {
   all: unset;
   font-size: 28px;
@@ -112,6 +117,7 @@
   display: none;
 }
 
+/* Tablet View */
 @media (width > 62rem) {
   /* Default column tablet view */
   .columns > div {
@@ -181,8 +187,9 @@
   }
 }
 
-/* Columns variants desktop view */
+/* Desktop view */
 @media (width > 75rem) {
+  /* Variants */
   .columns.products > div > div {
     max-width: 277.5px;
   }

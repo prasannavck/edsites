@@ -33,18 +33,21 @@ function getActiveProductColumn(block) {
 function decorateProductsVariantColumn(col) {
   const productNameDiv = document.createElement('div');
   productNameDiv.classList.add('product-name');
-  const firstPara = col.querySelector('p:first-of-type');
-  const iconSpan = col.querySelector('span.icon');
+  const titleIcon = col.querySelector('span.icon');
+  const titlePicture = col.querySelector('picture');
   const h3 = col.querySelector('h3');
-  if (firstPara) {
-    if (iconSpan) productNameDiv.appendChild(iconSpan);
-    if (h3) productNameDiv.appendChild(h3);
+  if (titleIcon) {
+    productNameDiv.appendChild(titleIcon);
+  } else if (titlePicture) {
+    productNameDiv.appendChild(titlePicture);
   }
+  if (h3) productNameDiv.appendChild(h3);
+
   const productDescriptionDiv = document.createElement('div');
-  const secondPara = firstPara.nextElementSibling;
-  const pricePara = secondPara?.nextElementSibling;
-  if (secondPara && secondPara.tagName.toLowerCase() === 'p') {
-    productDescriptionDiv.appendChild(secondPara);
+  const descriptionPara = (titleIcon || titlePicture) ? col.querySelector('p:nth-of-type(2)') : col.querySelector('p:first-of-type');
+  const pricePara = descriptionPara?.nextElementSibling;
+  if (descriptionPara) {
+    productDescriptionDiv.appendChild(descriptionPara);
     productDescriptionDiv.classList.add('product-description');
   }
   const lastPara = col.querySelector('p:last-of-type');
@@ -65,7 +68,11 @@ function decorateProductsVariantColumn(col) {
   if (btnGroup) productDescriptionDiv.append(btnGroup);
   col.appendChild(productNameDiv);
   col.appendChild(productDescriptionDiv);
-  firstPara.remove();
+  col.querySelectorAll('p')?.forEach((para) => {
+    if (para.textContent.trim() === '') {
+      para.remove();
+    }
+  });
 }
 
 function decorateProductsVariantRow(index, row, rowsCount, block) {
@@ -95,7 +102,11 @@ function decorateBenefitsVariantColumn(col) {
   col.prepend(titleDiv);
   const description = col.querySelector('p:last-of-type');
   if (description) description.classList.add('description');
-  col.querySelectorAll('p:empty')?.forEach((para) => para.remove());
+  col.querySelectorAll('p')?.forEach((para) => {
+    if (para.textContent.trim() === '') {
+      para.remove();
+    }
+  });
 }
 
 export default function decorate(block) {
