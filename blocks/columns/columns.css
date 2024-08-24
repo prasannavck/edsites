@@ -21,7 +21,6 @@
   --benefits-description-line-height: 1.125rem; /* 18px */
 }
 
-/* Default Columns in mobile view */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -43,7 +42,7 @@
   display: block;
 }
 
-/* Products, benefits variants in mobile view */
+/* Products, benefits variants */
 .columns.benefits {
   gap: 4rem;
 }
@@ -149,7 +148,7 @@
   display: none;
 }
 
-/* Tablet View > 991px */
+/* View > 991px */
 @media (width > 62rem) {
   /* Default column in tablet view */
   .columns > div {
@@ -162,7 +161,7 @@
     order: unset;
   }
 
-  /* products & benefits variants in tablet view */
+  /* products & benefits variants > 991px */
   .columns.products,
   .columns.benefits {
     display: flex;
@@ -210,9 +209,9 @@
   }
 }
 
-/* Desktop view > 1199px */
+/* View > 1199px */
 @media (width > 75rem) {
-  /* Variants */
+  /* products & benefits variants > 1199px */
   .columns.products h3 {
     font-size: var(--products-name-font-size-mob-desktop);
   }
