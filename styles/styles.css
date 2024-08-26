@@ -14,6 +14,7 @@
   /* core colors */
   --white: white;
   --light-color: #f1edec;
+  --light-silver: #bbb;
   --text-color: #485560;
   --dark-color: #3b3934;
   --black: black;
@@ -318,4 +319,12 @@ main .section.highlight {
   background-color: var(--light-color);
   margin: 0;
   padding: 2.5rem 0;
+}
+
+/* mobile only style */
+@media (width <= 48rem) {
+  main .section.mobile-background-teal {
+    padding-block: 0.94rem; /* 15px */
+    background: url('../images/mobile-bottom-border.jpg') 50% 0 no-repeat;
+  }
 }
