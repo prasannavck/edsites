@@ -17,10 +17,12 @@
   --text-color: #485560;
   --dark-color: #3b3934;
   --black: black;
+  --light-gray-color: #dedfe1;
 
   /* brand colors */
   --orange: #e05804;
   --teal: #16929c;
+  --teal-deep-light: #aee5ea;
   --teal-light: #e4f6f8;
   --teal-dark: #016c7e;
 
@@ -56,9 +58,13 @@
   --heading-font-size-xxl: 1.5rem;
   --heading-font-size-xl: 1.25rem;
   --heading-font-size-l: 1.125rem;
+  --heading-font-size-mxl: 0.9375rem;
+  --heading-font-size-ml: 0.909rem;
   --heading-font-size-m: 0.875rem;
+  --heading-font-size-ms: 0.8125rem;
   --heading-font-size-s: 0.75rem;
-  --heading-font-size-xs: 0.625rem;
+  --heading-font-size-xs: 0.6875rem;
+  --heading-font-size-xss: 0.625rem;
 
   /* nav height */
   --nav-height: 4rem;
@@ -143,6 +149,11 @@ blockquote {
   margin-bottom: 0.25rem;
 }
 
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
 code,
 pre {
   font-size: var(--body-font-size-s);
@@ -154,10 +165,6 @@ pre {
   background-color: var(--light-color);
   overflow-x: auto;
   white-space: pre;
-}
-
-main > div {
-  margin: 2.5rem 1rem;
 }
 
 input,
@@ -292,24 +299,18 @@ main img {
 /*
  * sections
  */
-main > .section {
-  margin: 2.5rem 0;
+main .section,
+footer .footer {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
 }
 
-main > .section > div {
-  max-width: 75rem;
-  margin: auto;
-  padding: 0 1.5rem;
-}
-
-main > .section:first-of-type {
-  margin-top: 0;
-}
-
-@media (width >= 62rem) {
-  main > .section > div {
-    padding: 0 2rem;
-  }
+main .section.full-width {
+  max-width: 100%;
+  padding-left: unset;
+  padding-right: unset;
 }
 
 /* section metadata */
@@ -318,4 +319,25 @@ main .section.highlight {
   background-color: var(--light-color);
   margin: 0;
   padding: 2.5rem 0;
+}
+
+@media (width >= 48rem) {
+  main .section,
+  footer .footer {
+    max-width: 45.25rem;
+  }
+}
+
+@media (width >= 62rem) {
+  main .section,
+  footer .footer {
+    max-width: 61.875rem;
+  }
+}
+
+@media (width >= 75rem) {
+  main .section,
+  footer .footer {
+    max-width: 76.875rem;
+  }
 }
