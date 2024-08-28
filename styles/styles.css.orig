@@ -322,6 +322,15 @@ main .section.highlight {
   padding: 2.5rem 0;
 }
 
+<<<<<<< HEAD
+/* mobile only style */
+@media (width <= 48rem) {
+  main .section.mobile-background-teal {
+    padding-block: 0.94rem; /* 15px */
+    background: url('../images/mobile-bottom-border.jpg') 50% 0 no-repeat;
+  }
+}
+=======
 @media (width >= 48rem) {
   main .section,
   footer .footer {
@@ -342,17 +351,4 @@ main .section.highlight {
     max-width: 76.875rem;
   }
 }
-
-main .section.benefits-background-plain {
-  padding-block: 3.125rem; /* 50px */
-  background: url('../images/benefits-background-plain.jpg') 50% 0 no-repeat;
-}
-
-/* mobile only style */
-@media (width <= 48rem) {
-  main .section.mobile-background-teal {
-    padding-block: 0.94rem; /* 15px */
-    background: url('../images/mobile-bottom-border.jpg') 50% 0 no-repeat;
-  }
-}
-
+>>>>>>> main
