@@ -34,17 +34,12 @@ function decorateProductsVariantColumn(col) {
   const productNameDiv = document.createElement('div');
   productNameDiv.classList.add('product-name');
   const titleIcon = col.querySelector('span.icon');
-  const titlePicture = col.querySelector('picture');
   const h3 = col.querySelector('h3');
-  if (titleIcon) {
-    productNameDiv.appendChild(titleIcon);
-  } else if (titlePicture) {
-    productNameDiv.appendChild(titlePicture);
-  }
+  if (titleIcon) productNameDiv.appendChild(titleIcon);
   if (h3) productNameDiv.appendChild(h3);
 
   const productDescriptionDiv = document.createElement('div');
-  const descriptionPara = (titleIcon || titlePicture) ? col.querySelector('p:nth-of-type(2)') : col.querySelector('p:first-of-type');
+  const descriptionPara = (titleIcon) ? col.querySelector('p:nth-of-type(2)') : col.querySelector('p:first-of-type');
   const pricePara = descriptionPara?.nextElementSibling;
   if (descriptionPara) {
     productDescriptionDiv.appendChild(descriptionPara);
@@ -92,13 +87,8 @@ function decorateBenefitsVariantColumn(col) {
   const titleDiv = document.createElement('div');
   titleDiv.classList.add('title');
   const iconSpan = col.querySelector('span.icon');
-  const titlePicture = col.querySelector('picture');
   const h3 = col.querySelector('h3');
-  if (iconSpan) {
-    titleDiv.appendChild(iconSpan);
-  } else if (titlePicture) {
-    titleDiv.appendChild(titlePicture);
-  }
+  if (iconSpan) titleDiv.appendChild(iconSpan);
   if (h3) titleDiv.appendChild(h3);
 
   col.prepend(titleDiv);
