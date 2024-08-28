@@ -59,6 +59,10 @@
   flex: 1;
 }
 
+.columns.benefits > div {
+  padding-inline: 1.25rem; /* 20px */
+}
+
 .columns.products p > strong {
   color: var(--teal);
 }
@@ -143,10 +147,6 @@
   gap: 0.625rem; /* 10px */
 }
 
-.columns.benefits > div {
-  padding-inline: 1.25rem; /* 20px */
-}
-
 .columns.benefits .title .icon {
   width: var(--benefits-icon-width-s);
   height: var(--benefits-icon-height-s);
@@ -225,6 +225,10 @@
     flex-direction: row;
   }
 
+  .columns.benefits > div {
+    padding-inline: 1.875rem; /* 30px */
+  }
+
   .columns.products > div > div {
      padding-inline: 0.9375rem; /* 15px */
   }
@@ -252,10 +256,6 @@
 
   .columns.products .btn-group {
     gap: 0.3125rem; /* 5px */
-  }
-
-  .columns.benefits > div {
-    padding-inline: 1.875rem; /* 30px */
   }
 
   .columns.benefits .description {
