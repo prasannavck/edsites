@@ -1,13 +1,8 @@
 .columns {
-  --products-icon-width-s: 2.3rem; /* 36.8px */
-  --products-icon-height-s: 2.3rem; /* 36.8px */
   --products-icon-width-m: 2.8rem; /* 44.8px */
   --products-icon-height-m: 2.5rem; /* 40px */
   --products-icon-width-l: 5rem; /* 80px */
   --products-icon-height-l: 3.5rem; /* 56px */
-  --products-icon-font-size-s: 2.5rem; /* 40px */
-  --products-icon-font-size-m: 3.75rem; /* 60px */
-  --products-icon-font-size-l: 3.4375rem; /* 55px */
   --products-name-height-s: 2.5rem; /* 40px */
   --products-name-height-m: 3.5rem; /* 56px */
   --products-name-height-l: 5rem; /* 80px */
@@ -79,18 +74,6 @@
   width: var(--products-icon-width-m);
   height: var(--products-icon-height-m);
   min-width: fit-content;
-  font-size: var(--products-icon-font-size-s);
-  color: var(--products-name-icon-color);
-}
-
-.columns.products .product-name picture {
-  width: var(--products-icon-width-s);
-  height: var(--products-icon-height-s);
-}
-
-.columns.products .product-name picture img {
-  width: 100%;
-  height: 100%;
 }
 
 .columns.products h3 {
@@ -185,11 +168,6 @@
     height: var(--products-name-height-m);
   }
 
-  .columns.products .product-name picture {
-    width: 3.5rem;
-    height: 3.5rem;
-  }
-
   .columns.products h3 {
     font-size: var(--products-name-font-size-l);
   }
@@ -265,12 +243,6 @@
   .columns.products .product-name .icon {
      width: var(--products-icon-width-m);
      height: var(--products-icon-height-l);
-     font-size: var(--products-icon-font-size-l);
-  }
-
-  .columns.products .product-name picture {
-    width: var(--products-icon-width-l);
-    height: var(--products-icon-height-l);
   }
 
   .columns.products > div:not(.no-separator) {
@@ -312,12 +284,6 @@
   .columns.products .product-name .icon {
      width: var(--products-icon-width-l);
      height: var(--products-icon-height-l);
-     font-size: var(--products-icon-font-size-l);
-  }
-
-  .columns.products .product-name picture {
-    width: var(--products-icon-width-l);
-    height: var(--products-icon-height-l);
   }
 
   .columns.products .product-name {
