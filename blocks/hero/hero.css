@@ -1,19 +1,45 @@
-.hero-container .hero-wrapper {
-  max-width: unset;
-  padding: 0;
-}
-
 .hero {
   position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+  padding: 0;
+  height: 10rem;
+}
+
+.hero.buttons-stack .hero-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0 1rem;
+}
+
+.hero.buttons-stack .hero-menu ul li {
+  list-style-type: none;
 }
 
 .hero h1 {
-  max-width: 1200px;
+  max-width: 75rem;
   margin-left: auto;
   margin-right: auto;
   color: var(--background-color);
+}
+
+.hero p {
+  margin: 0;
+}
+
+.hero.buttons-stack h2 {
+  display: inline-block;
+  box-sizing: border-box;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: black;
+  padding-left: 1rem;
+  margin-top: 0.625rem;
+  margin-left: 0.25rem;
+  border-left: 0.4375rem solid var(--orange-btn);
+}
+
+.hero.buttons-stack .hero-menu ul {
+  display: none;
 }
 
 .hero picture {
@@ -28,10 +54,91 @@
   object-fit: cover;
   width: 100%;
   height: 100%;
+  object-position: 37% 0;
 }
 
-@media (width >= 62rem) {
+@media (width >=48rem) {
   .hero {
-    padding: 40px 32px;
+    height: 15.5rem;
+  }
+
+  .hero img {
+    object-position: unset;
+  }
+
+  .hero.buttons-stack .hero-menu {
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero.buttons-stack .hero-menu h2 {
+    font-size: 1.75rem;
+    line-height: 1.1;
+    margin-top: 2.8rem;
+    margin-left: 1.625rem;
+  }
+
+  .hero.buttons-stack .hero-menu ul {
+    display: block;
+    width: 13.75rem;
+    margin-top: 2.8rem;
+    margin-right: 0.625rem;
+  }
+
+  .hero.buttons-stack .hero-menu ul li a {
+    display: block;
+    padding: 0 0 0 1rem;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 2.75rem;
+    text-align: left;
+    margin-bottom: 0.0625rem;
+  }
+
+  .hero.buttons-stack .hero-menu ul li .icon {
+    position: relative;
+    top: 0.25rem;
+    padding-right: 1rem;
+    font-size: 1.625rem;
+    line-height: 1.875rem;
+    margin-bottom: 0.0625rem;
+    border-top-left-radius: 0.3125rem;
+    border-top-right-radius: 0.3125rem;
+  }
+}
+
+@media (width >=62rem) {
+  .hero {
+    height: 19.375rem;
+  }
+
+  .hero.buttons-stack .hero-menu {
+    max-width: 62rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero.buttons-stack .hero-menu h2 {
+    margin-left: 0.25rem;
+    font-size: 2.1875rem;
+  }
+
+  .hero.buttons-stack .hero-menu ul {
+    width: 18.125rem;
+    margin-right: 0;
+  }
+
+  .hero.buttons-stack .hero-menu ul li a {
+    padding: 0 0 0 1.875rem;
+    font-size: 1.25rem;
+  }
+}
+
+@media (width >=75rem) {
+  .hero.buttons-stack .hero-menu {
+    max-width: 75rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 }

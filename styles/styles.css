@@ -26,6 +26,10 @@
   --teal-deep-light: #aee5ea;
   --teal-light: #e4f6f8;
   --teal-dark: #016c7e;
+  --purple-light: #485583;
+  --white-smoke: #f5f5f5;
+  --teal-medium: #01909e;
+  --gray-light: #E5E4E2;
 
   /* common color usage */
   --link-color: var(--teal);
@@ -40,7 +44,7 @@
   --orange-btn-light: #eb7020;
   --orange-btn-dark: #ed4000;
   --dark-btn: #171a19;
-  --dark-btn-light:#445252;
+  --dark-btn-light: #445252;
   --dark-btn-dark: #1e2424;
 
   /* fonts */
@@ -133,12 +137,29 @@ h6 {
   scroll-margin: 2.5rem;
 }
 
-h1 { font-size: var(--heading-font-size-xxl); }
-h2 { font-size: var(--heading-font-size-xl); }
-h3 { font-size: var(--heading-font-size-l); }
-h4 { font-size: var(--heading-font-size-m); }
-h5 { font-size: var(--heading-font-size-s); }
-h6 { font-size: var(--heading-font-size-xs); }
+h1 {
+  font-size: var(--heading-font-size-xxl);
+}
+
+h2 {
+  font-size: var(--heading-font-size-xl);
+}
+
+h3 {
+  font-size: var(--heading-font-size-l);
+}
+
+h4 {
+  font-size: var(--heading-font-size-m);
+}
+
+h5 {
+  font-size: var(--heading-font-size-s);
+}
+
+h6 {
+  font-size: var(--heading-font-size-xs);
+}
 
 p,
 dl,
@@ -211,8 +232,8 @@ button {
 main a.button:any-link,
 main button {
   width: 100%;
-	padding: 0.3125rem;
-	line-height: 1.875rem;
+  padding: 0.3125rem;
+  line-height: 1.875rem;
   border-radius: 0.1875rem;
   color: var(--text-color);
   border: 1px solid var(--standard-btn-dark);
