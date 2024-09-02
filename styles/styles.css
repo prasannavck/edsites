@@ -14,6 +14,7 @@
   /* core colors */
   --white: white;
   --light-color: #f1edec;
+  --mid-color: #f0eded;
   --light-silver: #bbb;
   --text-color: #485560;
   --dark-color: #3b3934;
@@ -26,10 +27,12 @@
   --teal-deep-light: #aee5ea;
   --teal-light: #e4f6f8;
   --teal-dark: #016c7e;
+  --teal-dark-alt: #10737b;
   --purple-light: #485583;
   --white-smoke: #f5f5f5;
   --teal-medium: #01909e;
   --gray-light: #E5E4E2;
+  --menu-gray: #ebe8e8;
 
   /* common color usage */
   --link-color: var(--teal);
@@ -56,6 +59,7 @@
   --body-font-size-s: 0.75rem;
 
   /* font weights */
+  --font-weight-normal: 400;
   --font-weight-medium: 500;
   --font-weight-bold: 700;
 
@@ -72,7 +76,10 @@
   --heading-font-size-xss: 0.625rem;
 
   /* nav height */
-  --nav-height: 4rem;
+  --nav-brand-bar: 6.875rem;
+  --nav-menu-bar: 4.3125rem;
+  --nav-height-desktop: calc(var(--nav-brand-bar) + var(--nav-menu-bar));
+  --nav-height-mobile: 4.375rem;
 }
 
 @media (width >= 62rem) {
@@ -110,7 +117,13 @@ body.appear {
 }
 
 header {
-  height: var(--nav-height);
+  min-height: var(--nav-height-mobile);
+}
+
+@media (width >= 48rem) {
+  header {
+    min-height: var(--nav-height-desktop);
+  }
 }
 
 header .header,
@@ -322,7 +335,8 @@ main img {
  * sections
  */
 main .section,
-footer .footer {
+footer .footer,
+header .header-section {
   margin-right: auto;
   margin-left: auto;
   padding-left: 0.9375rem;
@@ -335,31 +349,26 @@ main .section.full-width {
   padding-right: unset;
 }
 
-/* section metadata */
-main .section.light,
-main .section.highlight {
-  background-color: var(--light-color);
-  margin: 0;
-  padding: 2.5rem 0;
-}
-
 @media (width >= 48rem) {
   main .section,
-  footer .footer {
+  footer .footer,
+  header .header-section {
     max-width: 45.25rem;
   }
 }
 
 @media (width >= 62rem) {
   main .section,
-  footer .footer {
+  footer .footer,
+  header .header-section {
     max-width: 61.875rem;
   }
 }
 
 @media (width >= 75rem) {
   main .section,
-  footer .footer {
+  footer .footer,
+  header .header-section {
     max-width: 76.875rem;
   }
 }
