@@ -94,6 +94,15 @@
     line-height: 2.75rem;
     text-align: left;
     margin-bottom: 0.0625rem;
+    border-radius: 0;
+  }
+
+  .hero.buttons-stack .hero-menu ul li:first-child a {
+    border-radius: 0.37rem 0.37rem 0 0;
+  }
+
+  .hero.buttons-stack .hero-menu ul li:last-child a {
+    border-radius: 0 0 0.37rem 0.37rem
   }
 
   .hero.buttons-stack .hero-menu ul li .icon {

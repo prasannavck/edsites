@@ -334,6 +334,11 @@ main img {
 /*
  * sections
  */
+main .section {
+  padding-top: 2.3rem;
+  padding-bottom: 2.3rem;
+}
+
 main .section,
 footer .footer,
 header .header-section {
@@ -345,6 +350,8 @@ header .header-section {
 
 main .section.full-width {
   max-width: 100%;
+  padding-top: 0;
+  padding-bottom: 0;
   padding-left: unset;
   padding-right: unset;
 }
