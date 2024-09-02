@@ -98,6 +98,10 @@
   color: var(--products-name-font-color);
 }
 
+.columns.products h3 a:hover {
+  text-decoration: none;
+}
+
 .columns.products .product-description {
   display: flex;
   flex-direction: column;
