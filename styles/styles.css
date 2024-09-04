@@ -11,30 +11,25 @@
  */
 
 :root {
-  /* core colors */
+  /* core palette */
   --white: white;
   --light-color: #f1edec;
-  --mid-color: #f0eded;
-  --light-silver: #bbb;
+  --gray-light: #e5e4e2;
+  --gray-middle: #dedfe1;
+  --gray-dark: #bbb;
   --text-color: #485560;
   --dark-color: #3b3934;
   --black: black;
-  --light-gray-color: #dedfe1;
 
-  /* brand colors */
-  --orange: #e05804;
+  /* brand palette */
   --teal: #16929c;
-  --teal-deep-light: #aee5ea;
   --teal-light: #e4f6f8;
   --teal-dark: #016c7e;
   --teal-dark-alt: #10737b;
-  --purple-light: #485583;
-  --white-smoke: #f5f5f5;
-  --teal-medium: #01909e;
-  --gray-light: #E5E4E2;
-  --menu-gray: #ebe8e8;
+  --orange: #e05804;
+  --purple: #485583;
 
-  /* common color usage */
+  /* global color usage */
   --link-color: var(--teal);
   --link-hover-color: var(--teal-dark);
   --background-color: var(--white);
@@ -380,16 +375,27 @@ main .section.full-width {
   }
 }
 
-main .section.benefits-background-plain {
-  padding-block: 3.125rem; /* 50px */
-  background: url('../images/benefits-background-plain.jpg') 50% 0 no-repeat;
+main .section.mobile-background-teal {
+  padding-block: 0.94rem; /* 15px */
+  background: url('../images/mobile-bottom-border.jpg') 50% 0 no-repeat;
 }
 
-/* mobile only style */
-@media (width <= 48rem) {
-  main .section.mobile-background-teal {
-    padding-block: 0.94rem; /* 15px */
-    background: url('../images/mobile-bottom-border.jpg') 50% 0 no-repeat;
+main .section.desktop-only {
+  display: none;
+}
+
+/* mobile-specific section styles */
+@media (width >= 48rem) {
+  main .section.benefits-background-plain {
+    padding-block: 3.125rem; /* 50px */
+    background: url('../images/benefits-background-plain.jpg') 50% 0 no-repeat;
+  }
+
+  main .section.mobile-only {
+    display: none;
+  }
+
+  main .section.desktop-only {
+    display: block;
   }
 }
-

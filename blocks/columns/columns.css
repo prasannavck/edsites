@@ -135,7 +135,7 @@
   display: block;
   width: 100%;
   height: 1px; /* Thickness */
-  background: linear-gradient(to right, white, var(--light-silver) 50%, white);
+  background: linear-gradient(to right, white, var(--gray-dark) 50%, white);
   position: absolute;
   bottom: -1.2rem;
   left: 0;
@@ -168,7 +168,7 @@
   display: none;
 }
 
-@media (width > 48rem) {
+@media (width >= 48rem) {
   .columns.products .product-name {
     height: var(--products-name-height-m);
   }
@@ -206,8 +206,8 @@
   }
 }
 
-/* View > 991px */
-@media (width > 62rem) {
+/* View >= 991px */
+@media (width >= 62rem) {
   .columns > div {
     flex-direction: unset;
     gap: 1.5rem; /* 24px */
@@ -280,7 +280,7 @@
 }
 
 /* View > 1199px */
-@media (width > 75rem) {
+@media (width >= 75rem) {
   /* products & benefits variants > 1199px */
   .columns.products h3 {
     font-size: var(--products-name-font-size-l);

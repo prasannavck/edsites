@@ -180,7 +180,7 @@ header .nav-mobile-menu .default-content-wrapper ul {
 
 header .nav-mobile-menu .default-content-wrapper ul > li {
   cursor: pointer;
-  border-bottom: solid 1px var(--light-silver);
+  border-bottom: solid 1px var(--gray-dark);
 }
 
 header .nav-mobile-menu .default-content-wrapper ul > li:last-child {
@@ -218,7 +218,7 @@ header .nav-mobile-menu .default-content-wrapper ul > li > a {
 }
 
 header .nav-mobile-menu .default-content-wrapper > ul > li:hover {
-  background-color: var(--mid-color);
+  background-color: var(--light-color);
 }
 
 header .nav-mobile-menu .default-content-wrapper > ul > li.nav-drop:hover {
@@ -238,7 +238,7 @@ header .nav-mobile-menu .default-content-wrapper > ul > li > ul {
 
 header .nav-mobile-menu .default-content-wrapper > ul > li[aria-expanded='true'] > ul {
   display: block;
-  background-color: var(--menu-gray);
+  background-color: var(--light-color);
   margin: 0.75rem -1rem 0;
 }
 
@@ -254,7 +254,7 @@ header .nav-mobile-menu .default-content-wrapper > ul > li > a:hover {
 header .nav-mobile-menu .default-content-wrapper > ul > li > ul > li > a:hover {
   text-decoration: none;
   color: var(--black);
-  background-color: var(--light-gray-color);
+  background-color: var(--gray-middle);
 }
 
 @media (width >= 48rem) {
@@ -435,12 +435,12 @@ header .nav-desktop-menu {
 
   header .nav-desktop-menu .default-content-wrapper > ul > li > a:hover {
     text-decoration: none;
-    background-color: var(--mid-color);
+    background-color: var(--light-color);
     color: var(--black);
   }
 
   header .nav-desktop-menu .default-content-wrapper > ul > li > ul > .dropdown-flex > li > a  {
-    border-right: solid 1px var(--mid-color);
+    border-right: solid 1px var(--gray-light);
   }
 
   header .nav-desktop-menu .default-content-wrapper > ul > li > ul > li > a > a:hover {

@@ -151,7 +151,7 @@ footer .footer-menu li:last-of-type::after {
     margin: 0;
     margin-right: 1.25rem;
     font-size: var(--heading-font-size-s);
-    color: var(--teal-deep-light);
+    color: var(--teal-light);
   }
   
   footer .footer-logo .logo-right a {
@@ -184,7 +184,7 @@ footer .footer-menu li:last-of-type::after {
     left: 1.5625rem;
     top: 25%;
     bottom: 0;
-    border: 0.0625rem solid var(--light-gray-color);
+    border: 0.0625rem solid var(--gray-middle);
     border-width: 0 0 0 0.0625rem;
     height: 3.75rem;
     color: var(--black);
