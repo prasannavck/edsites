@@ -65,7 +65,7 @@ header nav .nav-mobile-action-group a {
 
 header nav .nav-mobile-action-group button img,
 header nav .nav-mobile-action-group a img {
-  filter: invert(1);
+  filter: brightness(10);
   width: 1.5rem;
   height: 1.5rem;
 }
@@ -154,7 +154,6 @@ header nav .nav-contact a {
 
 header .nav-contact span {
   margin-top: 0.25rem;
-  filter: invert(1);
   height: 2.5rem;
   width: 2.5rem;
 }

@@ -72,10 +72,10 @@ function toggleSearch(searchBar, searchButton) {
   const expanded = searchBar.querySelector('.nav-search-bar-inner').getAttribute('aria-expanded');
   searchBar.querySelector('.nav-search-bar-inner').setAttribute('aria-expanded', expanded === 'true' ? 'false' : 'true');
   if (expanded !== 'true') {
-    searchButton.classList.add('hidden');
+    searchButton.style.visibility = 'hidden';
     searchBar.querySelector('input').focus();
   } else {
-    searchButton.classList.remove('hidden');
+    searchButton.style.visibility = 'visible';
   }
 }
 
@@ -138,17 +138,18 @@ function buildDropdownMenu(dropdownMenu) {
 /**
  * Build the mobile header buttons
  * @param {Element} mobileActions The mobile action buttons container element
+ * @param {Element} searchIcon The search icon element
  * @param {Element} contactIcon The contact icon element
  * @param {string} contactLink The contact href value
  */
-function buildMobileActionButtons(mobileActions, contactIcon, contactLink) {
+function buildMobileActionButtons(mobileActions, searchIcon, contactIcon, contactLink) {
   // Search
   const search = document.createElement('div');
   search.classList.add('nav-mobile-action-search');
-  search.innerHTML = `
-  <button type="button" aria-label="Search">
-    <img src="../icons/menu-search.svg">
-  </button>`;
+  const searchBtn = document.createElement('button');
+  searchBtn.setAttribute('aria-label', 'Search');
+  searchBtn.append(searchIcon.cloneNode(true));
+  search.append(searchBtn);
   mobileActions.appendChild(search);
 
   // Contact
@@ -210,8 +211,8 @@ export default async function decorate(block) {
 
   /* Search section */
   const searchSection = nav.querySelector('.nav-search');
-  const searchIcon = searchSection.querySelector('img');
-  const searchPlaceholderText = searchSection.querySelector('p:not(:has(picture))').textContent;
+  const searchIcon = searchSection.querySelector('span');
+  const searchPlaceholderText = searchSection.querySelector('p:not(:has(span))').textContent;
   searchSection.remove();
   const searchBar = document.createElement('div');
   searchBar.classList.add('nav-search-bar');
@@ -268,7 +269,7 @@ export default async function decorate(block) {
   /* Mobile action buttons */
   const mobileActions = document.createElement('div');
   mobileActions.classList.add('nav-mobile-action-group');
-  buildMobileActionButtons(mobileActions, contactIcon, contactLink);
+  buildMobileActionButtons(mobileActions, searchIcon, contactIcon, contactLink);
   const hamburger = mobileActions.querySelector('.nav-mobile-action-hamburger');
   hamburger.addEventListener('click', () => toggleMenu(hamburger, navMobileMenu));
   const search = mobileActions.querySelector('.nav-mobile-action-search');
