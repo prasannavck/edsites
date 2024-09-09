@@ -23,6 +23,7 @@
 
   /* brand palette */
   --teal: #16929c;
+  --teal-mid-light: #cdecef;
   --teal-light: #e4f6f8;
   --teal-dark: #016c7e;
   --teal-dark-alt: #10737b;
@@ -349,6 +350,11 @@ main .section.full-width {
   padding-bottom: 0;
   padding-left: unset;
   padding-right: unset;
+}
+
+main .section.no-margin {
+  padding-top: unset;
+  padding-bottom: unset;
 }
 
 @media (width >= 48rem) {
