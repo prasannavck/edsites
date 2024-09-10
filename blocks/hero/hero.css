@@ -67,13 +67,7 @@
 }
 
 .hero.buttons-stack .hero-menu ul li .icon {
-  position: relative;
-  top: 0.25rem;
-  padding-right: 1rem;
-  font-size: 1.625rem;
   line-height: 1.875rem;
-  border-top-left-radius: 0.3125rem;
-  border-top-right-radius: 0.3125rem;
 }
 
 .hero.buttons-stack .hero-content p:has(.icon) {
@@ -112,14 +106,15 @@
 }
 
 .hero.buttons-stack .hero-menu ul li a {
-  display: block;
   padding: 0 0 0 1.875rem;
   font-size: 1.25rem;
-  font-weight: 700;
+  font-weight: var(--font-weight-bold);
   line-height: 2.75rem;
-  text-align: left;
-  margin-bottom: 0.0625rem;
+  margin-bottom: 1px;
   border-radius: 0;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 }
 
 .hero.buttons-stack .hero-menu ul li:first-child a {
