@@ -109,13 +109,24 @@ async function loadFonts() {
 }
 
 /**
+ * Applies styling to first section if it only contains a H1
+ * @param {Element} main The container element
+ */
+function stylePageHeading(main) {
+  const firstSection = main.querySelector('main .section:first-child:has(h1)');
+  if (!firstSection.querySelector('.default-content-wrapper > :not(h1)')) {
+    firstSection.classList.add('page-heading');
+  }
+}
+
+/**
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
  */
 // eslint-disable-next-line no-unused-vars
 function buildAutoBlocks(main) {
   try {
-  // eslint-disable-next-line no-empty
+    stylePageHeading(main);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
