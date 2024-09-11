@@ -5,8 +5,8 @@ const BLOCK_VARIANTS = {
 };
 
 function getBlockVariant(block) {
-  const blockVariant = Object.values(BLOCK_VARIANTS)
-    .find((variant) => block.classList.contains(variant));
+  // eslint-disable-next-line max-len
+  const blockVariant = Object.values(BLOCK_VARIANTS).find((variant) => block.classList.contains(variant));
   return blockVariant || BLOCK_VARIANTS.default;
 }
 
@@ -39,7 +39,9 @@ function decorateProductsVariantColumn(col) {
   if (h3) productNameDiv.appendChild(h3);
 
   const productDescriptionDiv = document.createElement('div');
-  const descriptionPara = (titleIcon) ? col.querySelector('p:nth-of-type(2)') : col.querySelector('p:first-of-type');
+  const descriptionPara = titleIcon
+    ? col.querySelector('p:nth-of-type(2)')
+    : col.querySelector('p:first-of-type');
   const pricePara = descriptionPara?.nextElementSibling;
   if (descriptionPara) {
     productDescriptionDiv.appendChild(descriptionPara);
@@ -77,7 +79,8 @@ function decorateProductsVariantRow(index, row, rowsCount, block) {
   if (activeProduct === index + 2 || rowsCount === index + 1) {
     row.classList.add('no-separator');
   }
-  if (activeProduct === index + 1) { // active product
+  if (activeProduct === index + 1) {
+    // active product
     row.classList.add('active');
     row.classList.add('no-separator');
   }

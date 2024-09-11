@@ -118,7 +118,8 @@
   padding: 0.9375rem; /* 15px */
 }
 
-.columns.products > div.active {
+.columns.products > div.active,
+.columns.products > div > div.active {
   border: 0.1875rem solid var(--teal); /* 3px */
   border-radius: 1.25rem; /* 20px */
 }
@@ -178,9 +179,9 @@
   }
 
   .columns.products .product-name .icon {
-     width: var(--products-icon-width-m);
-     height: var(--products-icon-height-l);
-     font-size: 3.5rem;
+    width: var(--products-icon-width-m);
+    height: var(--products-icon-height-l);
+    font-size: 3.5rem;
   }
 
   .columns.products .product-description {
@@ -234,7 +235,7 @@
   }
 
   .columns.products > div > div {
-     padding-inline: 0.9375rem; /* 15px */
+    padding-inline: 0.9375rem; /* 15px */
   }
 
   .columns.products h3 {
@@ -246,8 +247,8 @@
   }
 
   .columns.products .product-name .icon {
-     width: var(--products-icon-width-m);
-     height: var(--products-icon-height-l);
+    width: var(--products-icon-width-m);
+    height: var(--products-icon-height-l);
   }
 
   .columns.products > div:not(.no-separator) {
@@ -287,8 +288,8 @@
   }
 
   .columns.products .product-name .icon {
-     width: var(--products-icon-width-l);
-     height: var(--products-icon-height-l);
+    width: var(--products-icon-width-l);
+    height: var(--products-icon-height-l);
   }
 
   .columns.products .product-name {
