@@ -122,6 +122,10 @@
           {
             "name": "Full Width",
             "value": "full-width"
+          },
+          {
+            "name": "Centered Title",
+            "value": "centered-title"
           }
         ]
       }
