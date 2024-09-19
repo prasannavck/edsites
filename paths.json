@@ -1,3 +1,10 @@
 {
-  "mappings": ["/content/suncorp/:/", "/content/suncrop/configuration:/.helix/config.json"]
+  "mappings": [
+    "/content/terrischeer/:/", 
+    "/content/dam/terrischeer/:/assets/"
+  ],
+    "includes": [
+      "/content/terrischeer",
+      "/content/dam/terrischeer"
+    ]
 }
