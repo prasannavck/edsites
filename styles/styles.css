@@ -41,6 +41,7 @@
   --link-color: var(--teal);
   --link-hover-color: var(--teal-dark);
   --background-color: var(--white);
+  --gray-background-color: #f3f3f3;
 
   /* button colors */
   --standard-btn: #e4e2e5;
