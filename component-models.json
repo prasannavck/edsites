@@ -297,5 +297,31 @@
         "valueType": "string"
       }
     ]
+  },
+  {
+    "id": "news-title",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "title",
+        "label": "Title",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "dropdownTitle",
+        "label": "Dropdown Title",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "dropdownList",
+        "value": "",
+        "label": "Dropdown list",
+        "valueType": "string"
+      }
+    ]
   }
 ]

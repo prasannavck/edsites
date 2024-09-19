@@ -15,7 +15,8 @@
       "columns",
       "fragment",
       "text-image",
-      "centered-title"
+      "centered-title",
+      "news-title"
     ]
   },
   {
