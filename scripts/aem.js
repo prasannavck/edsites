@@ -310,7 +310,6 @@ function decorateTemplateAndTheme() {
   const theme = getMetadata('theme');
   if (theme) addClasses(document.body, theme);
 }
-
 /**
  * Wrap inline text content of block cells within a <p> tag.
  * @param {Element} block the block element
@@ -334,6 +333,18 @@ function wrapTextNodes(block) {
   const wrap = (el) => {
     const wrapper = document.createElement('p');
     wrapper.append(...el.childNodes);
+    [...el.attributes]
+      // move the instrumentation from the cell to the new paragraph, also keep the class
+      // in case the content is a buttton and the cell the button-container
+      .filter(
+        ({ nodeName }) => nodeName === 'class'
+          || nodeName.startsWith('data-aue')
+          || nodeName.startsWith('data-richtext'),
+      )
+      .forEach(({ nodeName, nodeValue }) => {
+        wrapper.setAttribute(nodeName, nodeValue);
+        el.removeAttribute(nodeName);
+      });
     el.append(wrapper);
   };
 
