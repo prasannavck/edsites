@@ -114,7 +114,7 @@ async function loadFonts() {
  */
 function stylePageHeading(main) {
   const firstSection = main.querySelector('main .section:first-child:has(h1)');
-  if (!firstSection.querySelector('.default-content-wrapper > :not(h1)')) {
+  if (firstSection && !firstSection.querySelector('.default-content-wrapper > :not(h1)')) {
     firstSection.classList.add('page-heading');
   }
 }
