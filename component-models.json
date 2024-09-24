@@ -365,5 +365,62 @@
         "label": "Placeholder Image Alt Text"
       }
     ]
-  }  
+  },
+  {
+    "id": "policy-documents",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "category1name",
+        "value": "",
+        "label": "Category 1 Name"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "category2name",
+        "value": "",
+        "label": "Category 2 Name"
+      }
+    ]
+  },
+  {
+    "id": "policy-document-group",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "documentType",
+        "value": "",
+        "label": "Document Type"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "documentTypeDescription",
+        "value": "",
+        "label": "Document Type Description"
+      },
+      {
+        "component": "boolean",
+        "name": "showDescription",
+        "label": "Show description on filter button",
+        "valueType": "boolean"
+      },
+      {
+        "component": "richtext",
+        "name": "category1Documents",
+        "label": "Category 1 Documents",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "category2Documents",
+        "label": "Category 2 Documents",
+        "valueType": "string",
+        "description": "Leave blank to prevent category filtering"
+      }
+    ]
+  }
 ]

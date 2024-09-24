@@ -13,9 +13,11 @@
 :root {
   /* core palette */
   --white: white;
+  --white-smoke: #f5f5f5;
   --light-color: #f1edec;
   --gray-light: #e5e4e2;
   --gray-middle: #dedfe1;
+  --very-light-gray: #cecece;
   --gray-dark: #bbb;
   --text-color: #485560;
   --dark-color: #3b3934;
@@ -30,12 +32,10 @@
   --teal-dark-alt: #10737b;
   --orange: #e05804;
   --purple: #485583;
-  --very-light-gray: #cecece;
   --ivory-gray: #e3e2dd;
   --pale-aqua: #cdecef;
   --teal-blue: #4f7faa;
   --sky-blue: #6199bc;
-  --white-smoke: #f5f5f5;
 
   /* global color usage */
   --link-color: var(--teal);
@@ -63,6 +63,7 @@
   --body-font-size-s: 0.75rem;
 
   /* font weights */
+  --font-weight-light: 300;
   --font-weight-normal: 400;
   --font-weight-medium: 500;
   --font-weight-bold: 700;
@@ -211,6 +212,10 @@ textarea,
 select,
 button {
   font: inherit;
+}
+
+.hidden {
+  display: none;
 }
 
 /*

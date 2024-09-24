@@ -17,7 +17,8 @@
       "text-image",
       "centered-title",
       "video",
-      "news-title"
+      "news-title",
+      "policy-documents"
     ]
   },
   {
@@ -30,6 +31,15 @@
   },
   {
     "id": "column",
-    "components": ["text", "image", "button", "title"]
+    "components": [
+      "text",
+      "image",
+      "button",
+      "title"
+    ]
+  },
+  {
+    "id": "policy-documents",
+    "components": ["policy-document-group"]
   }
 ]
