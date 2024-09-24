@@ -1,8 +1,8 @@
 # Terri Scheer
 
 ## Environments
-- Preview: https://main--suncorp--aemsites.hlx.page/
-- Live: https://main--suncorp--aemsites.hlx.live/
+- Preview: https://main--suncorp--aemsites.aem.page/
+- Live: https://main--suncorp--aemsites.aem.live/
 
 ## Installation
 

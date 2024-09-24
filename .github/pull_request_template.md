@@ -3,8 +3,8 @@ Please always provide the [GitHub issue(s)](../issues) your PR is for, as well a
 Fix #<gh-issue-id>
 
 Test URLs:
-- Before: https://main--suncorp--aemsites.hlx.live
-- After: https://<branch>--suncorp--aemsites.hlx.live
+- Before: https://main--suncorp--aemsites.aem.live
+- After: https://<branch>--suncorp--aemsites.aem.live
 
 - [ ] New Blocks introduced in this PR
       If yes, please provide details below
