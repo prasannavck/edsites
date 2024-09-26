@@ -104,8 +104,28 @@
         "label": "Style",
         "options": [
           {
-            "name": "Highlight",
-            "value": "highlight"
+            "name": "Mobile Only",
+            "value": "mobile-only"
+          },
+          {
+            "name": "Desktop Only",
+            "value": "desktop-only"
+          },
+          {
+            "name": "Mobile Background Teal",
+            "value": "mobile-background-teal"
+          },
+          {
+            "name": "Benefits Background Plain",
+            "value": "benefits-background-plain"
+          },
+          {
+            "name": "Full Width",
+            "value": "full-width"
+          },
+          {
+            "name": "Centered Title",
+            "value": "centered-title"
           }
         ]
       }
