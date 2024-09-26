@@ -1,7 +1,9 @@
 [
   {
     "id": "main",
-    "components": ["section"]
+    "components": [
+      "section"
+    ]
   },
   {
     "id": "section",
@@ -23,23 +25,20 @@
   },
   {
     "id": "cards",
-    "components": ["card"]
-  },
-  {
-    "id": "columns",
-    "components": ["column"]
-  },
-  {
-    "id": "column",
     "components": [
-      "text",
-      "image",
-      "button",
-      "title"
+      "card"
     ]
   },
   {
     "id": "policy-documents",
-    "components": ["policy-document-group"]
+    "components": [
+      "policy-document-group"
+    ]
+  },
+  {
+    "id": "tabs-with-comments",
+    "components": [
+      "tabs-with-comments-item"
+    ]
   }
 ]

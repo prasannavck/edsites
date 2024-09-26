@@ -1,0 +1,132 @@
+{
+  "options": [
+    {
+      "name": "SuncorpBrand_Pos",
+      "value": ":SuncorpBrand_Pos:"
+    },
+    {
+      "name": "beach ball grey",
+      "value": ":beach-ball-grey:"
+    },
+    {
+      "name": "beach ball",
+      "value": ":beach-ball:"
+    },
+    {
+      "name": "calculator",
+      "value": ":calculator:"
+    },
+    {
+      "name": "call",
+      "value": ":call:"
+    },
+    {
+      "name": "check teal",
+      "value": ":check-teal:"
+    },
+    {
+      "name": "chevron down green",
+      "value": ":chevron-down-green:"
+    },
+    {
+      "name": "chevron down white",
+      "value": ":chevron-down-white:"
+    },
+    {
+      "name": "chevron down",
+      "value": ":chevron-down:"
+    },
+    {
+      "name": "combination grey",
+      "value": ":combination-grey:"
+    },
+    {
+      "name": "compare",
+      "value": ":compare:"
+    },
+    {
+      "name": "document",
+      "value": ":document:"
+    },
+    {
+      "name": "download",
+      "value": ":download:"
+    },
+    {
+      "name": "friends grey",
+      "value": ":friends-grey:"
+    },
+    {
+      "name": "friends",
+      "value": ":friends:"
+    },
+    {
+      "name": "hamburger",
+      "value": ":hamburger:"
+    },
+    {
+      "name": "house fire grey",
+      "value": ":house-fire-grey:"
+    },
+    {
+      "name": "house fire",
+      "value": ":house-fire:"
+    },
+    {
+      "name": "logo reia",
+      "value": ":logo-reia:"
+    },
+    {
+      "name": "logo reiact",
+      "value": ":logo-reiact:"
+    },
+    {
+      "name": "logo reint",
+      "value": ":logo-reint:"
+    },
+    {
+      "name": "logo reisa",
+      "value": ":logo-reisa:"
+    },
+    {
+      "name": "menu search",
+      "value": ":menu-search:"
+    },
+    {
+      "name": "pdf file",
+      "value": ":pdf-file:"
+    },
+    {
+      "name": "question fill white",
+      "value": ":question-fill-white:"
+    },
+    {
+      "name": "question teal",
+      "value": ":question-teal:"
+    },
+    {
+      "name": "remove",
+      "value": ":remove:"
+    },
+    {
+      "name": "search",
+      "value": ":search:"
+    },
+    {
+      "name": "ten percent indigo large",
+      "value": ":ten-percent-indigo-large:"
+    },
+    {
+      "name": "ten percent teal",
+      "value": ":ten-percent-teal:"
+    },
+    {
+      "name": "ten percent",
+      "value": ":ten-percent:"
+    },
+    {
+      "name": "tick icon large",
+      "value": ":tick-icon-large:"
+    }
+  ]
+}

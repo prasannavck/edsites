@@ -104,28 +104,8 @@
         "label": "Style",
         "options": [
           {
-            "name": "Mobile Only",
-            "value": "mobile-only"
-          },
-          {
-            "name": "Desktop Only",
-            "value": "desktop-only"
-          },
-          {
-            "name": "Mobile Background Teal",
-            "value": "mobile-background-teal"
-          },
-          {
-            "name": "Benefits Background Plain",
-            "value": "benefits-background-plain"
-          },
-          {
-            "name": "Full Width",
-            "value": "full-width"
-          },
-          {
-            "name": "Centered Title",
-            "value": "centered-title"
+            "name": "Highlight",
+            "value": "highlight"
           }
         ]
       }
@@ -147,67 +127,6 @@
         "value": "",
         "label": "Text",
         "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "columns",
-    "fields": [
-      {
-        "component": "text",
-        "valueType": "number",
-        "name": "columns",
-        "value": "",
-        "label": "Columns"
-      },
-      {
-        "component": "text",
-        "valueType": "number",
-        "name": "rows",
-        "value": "",
-        "label": "Rows"
-      },
-      {
-        "component": "multiselect",
-        "valueType": "string",
-        "name": "classes",
-        "label": "Options",
-        "options": [
-          {
-            "name": "Variant",
-            "children": [
-              {
-                "name": "Products",
-                "value": "products"
-              },
-              {
-                "name": "Benefits",
-                "value": "benefits"
-              }
-            ]
-          },
-          {
-            "name": "Active Column(s)",
-            "children": [
-              {
-                "name": "Column 1",
-                "value": "active-1"
-              },
-              {
-                "name": "Column 2",
-                "value": "active-2"
-              },
-              {
-                "name": "Column 3",
-                "value": "active-3"
-              },
-              {
-                "name": "Column 4",
-                "value": "active-4"
-              }
-            ]
-          }
-        ]
       }
     ]
   },
@@ -252,63 +171,15 @@
         "valueType": "string",
         "value": "",
         "options": [
-          { "name": "default", "value": "" },
+          {
+            "name": "default",
+            "value": ""
+          },
           {
             "name": "Buttons Stack",
             "value": "buttons-stack"
           }
         ]
-      }
-    ]
-  },
-  {
-    "id": "text-image",
-    "fields": [
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "content_imageMob",
-        "label": "Image Mobile",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "content_imageMobAlt",
-        "label": "Alt",
-        "value": ""
-      },
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "content_imageDesk",
-        "label": "Image Desktop",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "content_imageDeskAlt",
-        "label": "Alt",
-        "value": ""
-      },
-      {
-        "component": "richtext",
-        "name": "content_text",
-        "value": "",
-        "label": "Text",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "centered-title",
-    "fields": [
-      {
-        "component": "richtext",
-        "name": "title",
-        "label": "Title",
-        "valueType": "string"
       }
     ]
   },
@@ -335,48 +206,6 @@
         "value": "",
         "label": "Dropdown list",
         "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "video",
-    "fields": [
-      {
-        "component": "aem-content",
-        "valueType": "string",
-        "name": "uri",
-        "label": "Video"
-      },
-      {
-        "component": "multiselect",
-        "name": "classes",
-        "value": "",
-        "label": "Options",
-        "valueType": "string",
-        "options": [
-          {
-            "name": "Auto Play",
-            "children": [
-              {
-                "name": "AutoPlay",
-                "value": "autoplay"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "placeholder_image",
-        "label": "Placeholder Image"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "placeholder_imageAlt",
-        "value": "",
-        "label": "Placeholder Image Alt Text"
       }
     ]
   },
@@ -434,6 +263,105 @@
         "label": "Category 2 Documents",
         "valueType": "string",
         "description": "Leave blank to prevent category filtering"
+      }
+    ]
+  },
+  {
+    "id": "tabs-with-comments",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "title",
+        "label": "Title",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "quotes",
+        "label": "Quotes",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "text-image",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "content_imageMob",
+        "label": "Image Mobile",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "content_imageMobAlt",
+        "label": "Alt",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "content_imageDesk",
+        "label": "Image Desktop",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "content_imageDeskAlt",
+        "label": "Alt",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "content_text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "video",
+    "fields": [
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "uri",
+        "label": "Video"
+      },
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "value": "",
+        "label": "Options",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Auto Play",
+            "children": [
+              {
+                "name": "AutoPlay",
+                "value": "autoplay"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "placeholder_image",
+        "label": "Placeholder Image"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "placeholder_imageAlt",
+        "value": "",
+        "label": "Placeholder Image Alt Text"
       }
     ]
   }
