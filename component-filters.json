@@ -24,9 +24,33 @@
     ]
   },
   {
-    "id": "cards",
+    "id": "cards-image-title-description",
     "components": [
-      "card"
+      "card-image-title-description"
+    ]
+  },
+  {
+    "id": "cards-centered-icon-title",
+    "components": [
+      "card-centered-icon-title"
+    ]
+  },
+  {
+    "id": "cards-logo-description",
+    "components": [
+      "card-logo-description"
+    ]
+  },
+  {
+    "id": "cards-products",
+    "components": [
+      "card-product"
+    ]
+  },
+  {
+    "id": "cards-benefits",
+    "components": [
+      "card-benefit"
     ]
   },
   {

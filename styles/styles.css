@@ -36,6 +36,9 @@
   --pale-aqua: #cdecef;
   --teal-blue: #4f7faa;
   --sky-blue: #6199bc;
+  --snow-white: #fafafa;
+  --cloud-white: #fbfbfb;
+  --silver-mist: #e8e8e8;
 
   /* global color usage */
   --link-color: var(--teal);
@@ -59,6 +62,7 @@
   --heading-font-family: "Helvetica Neue", helvetica, arial, sans-serif;
 
   /* body sizes */
+  --body-font-size-l: 0.875rem;
   --body-font-size-m: 0.75rem;
   --body-font-size-s: 0.75rem;
 

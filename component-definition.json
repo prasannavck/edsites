@@ -91,22 +91,86 @@
                 "resourceType": "core/franklin/components/block/v1/block",
                 "template": {
                   "name": "Cards",
-                  "filter": "cards"
+                  "model": "cards"
                 }
               }
             }
           }
         },
         {
-          "title": "Card",
-          "id": "card",
+          "title": "Image Title Description Card",
+          "id": "card-image-title-description",
           "plugins": {
             "xwalk": {
               "page": {
                 "resourceType": "core/franklin/components/block/v1/block/item",
                 "template": {
-                  "name": "Card",
-                  "model": "card"
+                  "name": "Image Title Description",
+                  "model": "card-image-title-description"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Centered Icon Title Card",
+          "id": "card-centered-icon-title",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Centered Icon Title",
+                  "model": "card-centered-icon-title"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Logo Description Card",
+          "id": "card-logo-description",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Logo And Description",
+                  "model": "card-logo-description"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Product Card",
+          "id": "card-product",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Product",
+                  "model": "card-product",
+                  "button1_type": "default",
+                  "button2_type": "default",
+                  "classes": "card-product"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Benefit Card",
+          "id": "card-benefit",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Benefit",
+                  "model": "card-benefit",
+                  "classes": "card-benefit"
                 }
               }
             }
