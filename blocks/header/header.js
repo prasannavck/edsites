@@ -1,6 +1,10 @@
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 
+const DROPDOWN_ICON = `${window.hlx.codeBasePath}/icons/chevron-down.svg`;
+const HAMBURGER_ICON = `${window.hlx.codeBasePath}/icons/hamburger.svg`;
+const REMOVE_ICON = `${window.hlx.codeBasePath}/icons/remove.svg`;
+
 /**
  * Handles menu dropdown menu keyboard interaction
  * @param {Element} e The keydown event
@@ -25,7 +29,7 @@ function toggleMenu(hamburgerButton, navMobileMenu) {
   if (navMobileMenu.getAttribute('aria-expanded') === 'true') {
     const numMenuItems = navMobileMenu.querySelector('ul').childElementCount;
     navMobileMenu.style.visibility = 'visible';
-    navMobileMenu.style.height = `${50 * numMenuItems}px`;
+    navMobileMenu.style.height = `${3.15 * numMenuItems}rem`;
     setTimeout(() => { navMobileMenu.style.height = 'auto'; }, 300);
   } else {
     const numMenuItems = navMobileMenu.querySelector('ul').childElementCount;
@@ -49,9 +53,13 @@ function enableMenuExpanding(menu) {
     if (menuItem.querySelector('ul')) {
       menuItem.classList.add('nav-drop');
       const chevronIcon = document.createElement('img');
-      chevronIcon.setAttribute('src', '../icons/chevron-down.svg');
+      chevronIcon.setAttribute('src', DROPDOWN_ICON);
       chevronIcon.setAttribute('alt', 'Dropdown chevron icon');
-      menuItem.insertBefore(chevronIcon, menuItem.querySelector('ul'));
+      if (menu.classList.contains('nav-mobile-menu')) {
+        menuItem.prepend(chevronIcon);
+      } else {
+        menuItem.insertBefore(chevronIcon, menuItem.querySelector('ul'));
+      }
     }
     const navDrops = menu.querySelectorAll('.nav-drop');
     navDrops.forEach((drop) => {
@@ -164,7 +172,7 @@ function buildMobileActionButtons(mobileActions, searchIcon, contactIcon, contac
   hamburger.classList.add('nav-mobile-action-hamburger');
   hamburger.innerHTML = `
     <button type="button" aria-controls="nav" aria-label="Open navigation">
-      <img src="../icons/hamburger.svg"  alt="Mobile menu"/>
+      <img src="${HAMBURGER_ICON}" alt="Mobile menu"/>
     </button>`;
   mobileActions.appendChild(hamburger);
 }
@@ -224,7 +232,7 @@ export default async function decorate(block) {
         <input type="text" id="search-field" value="" placeholder="${searchPlaceholderText}">
       </form>
       <button type="button" id="search-close">
-        <img src="../icons/remove.svg"/>
+        <img src="${REMOVE_ICON}" alt="Close search field"/>
       </button>
     </div>
   `;
