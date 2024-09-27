@@ -2,15 +2,13 @@ Please always provide the [GitHub issue(s)](../issues) your PR is for, as well a
 
 Fix #<gh-issue-id>
 
-Test URLs:
+1. Test URLs:
 - Before: https://main--suncorp--aemsites.aem.live
 - After: https://<branch>--suncorp--aemsites.aem.live
 
-The UE authoring URL(make it as text):
+2. The UE authoring URL(make it as text):
 
-- [ ] New Blocks introduced in this PR
-      If yes, please provide details below
 
-Block Name    | Documentation
-------------- | -------------
- For e.g. carousel | [Sidekick Library link]
+3. Please add your block to the Block List page:
+
+`https://author-p139617-e1446249.adobeaemcloud.com/ui#/@suncorp/aem/universal-editor/canvas/author-p139617-e1446249.adobeaemcloud.com/content/terrischeer/block-list.html`
