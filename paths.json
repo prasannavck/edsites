@@ -2,7 +2,7 @@
   "mappings": [
     "/content/terrischeer/:/", 
     "/content/dam/terrischeer/:/assets/",
-    "/content/terrischeer/metadata:/metadata.json",
+    "/content/terrischeer/metadata:/metadata.json"
   ],
     "includes": [
       "/content/terrischeer",
