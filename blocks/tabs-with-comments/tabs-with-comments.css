@@ -1,0 +1,58 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+.button-container {
+    display: none;
+}
+
+.tabs-with-comments div:nth-of-type(1) ul {
+    display: none;
+}
+
+h3 {
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 400;
+    color: #16929c;
+    margin-top: 20.00000001px;
+    margin-bottom: 10px;
+}
+
+#button-dropdown {
+    background: url('/icons/chevron-down-green.svg') 98% no-repeat, linear-gradient(to bottom, #f7f7f7 0%, #e5e3e6 100%);
+    background-size: 1.125rem;
+    width: 100%;
+    font-size: 15px;
+    border-radius: 0;
+    font-weight: bold;
+    padding: 10px;
+    border: 1px #d0d0d0 solid;
+    color: #4a5a6a;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.tabs-with-comments-wrapper > .tabs-with-comments > div:nth-of-type(3) > div[style="display: block;"] > p {
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.tabs-with-comments-wrapper > .tabs-with-comments > div:nth-of-type(3) ul {
+    list-style: none;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.tabs-with-comments-wrapper > .tabs-with-comments > div:nth-of-type(3) ul li {
+    background: url("/images/icon-tick.png") 0 0 no-repeat;
+    padding: 0 25px 10px;
+    position: relative;
+}
+
+.tabs-with-comments-wrapper > .tabs-with-comments > div:nth-of-type(3) h2 {
+    font-size: 18px;
+    font-weight: normal;
+    color: #16929c;
+}
