@@ -46,6 +46,12 @@ async function applyChanges(event) {
       attachEventListners(newMain);
       return true;
     }
+    if (
+      element.matches('.section')
+      && (detail?.patch?.name === 'is-tab' || detail?.patch?.name === 'tab-name')
+    ) {
+      return false;
+    }
     if (element.matches('.fragment-wrapper')) {
       return false;
     }
@@ -116,6 +122,12 @@ function handleSelection(event) {
       if (index !== -1) {
         block.querySelectorAll('.tabs-list button')[index]?.click();
       }
+    }
+    if (!block && element.matches('.section') && element.getAttribute('data-is-tab') === 'true') {
+      element.parentElement
+        .querySelector(`.tabs button[data-tab-ref="${element.getAttribute('data-tab-ref')}"]`)
+        ?.click();
+      element.classList.add('active');
     }
   }
 }

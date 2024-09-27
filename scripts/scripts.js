@@ -14,9 +14,7 @@ import {
 } from './aem.js';
 
 function createTabButton(tabName, tabSection) {
-  const tabButtonId = tabName.toLowerCase().replace(/\s/g, '-');
   const tabButton = document.createElement('button');
-  tabButton.id = tabButtonId;
   tabButton.className = 'tab-link';
   tabButton.innerHTML = tabName;
   const tabRef = tabSection.getAttribute('data-tab-ref');
@@ -26,7 +24,7 @@ function createTabButton(tabName, tabSection) {
     tabSection.classList.add('show');
     const tabGroup = tabSection.closest('.tabs-group');
     const inactiveTabs = tabGroup.querySelectorAll(`.tab-link:not([data-tab-ref="${tabRef}"])`);
-    const inactiveSections = tabGroup.querySelectorAll(`.tab-content:not([data-tab-ref="${tabRef}"])`);
+    const inactiveSections = tabGroup.querySelectorAll(`[data-is-tab="true"]:not([data-tab-ref="${tabRef}"])`);
     inactiveTabs.forEach((tab) => tab.classList.remove('active'));
     inactiveSections.forEach((section) => section.classList.remove('show'));
   });
@@ -51,7 +49,7 @@ function createTabs(tabSections) {
 }
 
 /**
-* Decorates sections with style 'tab-content' by creating tabs for them.
+* Creates tabs for sections where 'data-is-tab'=true
 * @param main
 */
 function decorateSectionTabs(main) {
@@ -66,7 +64,8 @@ function decorateSectionTabs(main) {
     tabSections = []; // initialise tabSections to create new tabs group
   };
   sections.forEach((section, index) => {
-    if (section.classList.contains('tab-content')) {
+    const isTab = section.getAttribute('data-is-tab');
+    if (isTab === 'true') {
       tabSections.push(section);
       section.setAttribute('data-tab-ref', index);
     } else if (tabSections.length > 0) {
