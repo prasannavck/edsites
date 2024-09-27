@@ -1,0 +1,33 @@
+{
+    "options": [
+      {
+        "name": "calculator",
+        "value": ":calculator:"
+      },
+      {
+        "name": "compare",
+        "value": ":compare:"
+      },
+      {
+        "name": "document",
+        "value": ":document:"
+      },
+      {
+        "name": "download",
+        "value": ":download:"
+      },
+      {
+        "name": "friends grey",
+        "value": ":friends-grey:"
+      },
+      {
+        "name": "house fire grey",
+        "value": ":house-fire-grey:"
+      },
+      {
+        "name": "ten percent",
+        "value": ":ten-percent:"
+      }
+    ]
+  }
+  

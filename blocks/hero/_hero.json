@@ -22,6 +22,56 @@
       "id": "hero",
       "fields": [
         {
+          "component": "multiselect",
+          "name": "classes",
+          "label": "Options",
+          "valueType": "string",
+          "required": true,
+          "maxSize": 3,
+          "options": [
+            {
+              "name": "Buttons Style",
+              "children" : [
+                {
+                  "name": "Stack",
+                  "value": "buttons-stack"
+                },
+                {
+                  "name": "Tabs",
+                  "value": "tabs"
+                }
+              ]
+            },
+            {
+              "name": "Variant",
+              "children" : [
+                {
+                  "name": "Coverage",
+                  "value": "coverage"
+                }
+              ]
+            },
+            {
+              "name": "Font Color",
+              "children" : [
+                {
+                  "name": "White",
+                  "value": "font-white"
+                }
+              ]
+            },
+            {
+              "name": "Background",
+              "children" : [
+                {
+                  "name": "Gradient",
+                  "value": "background-gradient"
+                }
+              ]
+            }
+          ]
+        },
+        {
           "component": "reference",
           "valueType": "string",
           "name": "content_image",
@@ -32,32 +82,155 @@
           "component": "text",
           "valueType": "string",
           "name": "content_imageAlt",
-          "label": "Alt",
+          "label": "Image Alt",
           "value": ""
+        },
+        {
+          "component": "select",
+          "valueType": "string",
+          "name": "content_icon1",
+          "label": "Title Icon 1",
+          "...": "../../models/_hero-icons-list.json",
+          "condition": { "in": ["coverage", { "var": "classes" }] }
+        },
+        {
+          "component": "select",
+          "valueType": "string",
+          "name": "content_icon2",
+          "label": "Title Icon 2",
+          "...": "../../models/_hero-icons-list.json",
+          "condition": { "in": ["coverage", { "var": "classes" }] }
         },
         {
           "component": "richtext",
           "name": "content_text",
           "value": "",
-          "label": "Text",
+          "label": "Title",
           "valueType": "string"
         },
         {
-          "component": "select",
-          "name": "classes",
-          "label": "Options",
+          "component": "text",
           "valueType": "string",
+          "name": "content_descr",
           "value": "",
-          "options": [
-            {
-              "name": "default",
-              "value": ""
-            },
-            {
-              "name": "Buttons Stack",
-              "value": "buttons-stack"
-            }
-          ]
+          "label": "Description",
+          "condition": {"some": [{ "var": "classes" }, { "in": [ { "var": "" }, ["coverage", "tabs"] ] }]}
+        },
+        {
+          "component": "select",
+          "valueType": "string",
+          "name": "content_descr_icon",
+          "label": "Add'l Description Icon",
+          "...": "../../models/_hero-icons-list.json",
+          "condition": { "in": ["coverage", { "var": "classes" }] }
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "content_descr2",
+          "value": "",
+          "label": "Add'l Description",
+          "condition": { "in": ["coverage", { "var": "classes" }] }
+        },
+        {
+          "component": "tab",
+          "name": "tab1",
+          "label": "Button 1"
+        },
+        {
+          "component": "select",
+          "valueType": "string",
+          "name": "button1_icon",
+          "label": "Icon",
+          "...": "../../models/_hero-icons-list.json",
+          "condition": { "in": ["buttons-stack", { "var": "classes" }] }
+        },
+        {
+          "component": "richtext",
+          "valueType": "string",
+          "name": "button1_text",
+          "value": "",
+          "label": "Text"
+        },
+        {
+          "component": "tab",
+          "name": "tab2",
+          "label": "Button 2"
+        },
+        {
+          "component": "select",
+          "valueType": "string",
+          "name": "button2_icon",
+          "label": "Icon",
+          "...": "../../models/_hero-icons-list.json",
+          "condition": { "in": ["buttons-stack", { "var": "classes" }] }
+        },
+        {
+          "component": "richtext",
+          "valueType": "string",
+          "name": "button2_text",
+          "value": "",
+          "label": "Text"
+        },
+        {
+          "component": "tab",
+          "name": "tab3",
+          "label": "Button 3"
+        },
+        {
+          "component": "select",
+          "valueType": "string",
+          "name": "button3_icon",
+          "label": "Icon",
+          "...": "../../models/_hero-icons-list.json",
+          "condition": { "in": ["buttons-stack", { "var": "classes" }] }
+        },
+        {
+          "component": "richtext",
+          "valueType": "string",
+          "name": "button3_text",
+          "value": "",
+          "label": "Text"
+        },
+        {
+          "component": "tab",
+          "name": "tab4",
+          "label": "Button 4"
+        },
+        {
+          "component": "select",
+          "valueType": "string",
+          "name": "button4_icon",
+          "label": "Icon",
+          "...": "../../models/_hero-icons-list.json",
+          "condition": { "in": ["buttons-stack", { "var": "classes" }] }
+        },
+        {
+          "component": "richtext",
+          "valueType": "string",
+          "name": "button4_text",
+          "value": "",
+          "label": "Text"
+        },
+        {
+          "component": "tab",
+          "name": "tab5",
+          "label": "Button 5"
+        },
+        {
+          "component": "select",
+          "valueType": "string",
+          "name": "button5_icon",
+          "label": "Icon",
+          "...": "../../models/_hero-icons-list.json",
+          "condition": { "in": ["buttons-stack", { "var": "classes" }] }
+        },
+        {
+          "component": "richtext",
+          "valueType": "string",
+          "name": "button5_text",
+          "value": "",
+          "label": "Text"
         }
       ]
     }

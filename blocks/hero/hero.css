@@ -135,6 +135,10 @@
   box-sizing: border-box;
 }
 
+.hero ul li p.button-container {
+  margin: 0;
+}
+
 .hero.buttons-stack.coverage .hero-menu ul li {
   list-style-type: none;
   display: none;
