@@ -21,6 +21,7 @@
       "video",
       "news-title",
       "policy-documents",
+      "faqs",
       "ribbon"
     ]
   },
@@ -52,6 +53,12 @@
     "id": "cards-benefits",
     "components": [
       "card-benefit"
+    ]
+  },
+  {
+    "id": "faqs",
+    "components": [
+      "faq"
     ]
   },
   {
