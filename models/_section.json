@@ -47,6 +47,49 @@
             {
               "name": "Centered Title",
               "value": "centered-title"
+            },
+            {
+              "name": "Modal Header",
+              "value": "modal-header"
+            },
+            {
+              "name": "Modal Description",
+              "value": "modal-description"
+            },
+            {
+              "name": "Modal Scroll Bar",
+              "value": "modal-scroll-bar"
+            },
+            {
+              "name": "Modal Links",
+              "value": "modal-links"
+            },
+            {
+              "name": "Background Color",
+              "children": [
+                {
+                  "name": "Orange",
+                  "value": "background-orange"
+                }
+              ]
+            },
+            {
+              "name": "Border",
+              "children": [
+                {
+                  "name": "Top",
+                  "value": "border-top"
+                }
+              ]
+            },
+            {
+              "name": "Button Size",
+              "children": [
+                {
+                  "name": "Small",
+                  "value": "button-small"
+                }
+              ]
             }
           ]
         },
