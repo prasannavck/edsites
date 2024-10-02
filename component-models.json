@@ -194,6 +194,346 @@
     ]
   },
   {
+    "id": "button-stack",
+    "fields": [
+      {
+        "component": "tab",
+        "name": "tab1",
+        "label": "Button 1"
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "button1_icon",
+        "label": "Icon",
+        "options": [
+          {
+            "name": "calculator",
+            "value": ":calculator:"
+          },
+          {
+            "name": "compare",
+            "value": ":compare:"
+          },
+          {
+            "name": "document",
+            "value": ":document:"
+          },
+          {
+            "name": "download",
+            "value": ":download:"
+          },
+          {
+            "name": "friends grey",
+            "value": ":friends-grey:"
+          },
+          {
+            "name": "house fire grey",
+            "value": ":house-fire-grey:"
+          },
+          {
+            "name": "ten percent",
+            "value": ":ten-percent:"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "button1_link",
+        "label": "Link"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "button1_linkText",
+        "value": "",
+        "label": "Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "button1_linkTitle",
+        "value": "",
+        "label": "Title"
+      },
+      {
+        "component": "boolean",
+        "label": "Use primary styling",
+        "name": "button1_primaryStyle",
+        "valueType": "boolean"
+      },
+      {
+        "component": "tab",
+        "name": "tab2",
+        "label": "Button 2"
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "button2_icon",
+        "label": "Icon",
+        "options": [
+          {
+            "name": "calculator",
+            "value": ":calculator:"
+          },
+          {
+            "name": "compare",
+            "value": ":compare:"
+          },
+          {
+            "name": "document",
+            "value": ":document:"
+          },
+          {
+            "name": "download",
+            "value": ":download:"
+          },
+          {
+            "name": "friends grey",
+            "value": ":friends-grey:"
+          },
+          {
+            "name": "house fire grey",
+            "value": ":house-fire-grey:"
+          },
+          {
+            "name": "ten percent",
+            "value": ":ten-percent:"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "button2_link",
+        "label": "Link"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "button2_linkText",
+        "value": "",
+        "label": "Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "button2_linkTitle",
+        "value": "",
+        "label": "Title"
+      },
+      {
+        "component": "boolean",
+        "label": "Use primary styling",
+        "name": "button2_primaryStyle",
+        "valueType": "boolean"
+      },
+      {
+        "component": "tab",
+        "name": "tab3",
+        "label": "Button 3"
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "button3_icon",
+        "label": "Icon",
+        "options": [
+          {
+            "name": "calculator",
+            "value": ":calculator:"
+          },
+          {
+            "name": "compare",
+            "value": ":compare:"
+          },
+          {
+            "name": "document",
+            "value": ":document:"
+          },
+          {
+            "name": "download",
+            "value": ":download:"
+          },
+          {
+            "name": "friends grey",
+            "value": ":friends-grey:"
+          },
+          {
+            "name": "house fire grey",
+            "value": ":house-fire-grey:"
+          },
+          {
+            "name": "ten percent",
+            "value": ":ten-percent:"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "button3_link",
+        "label": "Link"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "button3_linkText",
+        "value": "",
+        "label": "Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "button3_linkTitle",
+        "value": "",
+        "label": "Title"
+      },
+      {
+        "component": "boolean",
+        "label": "Use primary styling",
+        "name": "button3_primaryStyle",
+        "valueType": "boolean"
+      },
+      {
+        "component": "tab",
+        "name": "tab4",
+        "label": "Button 4"
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "button4_icon",
+        "label": "Icon",
+        "options": [
+          {
+            "name": "calculator",
+            "value": ":calculator:"
+          },
+          {
+            "name": "compare",
+            "value": ":compare:"
+          },
+          {
+            "name": "document",
+            "value": ":document:"
+          },
+          {
+            "name": "download",
+            "value": ":download:"
+          },
+          {
+            "name": "friends grey",
+            "value": ":friends-grey:"
+          },
+          {
+            "name": "house fire grey",
+            "value": ":house-fire-grey:"
+          },
+          {
+            "name": "ten percent",
+            "value": ":ten-percent:"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "button4_link",
+        "label": "Link"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "button4_linkText",
+        "value": "",
+        "label": "Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "button4_linkTitle",
+        "value": "",
+        "label": "Title"
+      },
+      {
+        "component": "boolean",
+        "label": "Use primary styling",
+        "name": "button4_primaryStyle",
+        "valueType": "boolean"
+      },
+      {
+        "component": "tab",
+        "name": "tab5",
+        "label": "Button 5"
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "button5_icon",
+        "label": "Icon",
+        "options": [
+          {
+            "name": "calculator",
+            "value": ":calculator:"
+          },
+          {
+            "name": "compare",
+            "value": ":compare:"
+          },
+          {
+            "name": "document",
+            "value": ":document:"
+          },
+          {
+            "name": "download",
+            "value": ":download:"
+          },
+          {
+            "name": "friends grey",
+            "value": ":friends-grey:"
+          },
+          {
+            "name": "house fire grey",
+            "value": ":house-fire-grey:"
+          },
+          {
+            "name": "ten percent",
+            "value": ":ten-percent:"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "button5_link",
+        "label": "Link"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "button5_linkText",
+        "value": "",
+        "label": "Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "button5_linkTitle",
+        "value": "",
+        "label": "Title"
+      },
+      {
+        "component": "boolean",
+        "label": "Use primary styling",
+        "name": "button5_primaryStyle",
+        "valueType": "boolean"
+      }
+    ]
+  },
+  {
     "id": "cards",
     "fields": [
       {
