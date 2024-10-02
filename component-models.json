@@ -1230,6 +1230,29 @@
     ]
   },
   {
+    "id": "ribbon",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Image Alt Text"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "ribbonText",
+        "label": "Text"
+      }
+    ]
+  },
+  {
     "id": "tabs-with-comments",
     "fields": [
       {
@@ -1325,29 +1348,6 @@
         "name": "placeholder_imageAlt",
         "value": "",
         "label": "Placeholder Image Alt Text"
-      }
-    ]
-  },
-  {
-    "id": "ribbon",
-    "fields": [
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "image",
-        "label": "Image"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "imageAlt",
-        "label": "Image Alt Text"
-      },
-      {
-        "component": "richtext",
-        "valueType": "string",
-        "name": "text",
-        "label": "Text"
       }
     ]
   }
