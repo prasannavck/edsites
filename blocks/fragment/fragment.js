@@ -15,6 +15,8 @@ import { loadSections } from '../../scripts/aem.js';
  */
 export async function loadFragment(path) {
   if (path && path.startsWith('/')) {
+    // eslint-disable-next-line no-param-reassign
+    path = path.replace(/(\.plain)?\.html/, '');
     const resp = await fetch(`${path}.plain.html`);
     if (resp.ok) {
       let main = document.createElement('main');
