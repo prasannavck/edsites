@@ -1,0 +1,37 @@
+version: 1
+
+indices:
+  pages:
+    include:
+      - '/**'
+    exclude:
+      - '/drafts'
+      - '/drafts/**'
+      - '/nav'
+      - '/**/nav'
+      - '/footer'
+      - '/**/footer'
+      - '/metadata'
+      - '/fragments'
+      - '/fragments/**'      
+      - '/modals'
+      - '/modals/**'
+      - '/placeholders'
+      - '/content/**'
+    target: /query-index.json
+    properties:
+      title:
+        select: head > meta[property="og:title"]
+        value: attribute(el, 'content')
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, "content")
+      imageThumbnail:
+        select: head > meta[property="authorImage"]
+        value: match(attribute(el, "content")
+      publishDate:
+        select: head > meta[name="published-time"]
+        value: parseTimestamp(attribute(el, "content"), "ddd, DD MMM YYYY hh:mm:ss GMT")
+      modifiedTime:
+        select: head > meta[name="modified-time"]
+        value: attribute(el, "content")
