@@ -127,7 +127,8 @@
         "policy-documents",
         "faqs",
         "ribbon",
-        "button-stack"
+        "button-stack",
+        "table"
       ]
     }
   ]

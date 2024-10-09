@@ -22,6 +22,12 @@ function createTabButton(tabName, tabSection) {
   tabButton.addEventListener('click', () => {
     tabButton.classList.add('active');
     tabSection.classList.add('show');
+    const activeTabEvent = new CustomEvent('parent-tab-active', {
+      detail: { message: `active_tab_id=${tabRef}` },
+    });
+    tabSection.querySelectorAll('.block').forEach((block) => {
+      block.dispatchEvent(activeTabEvent);
+    });
     const tabGroup = tabSection.closest('.tabs-group');
     const inactiveTabs = tabGroup.querySelectorAll(`.tab-link:not([data-tab-ref="${tabRef}"])`);
     const inactiveSections = tabGroup.querySelectorAll(`[data-is-tab="true"]:not([data-tab-ref="${tabRef}"])`);
@@ -83,7 +89,7 @@ function decorateSectionTabs(main) {
 * @param main
 */
 function decorateSectionTableList(main) {
-  const sections = main.querySelectorAll('.section');
+  const sections = main.querySelectorAll('.section.table-container');
   sections.forEach((section) => {
     const tableWrappers = Array.from(section.querySelectorAll('div:has(>.table.list)'))
       ?.filter((tableWrapper) => !tableWrapper.parentElement.classList.contains('table-list'));

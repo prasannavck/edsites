@@ -56,7 +56,11 @@
 
 .table.list.active .table-title {
   background-color: var(--dark-color);
-  color: white;
+  color: var(--white);
+}
+
+.table.list table tbody td div {
+  display: inline;
 }
 
 .table.list .table-title > div {
@@ -65,18 +69,26 @@
   vertical-align: center;
 }
 
-.table.list .table-title h3 {
+.table.list .table-title .heading {
   font-size: 1rem;
   font-weight: var(--font-weight-normal);
   line-height: 1.625;
   margin: 0;
 }
 
-.table.list:not(.active) .table-title:hover h3 {
+.table.list:not(.active) .table-title:hover .heading {
   color: var(--dark-color);
 }
 
-.table.list .table-title h3 + p {
+.table.list table tbody td p {
+  display: inline;
+}
+
+.table.list table thead th p:nth-of-type(2) {
+  font-weight: normal;
+}
+
+.table.list .table-title .heading + p {
   text-wrap: nowrap;
   margin: 0.1rem 0 0;
   font-size: 14px;
@@ -113,7 +125,7 @@
   width: 100%;
   background: none;
   background-color: var(--teal-blue);
-  color: white;
+  color: var(--white);
   border: none;
   border-radius: 0.3125rem 0.3125rem 0 0;
 }
@@ -125,6 +137,17 @@
 .table.list table {
   border: 0.3125rem solid var(--pale-aqua);
   border-collapse: collapse;
+  overflow: visible;
+}
+
+.table.list table a:not(.button) {
+  color: var(--white);
+  text-decoration: none;
+}
+
+.table.list table div:has(.button-container),
+.table.list table p.button-container {
+  width: 100%;
 }
 
 .table.description.active .table-description {
@@ -185,8 +208,8 @@
   border: 0.0625rem solid #dadada;
 }
 
+.table.list table th,
 .table.list table td {
-  display: table-cell;
   flex: 1;
   border: 0.0625rem solid var(--pale-aqua);
   border-left: none;
@@ -195,13 +218,13 @@
   box-sizing: border-box;
 }
 
-.table.list table thead td {
+.table.list table thead th {
   display: flex;
   flex-direction: row;
   font-size: 0.75rem;
   line-height: 0.75rem;
   text-align: start;
-  color: white;
+  color: var(--white);
   padding: 0.9375rem;
 }
 
@@ -223,44 +246,46 @@
   flex-direction: column-reverse;
 }
 
+.table.list table[data-active-tab-mob] th:not(.active),
 .table.list table[data-active-tab-mob] td:not(.active) {
   display: none;
 }
 
-.table.list table[data-active-tab-mob] thead td.icon-large:not(.active) {
+.table.list table[data-active-tab-mob] thead th.icon-large:not(.active) {
   display: none;
 }
 
-.table.list table[data-active-tab-mob] thead td.active:not(:first-of-type) strong {
+.table.list table[data-active-tab-mob] thead th.active:not(:first-of-type) strong {
   font-weight: normal;
 }
 
-.table.list table[data-active-tab-mob] thead td.active p {
+.table.list table[data-active-tab-mob] thead th.active p {
+  display: inline;
   margin: 0;
 }
 
-.table.list table[data-active-tab-mob] thead td p.combine-hyphen-mob::before {
+.table.list table[data-active-tab-mob] thead th .combine-hyphen-mob::before {
   content: "\00a0-\00a0";
 }
 
-.table.list:not([class*="heading-bg"]) table thead td:first-of-type {
+.table.list:not([class*="heading-bg"]) table thead th:first-of-type {
   display: block;
   background-color: var(--ivory-gray);
   color: var(--dark-color);
 }
 
-.table.list table[data-active-tab-mob] tbody tr:last-of-type td:first-of-type {
+.table.list table[data-active-tab-mob] tbody tr:last-of-type td.empty:first-of-type {
   background: var(--pale-aqua);
 }
 
-.table.list table thead td.icon-large p:not(:first-of-type) {
+.table.list table thead th.icon-large p:not(:first-of-type) {
   display: flex;
   flex-direction: column;
   line-height: 1rem;
 }
 
 .table.list table tbody .icon {
-  padding: 0.2rem;
+  padding: 0 0.2rem;
   width: 1.2rem;
   height: 1.2rem;
 }
@@ -307,7 +332,7 @@
     margin-top: 0.3125rem;
   }
 
-  .table.list table thead td {
+  .table.list table thead th {
     flex-direction: column;
     line-height: 1.125rem;
   }
@@ -316,7 +341,7 @@
     padding: 0.9375rem;
   }
 
-  .table.list table thead td.icon-large {
+  .table.list table thead th.icon-large {
     display: flex;
     flex-direction: column-reverse;
     gap: 0.5rem;
@@ -333,17 +358,17 @@
     font-size: 1rem;
   }
 
-  .table.list table thead td.icon-large p:not(:first-of-type) {
+  .table.list table thead th.icon-large p:not(:first-of-type) {
     flex-direction: row;
   }
 
-  .table.list table thead td.icon-large p:not(:first-of-type) img {
+  .table.list table thead th.icon-large p:not(:first-of-type) img {
     padding-right: 1rem;
   }
 }
 
 @media (width >= 62rem) {
-  .table.list table thead td.icon-large {
+  .table.list table thead th.icon-large {
     display: flex;
     flex-direction: row;
     gap: 1.0313rem;
@@ -355,7 +380,7 @@
     margin: 0;
   }
 
-  .table.list table thead td.icon-large p:not(:first-of-type) {
+  .table.list table thead th.icon-large p:not(:first-of-type) {
     flex-direction: column;
   }
 }
