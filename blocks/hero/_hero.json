@@ -90,7 +90,7 @@
           "valueType": "string",
           "name": "content_icon1",
           "label": "Title Icon 1",
-          "...": "../../models/_hero-icons-list.json",
+          "...": "../../models/icon-list/_hero-icons-list.json",
           "condition": { "in": ["coverage", { "var": "classes" }] }
         },
         {
@@ -98,7 +98,7 @@
           "valueType": "string",
           "name": "content_icon2",
           "label": "Title Icon 2",
-          "...": "../../models/_hero-icons-list.json",
+          "...": "../../models/icon-list/_hero-icons-list.json",
           "condition": { "in": ["coverage", { "var": "classes" }] }
         },
         {
@@ -121,7 +121,7 @@
           "valueType": "string",
           "name": "content_descr_icon",
           "label": "Add'l Description Icon",
-          "...": "../../models/_hero-icons-list.json",
+          "...": "../../models/icon-list/_hero-icons-list.json",
           "condition": { "in": ["coverage", { "var": "classes" }] }
         },
         {
@@ -142,7 +142,7 @@
           "valueType": "string",
           "name": "button1_icon",
           "label": "Icon",
-          "...": "../../models/_hero-icons-list.json",
+          "...": "../../models/icon-list/_hero-icons-list.json",
           "condition": { "in": ["buttons-stack", { "var": "classes" }] }
         },
         {
@@ -162,7 +162,7 @@
           "valueType": "string",
           "name": "button2_icon",
           "label": "Icon",
-          "...": "../../models/_hero-icons-list.json",
+          "...": "../../models/icon-list/_hero-icons-list.json",
           "condition": { "in": ["buttons-stack", { "var": "classes" }] }
         },
         {
@@ -182,7 +182,7 @@
           "valueType": "string",
           "name": "button3_icon",
           "label": "Icon",
-          "...": "../../models/_hero-icons-list.json",
+          "...": "../../models/icon-list/_hero-icons-list.json",
           "condition": { "in": ["buttons-stack", { "var": "classes" }] }
         },
         {
@@ -202,7 +202,7 @@
           "valueType": "string",
           "name": "button4_icon",
           "label": "Icon",
-          "...": "../../models/_hero-icons-list.json",
+          "...": "../../models/icon-list/_hero-icons-list.json",
           "condition": { "in": ["buttons-stack", { "var": "classes" }] }
         },
         {
@@ -222,7 +222,7 @@
           "valueType": "string",
           "name": "button5_icon",
           "label": "Icon",
-          "...": "../../models/_hero-icons-list.json",
+          "...": "../../models/icon-list/_hero-icons-list.json",
           "condition": { "in": ["buttons-stack", { "var": "classes" }] }
         },
         {

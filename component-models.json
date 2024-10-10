@@ -3585,6 +3585,53 @@
     ]
   },
   {
+    "id": "textandbox",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "title",
+        "label": "Title",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Text",
+        "value": ""
+      },
+      {
+        "component": "select",
+        "label": "Box Title Icon",
+        "name": "box_titleIcon",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "None",
+            "value": ""
+          },
+          {
+            "name": "Ten Percent Indigo Large",
+            "value": ":ten-percent-indigo-large:"
+          }
+        ]
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "box_title",
+        "label": "Box Title"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "boxtext",
+        "label": "Box Text"
+      }
+    ]
+  },
+  {
     "id": "text-image",
     "fields": [
       {
