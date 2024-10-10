@@ -1,13 +1,12 @@
-import { exec } from 'node:child_process';
+import { exec } from "node:child_process";
 
-const run = (cmd) =>
-  new Promise((resolve, reject) =>
-    exec(cmd, (error, stdout, stderr) => {
-      if (error) reject();
-      if (stderr) reject(stderr);
-      resolve(stdout);
-    }),
-  );
+const run = (cmd) => new Promise((resolve, reject) => exec(
+  cmd,
+  (error, stdout) => {
+    if (error) reject(error);
+    else resolve(stdout);
+  }
+));
 
 const changeset = await run('git diff --cached --name-only --diff-filter=ACMR');
 const modifiedFiles = changeset.split('\n').filter(Boolean);
@@ -17,5 +16,5 @@ const modifledPartials = modifiedFiles.filter((file) => file.match(/(^|\/)_.*.js
 if (modifledPartials.length > 0) {
   const output = await run('npm run build:json --silent');
   console.log(output);
-  await run('git add .');
+  await run('git add component-models.json component-definition.json component-filters.json');
 }
