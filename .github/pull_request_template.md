@@ -11,4 +11,4 @@ Fix #<gh-issue-id>
 
 3. Please add your block to the Block List page:
 
-`https://author-p139617-e1446249.adobeaemcloud.com/ui#/@suncorp/aem/universal-editor/canvas/author-p139617-e1446249.adobeaemcloud.com/content/terrischeer/drafts/block-list.html`
+`https://author-p139617-e1446342.adobeaemcloud.com/ui#/@suncorp/aem/universal-editor/canvas/author-p139617-e1446342.adobeaemcloud.com/content/terrischeer/drafts/block-list.html`
