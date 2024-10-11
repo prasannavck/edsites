@@ -25,6 +25,7 @@
       "ribbon",
       "button-stack",
       "table",
+      "claims-process",
       "textandbox"
     ]
   },
@@ -56,6 +57,12 @@
     "id": "cards-benefits",
     "components": [
       "card-benefit"
+    ]
+  },
+  {
+    "id": "claims-process",
+    "components": [
+      "claims-process-option"
     ]
   },
   {

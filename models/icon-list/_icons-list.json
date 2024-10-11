@@ -127,6 +127,18 @@
     {
       "name": "tick icon large",
       "value": ":tick-icon-large:"
+    },
+    {
+      "name": "monitor white",
+      "value": ":monitor-white:"
+    },
+    {
+      "name": "phone white",
+      "value": ":phone-white:"
+    },
+    {
+      "name": "email white",
+      "value": ":email-white:"
     }
   ]
 }
