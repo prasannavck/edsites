@@ -16,6 +16,45 @@
       }
     }
   ],
-  "filters": [],
-  "models": []
+  "models": [
+    {
+      "id": "columns",
+      "fields": [
+        {
+          "component": "text",
+          "valueType": "number",
+          "name": "columns",
+          "value": "",
+          "label": "Columns"
+        },
+        {
+          "component": "text",
+          "valueType": "number",
+          "name": "rows",
+          "value": "",
+          "label": "Rows"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "columns",
+      "components": [
+        "column"
+      ]
+    },
+    {
+      "id": "column",
+      "components": [
+        "text",
+        "image",
+        "button",
+        "title",
+        "fragment",
+        "video",
+        "button-stack"
+      ]
+    }
+  ]
 }

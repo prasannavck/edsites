@@ -145,7 +145,7 @@
 }
 
 .hero.tabs .hero-menu ul li:last-child {
-  background-color: var(--gray-background-color);
+  background-color: var(--gray-lightest);
   gap: 0.25rem;
   display: flex;
   align-items: center;

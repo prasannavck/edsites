@@ -17,7 +17,6 @@
       "columns",
       "fragment",
       "text-image",
-      "centered-title",
       "video",
       "news-title",
       "policy-documents",
@@ -63,6 +62,24 @@
     "id": "claims-process",
     "components": [
       "claims-process-option"
+    ]
+  },
+  {
+    "id": "columns",
+    "components": [
+      "column"
+    ]
+  },
+  {
+    "id": "column",
+    "components": [
+      "text",
+      "image",
+      "button",
+      "title",
+      "fragment",
+      "video",
+      "button-stack"
     ]
   },
   {

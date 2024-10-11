@@ -252,7 +252,7 @@ header .nav-mobile-menu .default-content-wrapper > ul > li > a:hover {
 header .nav-mobile-menu .default-content-wrapper > ul > li > ul > li > a:hover {
   text-decoration: none;
   color: var(--black);
-  background-color: var(--gray-middle);
+  background-color: var(--gray);
 }
 
 @media (width >= 48rem) {

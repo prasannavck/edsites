@@ -12,15 +12,17 @@
 
 :root {
   /* core palette */
-  --white: white;
-  --white-smoke: #f5f5f5;
   --light-color: #f1edec;
-  --gray-light: #e5e4e2;
-  --gray-middle: #dedfe1;
-  --very-light-gray: #cecece;
-  --gray-dark: #bbb;
   --text-color: #485560;
   --dark-color: #3b3934;
+
+  /* mono palette */
+  --white: white;
+  --snow-white: #fafafa;
+  --gray-lightest: #f5f5f5;
+  --gray-light: #e5e5e5;
+  --gray: #e0e0e0;
+  --gray-dark: #bbb;
   --black: black;
 
   /* brand palette */
@@ -38,15 +40,11 @@
   --pale-aqua: #cdecef;
   --teal-blue: #4f7faa;
   --sky-blue: #6199bc;
-  --snow-white: #fafafa;
-  --cloud-white: #fbfbfb;
-  --silver-mist: #e8e8e8;
 
   /* global color usage */
   --link-color: var(--teal);
   --link-hover-color: var(--teal-dark);
   --background-color: var(--white);
-  --gray-background-color: #f3f3f3;
 
   /* button colors */
   --standard-btn: #e4e2e5;
@@ -494,7 +492,7 @@ main .tabs-group .tabs button {
   all: unset;
   flex: 1;
   background-color: var(--white);
-  border: 0.0625rem solid var(--very-light-gray);
+  border: 0.0625rem solid var(--gray-dark);
   cursor: pointer;
   padding: 0.75rem 1.5625rem 0.5rem;
   border-top-left-radius: 0.3125rem;

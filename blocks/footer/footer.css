@@ -184,7 +184,7 @@ footer .footer-menu li:last-of-type::after {
     left: 1.5625rem;
     top: 25%;
     bottom: 0;
-    border: 0.0625rem solid var(--gray-middle);
+    border: 0.0625rem solid var(--gray);
     border-width: 0 0 0 0.0625rem;
     height: 3.75rem;
     color: var(--black);

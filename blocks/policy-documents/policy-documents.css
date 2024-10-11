@@ -174,7 +174,7 @@
   max-height: 0;
   opacity: 0;
   overflow: hidden;
-  background-color: var(--white-smoke);
+  background-color: var(--gray-lightest);
   padding: 1rem;
   margin-top: -2rem;
   transition: 0.4s cubic-bezier(.25,0,0,1);
