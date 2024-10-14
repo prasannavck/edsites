@@ -103,7 +103,7 @@
           "component": "text",
           "name": "tab-name",
           "label": "Tab Name",
-          "condition": { "===": [{"var" : "is-tab"}, true] }
+          "condition": { "===": [{ "var": "is-tab" }, true] }
         }
       ]
     }
@@ -127,6 +127,7 @@
         "faqs",
         "ribbon",
         "button-stack",
+        "notification-banner",
         "table",
         "claims-process",
         "textandbox"

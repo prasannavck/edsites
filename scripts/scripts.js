@@ -11,6 +11,10 @@ import {
   loadSections,
   loadCSS,
   sampleRUM,
+  buildBlock,
+  decorateBlock,
+  loadBlock,
+  getMetadata,
 } from './aem.js';
 
 function createTabButton(tabName, tabSection) {
@@ -30,7 +34,9 @@ function createTabButton(tabName, tabSection) {
     });
     const tabGroup = tabSection.closest('.tabs-group');
     const inactiveTabs = tabGroup.querySelectorAll(`.tab-link:not([data-tab-ref="${tabRef}"])`);
-    const inactiveSections = tabGroup.querySelectorAll(`[data-is-tab="true"]:not([data-tab-ref="${tabRef}"])`);
+    const inactiveSections = tabGroup.querySelectorAll(
+      `[data-is-tab="true"]:not([data-tab-ref="${tabRef}"])`,
+    );
     inactiveTabs.forEach((tab) => tab.classList.remove('active'));
     inactiveSections.forEach((section) => section.classList.remove('show'));
   });
@@ -55,9 +61,9 @@ function createTabs(tabSections) {
 }
 
 /**
-* Creates tabs for sections where 'data-is-tab'=true
-* @param main
-*/
+ * Creates tabs for sections where 'data-is-tab'=true
+ * @param main
+ */
 function decorateSectionTabs(main) {
   const sections = main.querySelectorAll('.section');
   let tabSections = [];
@@ -85,14 +91,15 @@ function decorateSectionTabs(main) {
 }
 
 /**
-* Wraps all table (list variant) present in a section under a parent DIV with class 'table-list'
-* @param main
-*/
+ * Wraps all table (list variant) present in a section under a parent DIV with class 'table-list'
+ * @param main
+ */
 function decorateSectionTableList(main) {
   const sections = main.querySelectorAll('.section.table-container');
   sections.forEach((section) => {
-    const tableWrappers = Array.from(section.querySelectorAll('div:has(>.table.list)'))
-      ?.filter((tableWrapper) => !tableWrapper.parentElement.classList.contains('table-list'));
+    const tableWrappers = Array.from(section.querySelectorAll('div:has(>.table.list)'))?.filter(
+      (tableWrapper) => !tableWrapper.parentElement.classList.contains('table-list'),
+    );
     if (tableWrappers.length === 0) return;
     const tableListDiv = document.createElement('div');
     tableListDiv.classList.add('table-list');
@@ -127,6 +134,17 @@ function buildAutoBlocks(main) {
   }
 }
 
+async function loadNotificationBanner(main) {
+  const fragment = getMetadata('notificationfragment');
+  if (!fragment || fragment === '') return;
+  const notificationBanner = buildBlock('fragment', fragment);
+  notificationBanner.style.display = 'none';
+  main.prepend(notificationBanner);
+  decorateBlock(notificationBanner);
+  await loadBlock(notificationBanner);
+  notificationBanner.style.display = '';
+}
+
 /**
  * Decorates the main element.
  * @param {Element} main The main element
@@ -149,10 +167,13 @@ export function decorateMain(main) {
  */
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
+
   decorateTemplateAndTheme();
   const main = doc.querySelector('main');
   if (main) {
     decorateMain(main);
+    await loadNotificationBanner(doc.querySelector('header'));
+
     document.body.classList.add('appear');
     await loadSection(main.querySelector('.section'), waitForFirstImage);
   }

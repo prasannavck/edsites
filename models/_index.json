@@ -32,6 +32,13 @@
               "name": "imageThumbnail",
               "label": "Image",
               "multi": false
+            },
+            {
+              "component": "aem-content",
+              "valueType": "string",
+              "name": "notificationfragment",
+              "label": "Notification Fragment",
+              "multi": false
             }
           ]
         }

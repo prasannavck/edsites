@@ -225,6 +225,13 @@
             "name": "imageThumbnail",
             "label": "Image",
             "multi": false
+          },
+          {
+            "component": "aem-content",
+            "valueType": "string",
+            "name": "notificationfragment",
+            "label": "Notification Fragment",
+            "multi": false
           }
         ]
       }
@@ -1729,6 +1736,32 @@
         "name": "button5_text",
         "value": "",
         "label": "Text"
+      }
+    ]
+  },
+  {
+    "id": "notification-banner",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "notificationText",
+        "label": "Notification Text",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "notificationLink",
+        "label": "Notification Button URL",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "notificationLinkText",
+        "label": "Notification Button Text",
+        "value": ""
       }
     ]
   },
