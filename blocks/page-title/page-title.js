@@ -3,9 +3,9 @@ import { createElement } from '../../scripts/blocks-utils.js';
 const DROPDOWN_ICON_GREEN = `${window.hlx.codeBasePath}/icons/chevron-down-green.svg`;
 const DROPDOWN_ICON_WHITE = `${window.hlx.codeBasePath}/icons/chevron-down-white.svg`;
 
-function createNewsTitle(content) {
+function createPageTitle(content) {
   const titleDiv = createElement('div', 'left-title');
-  titleDiv.appendChild(content[0]?.firstElementChild);
+  titleDiv.appendChild(content?.firstElementChild);
   return titleDiv;
 }
 
@@ -34,29 +34,31 @@ function clickEvent(button, ul, chevronIcon) {
   });
 }
 
-function createCategoryMenu(block, content) {
+function createCategoryMenu(dropdownTitle, dropdownList) {
   const categoryDropdown = createElement('div', 'right-dropdown');
   const categoryButton = createElement('button', 'category-button');
   const buttonTitle = createElement('span', 'button-title');
-  buttonTitle.textContent = content[1]?.textContent;
+  buttonTitle.textContent = dropdownTitle?.textContent;
   const chevronIcon = createElement('img', 'dropdown-icon');
   chevronIcon.src = `${DROPDOWN_ICON_GREEN}`;
   chevronIcon.alt = 'Dropdown chevron icon';
   categoryButton.appendChild(buttonTitle);
   categoryButton.appendChild(chevronIcon);
-  const dropdownList = block.querySelector('ul');
-  clickEvent(categoryButton, dropdownList, chevronIcon);
+  const dropdown = dropdownList.querySelector('ul');
+  clickEvent(categoryButton, dropdown, chevronIcon);
   categoryDropdown.appendChild(categoryButton);
-  if (dropdownList) categoryDropdown.appendChild(dropdownList);
+  if (dropdown) categoryDropdown.appendChild(dropdown);
   return categoryDropdown;
 }
 
 export default async function decorate(block) {
-  const subContent = block.querySelectorAll(':scope > div > div');
-  const newsTitle = createNewsTitle(subContent);
-  const categoryMenu = createCategoryMenu(block, subContent);
-  const container = createElement('div', 'news-title-container');
-  container.append(newsTitle);
-  container.append(categoryMenu);
+  const [title, flag, dropdownTitle, dropdownList] = block.querySelectorAll(':scope > div > div');
+  const pageTitle = createPageTitle(title);
+  const container = createElement('div', 'page-title-container');
+  container.append(pageTitle);
+  if (flag.innerText === 'true') {
+    const categoryMenu = createCategoryMenu(dropdownTitle, dropdownList);
+    container.append(categoryMenu);
+  }
   block.replaceChildren(container);
 }

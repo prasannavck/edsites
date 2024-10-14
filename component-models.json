@@ -1733,7 +1733,7 @@
     ]
   },
   {
-    "id": "news-title",
+    "id": "page-title",
     "fields": [
       {
         "component": "richtext",
@@ -1743,18 +1743,40 @@
         "value": ""
       },
       {
+        "component": "boolean",
+        "name": "add-dropdown",
+        "label": "Add dropdown",
+        "value": false
+      },
+      {
         "component": "text",
         "valueType": "string",
         "name": "dropdownTitle",
         "label": "Dropdown Title",
-        "value": ""
+        "value": "",
+        "condition": {
+          "===": [
+            {
+              "var": "add-dropdown"
+            },
+            true
+          ]
+        }
       },
       {
         "component": "richtext",
         "name": "dropdownList",
         "value": "",
         "label": "Dropdown list",
-        "valueType": "string"
+        "valueType": "string",
+        "condition": {
+          "===": [
+            {
+              "var": "add-dropdown"
+            },
+            true
+          ]
+        }
       }
     ]
   },
