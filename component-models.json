@@ -190,6 +190,67 @@
             true
           ]
         }
+      },
+      {
+        "component": "boolean",
+        "name": "add-sidebar",
+        "label": "Add sidebar",
+        "value": false
+      },
+      {
+        "component": "aem-content",
+        "name": "sidebar-link",
+        "label": "Side Bar Reference",
+        "condition": {
+          "===": [
+            {
+              "var": "add-sidebar"
+            },
+            true
+          ]
+        }
+      },
+      {
+        "component": "boolean",
+        "name": "sidebar-mobile-view",
+        "label": "Mobile View",
+        "value": false,
+        "condition": {
+          "===": [
+            {
+              "var": "add-sidebar"
+            },
+            true
+          ]
+        }
+      },
+      {
+        "component": "select",
+        "name": "sidebar-tablet-view",
+        "label": "Tablet View",
+        "value": "sidebar-hidden",
+        "options": [
+          {
+            "name": "Do not show",
+            "value": "sidebar-hidden"
+          },
+          {
+            "name": "Show as Full Width",
+            "value": "sidebar-tablet-full-width"
+          },
+          {
+            "name": "Show as Sidebar",
+            "value": "sidebar-tablet-view"
+          }
+        ],
+        "condition": {
+          "===": [
+            {
+              "var": "add-sidebar"
+            },
+            true
+          ]
+        }
       }
     ]
   },
@@ -574,6 +635,35 @@
         "label": "Use primary styling",
         "name": "button5_primaryStyle",
         "valueType": "boolean"
+      }
+    ]
+  },
+  {
+    "id": "callout",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "tagline",
+        "label": "Tagline"
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "info_icon",
+        "label": "Icon",
+        "options": [
+          {
+            "name": "call",
+            "value": ":call:"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "info_text",
+        "label": "Text"
       }
     ]
   },

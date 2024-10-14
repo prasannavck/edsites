@@ -103,7 +103,68 @@
           "component": "text",
           "name": "tab-name",
           "label": "Tab Name",
-          "condition": { "===": [{ "var": "is-tab" }, true] }
+          "condition": { "===": [{"var" : "is-tab"}, true] }
+        },
+        {
+          "component": "boolean",
+          "name": "add-sidebar",
+          "label": "Add sidebar",
+          "value": false
+        },
+        {
+          "component": "aem-content",
+          "name": "sidebar-link",
+          "label": "Side Bar Reference",
+          "condition": {
+            "===": [
+              {
+                "var": "add-sidebar"
+              },
+              true
+            ]
+          }
+        },
+        {
+          "component": "boolean",
+          "name": "sidebar-mobile-view",
+          "label": "Mobile View",
+          "value": false,
+          "condition": {
+            "===": [
+              {
+                "var": "add-sidebar"
+              },
+              true
+            ]
+          }
+        },
+        {
+          "component": "select",
+          "name": "sidebar-tablet-view",
+          "label": "Tablet View",
+          "value": "sidebar-hidden",
+          "options": [
+            {
+              "name": "Do not show",
+              "value": "sidebar-hidden"
+            },
+            {
+              "name": "Show as Full Width",
+              "value": "sidebar-tablet-full-width"
+            },
+            {
+              "name": "Show as Sidebar",
+              "value": "sidebar-tablet-view"
+            }
+          ],
+          "condition": {
+            "===": [
+              {
+                "var": "add-sidebar"
+              },
+              true
+            ]
+          }
         }
       ]
     }
@@ -127,6 +188,7 @@
         "faqs",
         "ribbon",
         "button-stack",
+        "callout",
         "notification-banner",
         "table",
         "claims-process",

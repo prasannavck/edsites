@@ -375,11 +375,46 @@ main .section.no-margin {
   padding-bottom: unset;
 }
 
+/* tabs style */
+main .tabs-group > .section {
+  padding: 0;
+  display: none;
+}
+
+main div.sidebar:not(.mobile-view) {
+  display: none;
+}
+
+main .section:has(.sidebar) .sidebar > .section { 
+  padding: 0;
+}
+
 @media (width >= 48rem) {
   main .section,
   footer .footer,
   header .header-section {
     max-width: 45.25rem;
+  }
+
+  main div.sidebar.tablet-full-width {
+    display: block;
+  }
+
+  main .section:has(.sidebar.tablet-view) {
+    position: relative;
+  }
+  
+  main .section:has(.sidebar.tablet-view) > div:not(.sidebar) {
+    width: 66%;
+  }
+
+  main div.sidebar.tablet-view {
+    display: block;
+    position: absolute;
+    margin-left: 1rem;
+    width: 32%;
+    right: 0.9375rem;
+    top: 2.3rem;
   }
 }
 
@@ -388,6 +423,23 @@ main .section.no-margin {
   footer .footer,
   header .header-section {
     max-width: 61.875rem;
+  }
+
+  main .section:has(.sidebar) {
+    position: relative;
+  }
+  
+  main .section:has(.sidebar) > div:not(.sidebar) {
+    width: 66%;
+  }
+  
+  main .section:has(.sidebar) .sidebar {
+    display: block;
+    position: absolute;
+    margin-left: 1rem;
+    width: 32%;
+    right: 0.9375rem;
+    top: 2.3rem;
   }
 }
 
@@ -467,12 +519,6 @@ main .section.centered-title .default-content-wrapper strong {
   main .section.page-heading h1 {
     font-size: 2.1875rem;
   }
-}
-
-/* tabs style */
-main .tabs-group > .section {
-  padding: 0;
-  display: none;
 }
 
 main .tabs-group > .section.show {

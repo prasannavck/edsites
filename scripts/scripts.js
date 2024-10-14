@@ -134,6 +134,45 @@ function buildAutoBlocks(main) {
   }
 }
 
+function buildSidebar(section) {
+  if (section.dataset
+    && section.dataset.addSidebar === 'true'
+    && section.dataset.sidebarLink) {
+    const href = section.dataset.sidebarLink;
+    const a = document.createElement('a');
+    a.href = href.replace(/^.*\/\/[^/]+/, '');
+    const fragmentBlock = buildBlock('fragment', { elems: [a] });
+    const fragmentWrapper = document.createElement('div');
+    fragmentWrapper.classList.add('sidebar');
+
+    if (section.dataset.sidebarMobileView === 'true') {
+      fragmentWrapper.classList.add('mobile-view');
+    }
+
+    if (section.dataset.sidebarTabletView) {
+      if (section.dataset.sidebarTabletView === 'sidebar-tablet-full-width') {
+        fragmentWrapper.classList.add('tablet-full-width');
+      } else if (section.dataset.sidebarTabletView === 'sidebar-tablet-view') {
+        fragmentWrapper.classList.add('tablet-view');
+      }
+    }
+
+    fragmentWrapper.appendChild(fragmentBlock);
+    section.append(fragmentWrapper);
+    decorateBlock(fragmentBlock);
+  }
+}
+
+/**
+ * Builds synthetic blocks in that rely on section metadata
+ * @param {Element} main The container element
+ */
+function buildSectionBasedAutoBlocks(main) {
+  main.querySelectorAll(':scope > div').forEach((section) => {
+    buildSidebar(section);
+  });
+}
+
 async function loadNotificationBanner(main) {
   const fragment = getMetadata('notificationfragment');
   if (!fragment || fragment === '') return;
@@ -159,6 +198,7 @@ export function decorateMain(main) {
   decorateBlocks(main);
   decorateSectionTabs(main);
   decorateSectionTableList(main);
+  buildSectionBasedAutoBlocks(main);
 }
 
 /**
