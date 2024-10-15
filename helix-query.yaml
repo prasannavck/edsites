@@ -28,7 +28,7 @@ indices:
         value: attribute(el, "content")
       imageThumbnail:
         select: head > meta[name="imagethumbnail"]
-        value: match(attribute(el, "content")
+        value: attribute(el, "content")
       publishDate:
         select: head > meta[name="published-time"]
         value: parseTimestamp(attribute(el, "content"), "ddd, DD MMM YYYY hh:mm:ss GMT")
