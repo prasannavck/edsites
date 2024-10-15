@@ -27,7 +27,7 @@ indices:
         select: head > meta[name="description"]
         value: attribute(el, "content")
       imageThumbnail:
-        select: head > meta[property="imagethumbnail"]
+        select: head > meta[name="imagethumbnail"]
         value: match(attribute(el, "content")
       publishDate:
         select: head > meta[name="published-time"]
