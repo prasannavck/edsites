@@ -283,7 +283,7 @@
           {
             "component": "reference",
             "valueType": "string",
-            "name": "imageThumbnail",
+            "name": "image",
             "label": "Image",
             "multi": false
           },
