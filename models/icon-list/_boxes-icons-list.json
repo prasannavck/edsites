@@ -1,0 +1,16 @@
+{
+  "options": [
+    {
+      "name": "None",
+      "value": ""
+    },
+    {
+      "name": "friends",
+      "value": ":friends:"
+    },
+    {
+      "name": "house fire",
+      "value": ":house-fire:"
+    }
+  ]
+}

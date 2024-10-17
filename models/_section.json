@@ -193,6 +193,7 @@
         "table",
         "claims-process",
         "textandbox",
+        "boxes",
         "styled-lists"
       ]
     }

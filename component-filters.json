@@ -28,7 +28,14 @@
       "table",
       "claims-process",
       "textandbox",
+      "boxes",
       "styled-lists"
+    ]
+  },
+  {
+    "id": "boxes",
+    "components": [
+      "box"
     ]
   },
   {

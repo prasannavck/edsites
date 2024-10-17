@@ -299,6 +299,45 @@
     ]
   },
   {
+    "id": "box",
+    "fields": [
+      {
+        "component": "select",
+        "label": "Box Icon",
+        "name": "box_icon",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "None",
+            "value": ""
+          },
+          {
+            "name": "friends",
+            "value": ":friends:"
+          },
+          {
+            "name": "house fire",
+            "value": ":house-fire:"
+          }
+        ]
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "box_title",
+        "value": "",
+        "label": "Box Title"
+      },
+      {
+        "component": "richtext",
+        "name": "boxtext",
+        "value": "",
+        "label": "Box Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "button-stack",
     "fields": [
       {
