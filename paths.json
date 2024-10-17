@@ -1,12 +1,12 @@
 {
   "mappings": [
     "/content/terrischeer/:/", 
-    "/content/dam/terrischeer/:/assets/",
+    "/content/dam/assets/:/assets/",
     "/content/terrischeer/metadata:/metadata.json",
     "/content/terrischeer/placeholders:/placeholders.json"
   ],
     "includes": [
       "/content/terrischeer",
-      "/content/dam/terrischeer"
+      "/content/dam/assets"
     ]
 }
