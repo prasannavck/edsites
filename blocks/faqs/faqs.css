@@ -1,7 +1,3 @@
-.faqs {
-    margin: 1.5625rem 0;
-}
-
 .faqs .faq-item {
     overflow: hidden;
     background-color: var(--white);

@@ -370,6 +370,10 @@ main .section.no-margin {
   padding-bottom: unset;
 }
 
+main .section > div:not(:last-child) {
+  margin-bottom: 1.5625rem; /* Add space between child divs to give margin between blocks */
+}
+
 /* tabs style */
 main .tabs-group > .section {
   padding: 0;
