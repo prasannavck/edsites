@@ -3,6 +3,11 @@
   padding: 0;
 }
 
+.hero ul {
+  list-style-type: none;
+  padding: 0;
+}
+
 .hero.font-white {
   color: var(--white);
 }

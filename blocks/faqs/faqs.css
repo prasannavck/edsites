@@ -78,6 +78,7 @@
     list-style: none;
     margin-bottom: 0.9375rem;
     margin-top: 0;
+    padding: 0;
 }
 
 .faqs .faq-item .faq-content ul li {

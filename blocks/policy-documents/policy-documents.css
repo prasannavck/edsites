@@ -2,6 +2,11 @@
   margin-bottom: 4rem;
 }
 
+.policy-documents ul {
+  list-style-type: none;
+  padding: 0;
+}
+
 .policy-documents .doc-group .doc-group-heading {
   background-color: var(--teal-light-alt);
   color: var(--dark-color);

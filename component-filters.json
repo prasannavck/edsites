@@ -27,7 +27,8 @@
       "notification-banner",
       "table",
       "claims-process",
-      "textandbox"
+      "textandbox",
+      "styled-lists"
     ]
   },
   {
@@ -78,10 +79,7 @@
       "text",
       "image",
       "button",
-      "title",
-      "fragment",
-      "video",
-      "button-stack"
+      "title"
     ]
   },
   {
@@ -94,6 +92,12 @@
     "id": "policy-documents",
     "components": [
       "policy-document-group"
+    ]
+  },
+  {
+    "id": "styled-lists",
+    "components": [
+      "styled-list-column"
     ]
   },
   {

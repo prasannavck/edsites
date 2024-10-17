@@ -194,11 +194,6 @@ blockquote {
   margin-bottom: 0.25rem;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
 code,
 pre {
   font-size: var(--body-font-size-s);

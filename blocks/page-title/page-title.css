@@ -10,7 +10,6 @@
     flex-direction: column;
 }
 
-
 .page-title .left-title h1 {
     font-size: 1.4375rem;
     line-height: 3.4375rem;
@@ -54,6 +53,8 @@
 
 .page-title .right-dropdown ul {
     display: none;
+    list-style-type: none;
+    padding: 0;
 }
 
 .page-title .right-dropdown ul.visible {

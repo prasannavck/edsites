@@ -1984,6 +1984,63 @@
     ]
   },
   {
+    "id": "styled-lists",
+    "fields": [
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "bulletIcon",
+        "label": "Bullet Icon",
+        "options": [
+          {
+            "name": "chevron",
+            "value": ":chevron-right-teal:"
+          },
+          {
+            "name": "check",
+            "value": ":check-teal:"
+          },
+          {
+            "name": "plus",
+            "value": ":plus-teal:"
+          },
+          {
+            "name": "triangle",
+            "value": ":triangle-right-teal:"
+          },
+          {
+            "name": "exclamation",
+            "value": ":exclamation-teal:"
+          },
+          {
+            "name": "question",
+            "value": ":question-teal:"
+          }
+        ],
+        "required": true
+      },
+      {
+        "component": "number",
+        "valueType": "number",
+        "name": "showMoreThreshold",
+        "label": "Max list items to show",
+        "value": "0",
+        "description": "Set to 0 to show all items"
+      }
+    ]
+  },
+  {
+    "id": "styled-list-column",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "styledListContent",
+        "label": "Content"
+      }
+    ]
+  },
+  {
     "id": "table",
     "fields": [
       {
