@@ -14,7 +14,7 @@
     cursor: pointer;
 }
 
-.faqs .faq-item .faq-title.visible {
+.faqs .faq-item.visible .faq-title {
     background: var(--dark-color);
     color: var(--white);
 }
@@ -48,7 +48,7 @@
     transition: grid-template-rows 0.2s ease-out;
 }
 
-.faqs .faq-item .faq-content.visible {
+.faqs .faq-item.visible .faq-content {
     grid-template-rows: 1fr;
 }
 
