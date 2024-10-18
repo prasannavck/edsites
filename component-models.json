@@ -1503,7 +1503,7 @@
         "valueType": "string"
       },
       {
-        "component": "text",
+        "component": "richtext",
         "valueType": "string",
         "name": "content_descr",
         "value": "",
@@ -1572,7 +1572,7 @@
         }
       },
       {
-        "component": "text",
+        "component": "richtext",
         "valueType": "string",
         "name": "content_descr2",
         "value": "",
