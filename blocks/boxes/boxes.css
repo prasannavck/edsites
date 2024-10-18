@@ -46,7 +46,7 @@
     padding-bottom: 0.5rem;
     line-height: 1.125rem;
     letter-spacing: 0;
-    font-size: var(--heading-font-size-m);
+    font-size: var(--body-font-size-l);
     background: url('../../images/icon-tick.png') 0 0 no-repeat;
 }
 
