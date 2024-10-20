@@ -245,15 +245,7 @@
           "valueType": "string",
           "name": "group_icon",
           "label": "Icon",
-          "options": [
-            { "name": "Rent", "value": ":rent:" },
-            { "name": "Contents", "value": ":contents:" },
-            { "name": "Building", "value": ":building:" },
-            { "name": "Relet", "value": ":relet:" },
-            { "name": "Pets", "value": ":pets:" },
-            { "name": "Legal", "value": ":legal:" },
-            { "name": "Other", "value": ":other:" }
-          ]
+          "...": "../../models/icon-list/_teal-icons-list.json"
         },
         {
           "component": "text",
@@ -303,13 +295,7 @@
           "valueType": "string",
           "name": "heading_titleIcon",
           "label": "Title Icon",
-          "options": [
-            { "name": "Friends", "value": ":friends:" },
-            { "name": "Beach Ball", "value": ":beach-ball:" },
-            { "name": "House Fire", "value": ":house-fire:" },
-            { "name": "Ten Percent Teal", "value": ":ten-percent-teal:" },
-            { "name": "Other", "value": ":other:" }
-          ]
+          "...": "../../models/icon-list/_teal-icons-list.json"
         },
         {
           "component": "text",

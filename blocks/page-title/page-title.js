@@ -1,6 +1,6 @@
 import { createElement } from '../../scripts/blocks-utils.js';
 
-const DROPDOWN_ICON_GREEN = `${window.hlx.codeBasePath}/icons/chevron-down-green.svg`;
+const DROPDOWN_ICON_TEAL = `${window.hlx.codeBasePath}/icons/chevron-down-teal.svg`;
 const DROPDOWN_ICON_WHITE = `${window.hlx.codeBasePath}/icons/chevron-down-white.svg`;
 
 function createPageTitle(content) {
@@ -20,7 +20,7 @@ function clickEvent(button, ul, chevronIcon) {
     if (!button.contains(e.target) && !ul.contains(e.target)) {
       ul.classList.remove('visible');
       button.classList.remove('visible');
-      chevronIcon.src = `${DROPDOWN_ICON_GREEN}`;
+      chevronIcon.src = `${DROPDOWN_ICON_TEAL}`;
     }
   });
   // change icon by mouseover event
@@ -29,7 +29,7 @@ function clickEvent(button, ul, chevronIcon) {
   });
   button.addEventListener('mouseleave', () => {
     if (!button.classList.contains('visible')) {
-      chevronIcon.src = `${DROPDOWN_ICON_GREEN}`;
+      chevronIcon.src = `${DROPDOWN_ICON_TEAL}`;
     }
   });
 }
@@ -40,7 +40,7 @@ function createCategoryMenu(dropdownTitle, dropdownList) {
   const buttonTitle = createElement('span', 'button-title');
   buttonTitle.textContent = dropdownTitle?.textContent;
   const chevronIcon = createElement('img', 'dropdown-icon');
-  chevronIcon.src = `${DROPDOWN_ICON_GREEN}`;
+  chevronIcon.src = `${DROPDOWN_ICON_TEAL}`;
   chevronIcon.alt = 'Dropdown chevron icon';
   categoryButton.appendChild(buttonTitle);
   categoryButton.appendChild(chevronIcon);

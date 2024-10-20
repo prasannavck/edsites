@@ -1,32 +1,32 @@
 {
     "options": [
       {
-        "name": "calculator",
-        "value": ":calculator:"
+        "name": "Calculator (white)",
+        "value": ":calculator-white:"
       },
       {
-        "name": "compare",
-        "value": ":compare:"
+        "name": "Compare (white)",
+        "value": ":compare-white:"
       },
       {
-        "name": "document",
-        "value": ":document:"
+        "name": "Document (white)",
+        "value": ":document-white:"
       },
       {
-        "name": "download",
-        "value": ":download:"
+        "name": "Download (white)",
+        "value": ":download-white:"
       },
       {
-        "name": "friends grey",
+        "name": "Friends (grey)",
         "value": ":friends-grey:"
       },
       {
-        "name": "house fire grey",
+        "name": "House fire (grey)",
         "value": ":house-fire-grey:"
       },
       {
-        "name": "ten percent",
-        "value": ":ten-percent:"
+        "name": "Ten percent (indigo)",
+        "value": ":ten-percent-indigo:"
       }
     ]
   }

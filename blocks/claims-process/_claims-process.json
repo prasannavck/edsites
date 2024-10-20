@@ -65,7 +65,7 @@
           "component": "select",
           "valueType": "string",
           "name": "claimOptionIcon",
-          "...": "../../models/icon-list/_icons-list.json",
+          "...": "../../models/icon-list/_white-icons-list.json",
           "label": "Icon"
         },
         {

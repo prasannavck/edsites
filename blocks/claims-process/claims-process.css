@@ -183,10 +183,11 @@
   }
 
   .claims-process .claim-process-menu > div:first-child::after {
-    content: url('../../icons/teal-right-triangle.svg');
+    content: url('../../icons/triangle-right-teal.svg');
     position: absolute;
-    transform: scale(0.35);
-    right: -3.125rem;
+    height: 4rem;
+    width: 4rem;
+    right: -2.5rem;
   }
 
   .claims-process .claim-process-option > div:not(:last-child)::before {

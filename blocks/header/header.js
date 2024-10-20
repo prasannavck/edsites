@@ -1,9 +1,9 @@
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 
-const DROPDOWN_ICON = `${window.hlx.codeBasePath}/icons/chevron-down.svg`;
-const HAMBURGER_ICON = `${window.hlx.codeBasePath}/icons/hamburger.svg`;
-const REMOVE_ICON = `${window.hlx.codeBasePath}/icons/remove.svg`;
+const DROPDOWN_ICON = `${window.hlx.codeBasePath}/icons/chevron-down-teal.svg`;
+const HAMBURGER_ICON = `${window.hlx.codeBasePath}/icons/hamburger-white.svg`;
+const REMOVE_ICON = `${window.hlx.codeBasePath}/icons/remove-light.svg`;
 
 /**
  * Handles menu dropdown menu keyboard interaction

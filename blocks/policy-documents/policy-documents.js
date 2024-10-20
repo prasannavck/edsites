@@ -1,4 +1,4 @@
-const PDF_ICON = `${window.hlx.codeBasePath}/icons/pdf-file.svg`;
+const PDF_ICON = `${window.hlx.codeBasePath}/icons/pdf-file-teal.svg`;
 
 function decorateDocGroup(groupEl, category1Name, category2Name) {
   // Heading

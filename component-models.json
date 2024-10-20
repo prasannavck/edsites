@@ -312,12 +312,12 @@
             "value": ""
           },
           {
-            "name": "friends",
-            "value": ":friends:"
+            "name": "Friends",
+            "value": ":friends-teal:"
           },
           {
-            "name": "house fire",
-            "value": ":house-fire:"
+            "name": "House fire",
+            "value": ":house-fire-teal:"
           }
         ]
       },
@@ -352,32 +352,52 @@
         "label": "Icon",
         "options": [
           {
-            "name": "calculator",
-            "value": ":calculator:"
+            "name": "Calculator",
+            "value": ":calculator-white:"
           },
           {
-            "name": "compare",
-            "value": ":compare:"
+            "name": "Call",
+            "value": ":call-white:"
           },
           {
-            "name": "document",
-            "value": ":document:"
+            "name": "Chevron down",
+            "value": ":chevron-down-white:"
           },
           {
-            "name": "download",
-            "value": ":download:"
+            "name": "Compare",
+            "value": ":compare-white:"
           },
           {
-            "name": "friends grey",
-            "value": ":friends-grey:"
+            "name": "Document",
+            "value": ":document-white:"
           },
           {
-            "name": "house fire grey",
-            "value": ":house-fire-grey:"
+            "name": "Download",
+            "value": ":download-white:"
           },
           {
-            "name": "ten percent",
-            "value": ":ten-percent:"
+            "name": "Email",
+            "value": ":email-white:"
+          },
+          {
+            "name": "Hamburger",
+            "value": ":hamburger-white:"
+          },
+          {
+            "name": "Online",
+            "value": ":online-white:"
+          },
+          {
+            "name": "Phone",
+            "value": ":phone-white:"
+          },
+          {
+            "name": "Question Fill",
+            "value": ":question-fill-white:"
+          },
+          {
+            "name": "Search",
+            "value": ":search-white:"
           }
         ]
       },
@@ -419,32 +439,52 @@
         "label": "Icon",
         "options": [
           {
-            "name": "calculator",
-            "value": ":calculator:"
+            "name": "Calculator",
+            "value": ":calculator-white:"
           },
           {
-            "name": "compare",
-            "value": ":compare:"
+            "name": "Call",
+            "value": ":call-white:"
           },
           {
-            "name": "document",
-            "value": ":document:"
+            "name": "Chevron down",
+            "value": ":chevron-down-white:"
           },
           {
-            "name": "download",
-            "value": ":download:"
+            "name": "Compare",
+            "value": ":compare-white:"
           },
           {
-            "name": "friends grey",
-            "value": ":friends-grey:"
+            "name": "Document",
+            "value": ":document-white:"
           },
           {
-            "name": "house fire grey",
-            "value": ":house-fire-grey:"
+            "name": "Download",
+            "value": ":download-white:"
           },
           {
-            "name": "ten percent",
-            "value": ":ten-percent:"
+            "name": "Email",
+            "value": ":email-white:"
+          },
+          {
+            "name": "Hamburger",
+            "value": ":hamburger-white:"
+          },
+          {
+            "name": "Online",
+            "value": ":online-white:"
+          },
+          {
+            "name": "Phone",
+            "value": ":phone-white:"
+          },
+          {
+            "name": "Question Fill",
+            "value": ":question-fill-white:"
+          },
+          {
+            "name": "Search",
+            "value": ":search-white:"
           }
         ]
       },
@@ -486,32 +526,52 @@
         "label": "Icon",
         "options": [
           {
-            "name": "calculator",
-            "value": ":calculator:"
+            "name": "Calculator",
+            "value": ":calculator-white:"
           },
           {
-            "name": "compare",
-            "value": ":compare:"
+            "name": "Call",
+            "value": ":call-white:"
           },
           {
-            "name": "document",
-            "value": ":document:"
+            "name": "Chevron down",
+            "value": ":chevron-down-white:"
           },
           {
-            "name": "download",
-            "value": ":download:"
+            "name": "Compare",
+            "value": ":compare-white:"
           },
           {
-            "name": "friends grey",
-            "value": ":friends-grey:"
+            "name": "Document",
+            "value": ":document-white:"
           },
           {
-            "name": "house fire grey",
-            "value": ":house-fire-grey:"
+            "name": "Download",
+            "value": ":download-white:"
           },
           {
-            "name": "ten percent",
-            "value": ":ten-percent:"
+            "name": "Email",
+            "value": ":email-white:"
+          },
+          {
+            "name": "Hamburger",
+            "value": ":hamburger-white:"
+          },
+          {
+            "name": "Online",
+            "value": ":online-white:"
+          },
+          {
+            "name": "Phone",
+            "value": ":phone-white:"
+          },
+          {
+            "name": "Question Fill",
+            "value": ":question-fill-white:"
+          },
+          {
+            "name": "Search",
+            "value": ":search-white:"
           }
         ]
       },
@@ -553,32 +613,52 @@
         "label": "Icon",
         "options": [
           {
-            "name": "calculator",
-            "value": ":calculator:"
+            "name": "Calculator",
+            "value": ":calculator-white:"
           },
           {
-            "name": "compare",
-            "value": ":compare:"
+            "name": "Call",
+            "value": ":call-white:"
           },
           {
-            "name": "document",
-            "value": ":document:"
+            "name": "Chevron down",
+            "value": ":chevron-down-white:"
           },
           {
-            "name": "download",
-            "value": ":download:"
+            "name": "Compare",
+            "value": ":compare-white:"
           },
           {
-            "name": "friends grey",
-            "value": ":friends-grey:"
+            "name": "Document",
+            "value": ":document-white:"
           },
           {
-            "name": "house fire grey",
-            "value": ":house-fire-grey:"
+            "name": "Download",
+            "value": ":download-white:"
           },
           {
-            "name": "ten percent",
-            "value": ":ten-percent:"
+            "name": "Email",
+            "value": ":email-white:"
+          },
+          {
+            "name": "Hamburger",
+            "value": ":hamburger-white:"
+          },
+          {
+            "name": "Online",
+            "value": ":online-white:"
+          },
+          {
+            "name": "Phone",
+            "value": ":phone-white:"
+          },
+          {
+            "name": "Question Fill",
+            "value": ":question-fill-white:"
+          },
+          {
+            "name": "Search",
+            "value": ":search-white:"
           }
         ]
       },
@@ -620,32 +700,52 @@
         "label": "Icon",
         "options": [
           {
-            "name": "calculator",
-            "value": ":calculator:"
+            "name": "Calculator",
+            "value": ":calculator-white:"
           },
           {
-            "name": "compare",
-            "value": ":compare:"
+            "name": "Call",
+            "value": ":call-white:"
           },
           {
-            "name": "document",
-            "value": ":document:"
+            "name": "Chevron down",
+            "value": ":chevron-down-white:"
           },
           {
-            "name": "download",
-            "value": ":download:"
+            "name": "Compare",
+            "value": ":compare-white:"
           },
           {
-            "name": "friends grey",
-            "value": ":friends-grey:"
+            "name": "Document",
+            "value": ":document-white:"
           },
           {
-            "name": "house fire grey",
-            "value": ":house-fire-grey:"
+            "name": "Download",
+            "value": ":download-white:"
           },
           {
-            "name": "ten percent",
-            "value": ":ten-percent:"
+            "name": "Email",
+            "value": ":email-white:"
+          },
+          {
+            "name": "Hamburger",
+            "value": ":hamburger-white:"
+          },
+          {
+            "name": "Online",
+            "value": ":online-white:"
+          },
+          {
+            "name": "Phone",
+            "value": ":phone-white:"
+          },
+          {
+            "name": "Question Fill",
+            "value": ":question-fill-white:"
+          },
+          {
+            "name": "Search",
+            "value": ":search-white:"
           }
         ]
       },
@@ -693,8 +793,52 @@
         "label": "Icon",
         "options": [
           {
-            "name": "call",
-            "value": ":call:"
+            "name": "Calculator",
+            "value": ":calculator-white:"
+          },
+          {
+            "name": "Call",
+            "value": ":call-white:"
+          },
+          {
+            "name": "Chevron down",
+            "value": ":chevron-down-white:"
+          },
+          {
+            "name": "Compare",
+            "value": ":compare-white:"
+          },
+          {
+            "name": "Document",
+            "value": ":document-white:"
+          },
+          {
+            "name": "Download",
+            "value": ":download-white:"
+          },
+          {
+            "name": "Email",
+            "value": ":email-white:"
+          },
+          {
+            "name": "Hamburger",
+            "value": ":hamburger-white:"
+          },
+          {
+            "name": "Online",
+            "value": ":online-white:"
+          },
+          {
+            "name": "Phone",
+            "value": ":phone-white:"
+          },
+          {
+            "name": "Question Fill",
+            "value": ":question-fill-white:"
+          },
+          {
+            "name": "Search",
+            "value": ":search-white:"
           }
         ]
       },
@@ -835,32 +979,84 @@
         "label": "Icon",
         "options": [
           {
-            "name": "Rent",
-            "value": ":rent:"
+            "name": "Arrow circle",
+            "value": ":arrow-circle-teal:"
           },
           {
-            "name": "Contents",
-            "value": ":contents:"
+            "name": "Beach ball",
+            "value": ":beach-ball-teal:"
           },
           {
             "name": "Building",
-            "value": ":building:"
+            "value": ":building-teal:"
           },
           {
-            "name": "Relet",
-            "value": ":relet:"
+            "name": "Check",
+            "value": ":check-teal:"
           },
           {
-            "name": "Pets",
-            "value": ":pets:"
+            "name": "Chevron down",
+            "value": ":chevron-down-teal:"
+          },
+          {
+            "name": "Chevron right",
+            "value": ":chevron-right-teal:"
+          },
+          {
+            "name": "Contents",
+            "value": ":contents-teal:"
+          },
+          {
+            "name": "Exclamation",
+            "value": ":exclamation-teal:"
+          },
+          {
+            "name": "Friends",
+            "value": ":friends-teal:"
+          },
+          {
+            "name": "House fire",
+            "value": ":house-fire-teal:"
           },
           {
             "name": "Legal",
-            "value": ":legal:"
+            "value": ":legal-teal:"
           },
           {
-            "name": "Other",
-            "value": ":other:"
+            "name": "Menu search",
+            "value": ":menu-search-teal:"
+          },
+          {
+            "name": "PDF",
+            "value": ":pdf-file-teal:"
+          },
+          {
+            "name": "Pets",
+            "value": ":pets-teal:"
+          },
+          {
+            "name": "Plus",
+            "value": ":plus-teal:"
+          },
+          {
+            "name": "Question",
+            "value": ":question-teal:"
+          },
+          {
+            "name": "Relet",
+            "value": ":relet-teal:"
+          },
+          {
+            "name": "Rent",
+            "value": ":rent-teal:"
+          },
+          {
+            "name": "10 percent",
+            "value": ":10-percent-teal:"
+          },
+          {
+            "name": "Triangle right",
+            "value": ":triangle-right-teal:"
           }
         ]
       },
@@ -921,24 +1117,84 @@
         "label": "Title Icon",
         "options": [
           {
+            "name": "Arrow circle",
+            "value": ":arrow-circle-teal:"
+          },
+          {
+            "name": "Beach ball",
+            "value": ":beach-ball-teal:"
+          },
+          {
+            "name": "Building",
+            "value": ":building-teal:"
+          },
+          {
+            "name": "Check",
+            "value": ":check-teal:"
+          },
+          {
+            "name": "Chevron down",
+            "value": ":chevron-down-teal:"
+          },
+          {
+            "name": "Chevron right",
+            "value": ":chevron-right-teal:"
+          },
+          {
+            "name": "Contents",
+            "value": ":contents-teal:"
+          },
+          {
+            "name": "Exclamation",
+            "value": ":exclamation-teal:"
+          },
+          {
             "name": "Friends",
-            "value": ":friends:"
+            "value": ":friends-teal:"
           },
           {
-            "name": "Beach Ball",
-            "value": ":beach-ball:"
+            "name": "House fire",
+            "value": ":house-fire-teal:"
           },
           {
-            "name": "House Fire",
-            "value": ":house-fire:"
+            "name": "Legal",
+            "value": ":legal-teal:"
           },
           {
-            "name": "Ten Percent Teal",
-            "value": ":ten-percent-teal:"
+            "name": "Menu search",
+            "value": ":menu-search-teal:"
           },
           {
-            "name": "Other",
-            "value": ":other:"
+            "name": "PDF",
+            "value": ":pdf-file-teal:"
+          },
+          {
+            "name": "Pets",
+            "value": ":pets-teal:"
+          },
+          {
+            "name": "Plus",
+            "value": ":plus-teal:"
+          },
+          {
+            "name": "Question",
+            "value": ":question-teal:"
+          },
+          {
+            "name": "Relet",
+            "value": ":relet-teal:"
+          },
+          {
+            "name": "Rent",
+            "value": ":rent-teal:"
+          },
+          {
+            "name": "10 percent",
+            "value": ":10-percent-teal:"
+          },
+          {
+            "name": "Triangle right",
+            "value": ":triangle-right-teal:"
           }
         ]
       },
@@ -1130,144 +1386,52 @@
         "name": "claimOptionIcon",
         "options": [
           {
-            "name": "SuncorpBrand_Pos",
-            "value": ":SuncorpBrand_Pos:"
+            "name": "Calculator",
+            "value": ":calculator-white:"
           },
           {
-            "name": "beach ball grey",
-            "value": ":beach-ball-grey:"
+            "name": "Call",
+            "value": ":call-white:"
           },
           {
-            "name": "beach ball",
-            "value": ":beach-ball:"
-          },
-          {
-            "name": "calculator",
-            "value": ":calculator:"
-          },
-          {
-            "name": "call",
-            "value": ":call:"
-          },
-          {
-            "name": "check teal",
-            "value": ":check-teal:"
-          },
-          {
-            "name": "chevron down green",
-            "value": ":chevron-down-green:"
-          },
-          {
-            "name": "chevron down white",
+            "name": "Chevron down",
             "value": ":chevron-down-white:"
           },
           {
-            "name": "chevron down",
-            "value": ":chevron-down:"
+            "name": "Compare",
+            "value": ":compare-white:"
           },
           {
-            "name": "combination grey",
-            "value": ":combination-grey:"
+            "name": "Document",
+            "value": ":document-white:"
           },
           {
-            "name": "compare",
-            "value": ":compare:"
+            "name": "Download",
+            "value": ":download-white:"
           },
           {
-            "name": "document",
-            "value": ":document:"
+            "name": "Email",
+            "value": ":email-white:"
           },
           {
-            "name": "download",
-            "value": ":download:"
+            "name": "Hamburger",
+            "value": ":hamburger-white:"
           },
           {
-            "name": "friends grey",
-            "value": ":friends-grey:"
+            "name": "Online",
+            "value": ":online-white:"
           },
           {
-            "name": "friends",
-            "value": ":friends:"
-          },
-          {
-            "name": "hamburger",
-            "value": ":hamburger:"
-          },
-          {
-            "name": "house fire grey",
-            "value": ":house-fire-grey:"
-          },
-          {
-            "name": "house fire",
-            "value": ":house-fire:"
-          },
-          {
-            "name": "logo reia",
-            "value": ":logo-reia:"
-          },
-          {
-            "name": "logo reiact",
-            "value": ":logo-reiact:"
-          },
-          {
-            "name": "logo reint",
-            "value": ":logo-reint:"
-          },
-          {
-            "name": "logo reisa",
-            "value": ":logo-reisa:"
-          },
-          {
-            "name": "menu search",
-            "value": ":menu-search:"
-          },
-          {
-            "name": "pdf file",
-            "value": ":pdf-file:"
-          },
-          {
-            "name": "question fill white",
-            "value": ":question-fill-white:"
-          },
-          {
-            "name": "question teal",
-            "value": ":question-teal:"
-          },
-          {
-            "name": "remove",
-            "value": ":remove:"
-          },
-          {
-            "name": "search",
-            "value": ":search:"
-          },
-          {
-            "name": "ten percent indigo large",
-            "value": ":ten-percent-indigo-large:"
-          },
-          {
-            "name": "ten percent teal",
-            "value": ":ten-percent-teal:"
-          },
-          {
-            "name": "ten percent",
-            "value": ":ten-percent:"
-          },
-          {
-            "name": "tick icon large",
-            "value": ":tick-icon-large:"
-          },
-          {
-            "name": "monitor white",
-            "value": ":monitor-white:"
-          },
-          {
-            "name": "phone white",
+            "name": "Phone",
             "value": ":phone-white:"
           },
           {
-            "name": "email white",
-            "value": ":email-white:"
+            "name": "Question Fill",
+            "value": ":question-fill-white:"
+          },
+          {
+            "name": "Search",
+            "value": ":search-white:"
           }
         ],
         "label": "Icon"
@@ -1414,32 +1578,32 @@
         "label": "Title Icon 1",
         "options": [
           {
-            "name": "calculator",
-            "value": ":calculator:"
+            "name": "Calculator (white)",
+            "value": ":calculator-white:"
           },
           {
-            "name": "compare",
-            "value": ":compare:"
+            "name": "Compare (white)",
+            "value": ":compare-white:"
           },
           {
-            "name": "document",
-            "value": ":document:"
+            "name": "Document (white)",
+            "value": ":document-white:"
           },
           {
-            "name": "download",
-            "value": ":download:"
+            "name": "Download (white)",
+            "value": ":download-white:"
           },
           {
-            "name": "friends grey",
+            "name": "Friends (grey)",
             "value": ":friends-grey:"
           },
           {
-            "name": "house fire grey",
+            "name": "House fire (grey)",
             "value": ":house-fire-grey:"
           },
           {
-            "name": "ten percent",
-            "value": ":ten-percent:"
+            "name": "Ten percent (indigo)",
+            "value": ":ten-percent-indigo:"
           }
         ],
         "condition": {
@@ -1458,32 +1622,32 @@
         "label": "Title Icon 2",
         "options": [
           {
-            "name": "calculator",
-            "value": ":calculator:"
+            "name": "Calculator (white)",
+            "value": ":calculator-white:"
           },
           {
-            "name": "compare",
-            "value": ":compare:"
+            "name": "Compare (white)",
+            "value": ":compare-white:"
           },
           {
-            "name": "document",
-            "value": ":document:"
+            "name": "Document (white)",
+            "value": ":document-white:"
           },
           {
-            "name": "download",
-            "value": ":download:"
+            "name": "Download (white)",
+            "value": ":download-white:"
           },
           {
-            "name": "friends grey",
+            "name": "Friends (grey)",
             "value": ":friends-grey:"
           },
           {
-            "name": "house fire grey",
+            "name": "House fire (grey)",
             "value": ":house-fire-grey:"
           },
           {
-            "name": "ten percent",
-            "value": ":ten-percent:"
+            "name": "Ten percent (indigo)",
+            "value": ":ten-percent-indigo:"
           }
         ],
         "condition": {
@@ -1534,32 +1698,32 @@
         "label": "Add'l Description Icon",
         "options": [
           {
-            "name": "calculator",
-            "value": ":calculator:"
+            "name": "Calculator (white)",
+            "value": ":calculator-white:"
           },
           {
-            "name": "compare",
-            "value": ":compare:"
+            "name": "Compare (white)",
+            "value": ":compare-white:"
           },
           {
-            "name": "document",
-            "value": ":document:"
+            "name": "Document (white)",
+            "value": ":document-white:"
           },
           {
-            "name": "download",
-            "value": ":download:"
+            "name": "Download (white)",
+            "value": ":download-white:"
           },
           {
-            "name": "friends grey",
+            "name": "Friends (grey)",
             "value": ":friends-grey:"
           },
           {
-            "name": "house fire grey",
+            "name": "House fire (grey)",
             "value": ":house-fire-grey:"
           },
           {
-            "name": "ten percent",
-            "value": ":ten-percent:"
+            "name": "Ten percent (indigo)",
+            "value": ":ten-percent-indigo:"
           }
         ],
         "condition": {
@@ -1598,32 +1762,32 @@
         "label": "Icon",
         "options": [
           {
-            "name": "calculator",
-            "value": ":calculator:"
+            "name": "Calculator (white)",
+            "value": ":calculator-white:"
           },
           {
-            "name": "compare",
-            "value": ":compare:"
+            "name": "Compare (white)",
+            "value": ":compare-white:"
           },
           {
-            "name": "document",
-            "value": ":document:"
+            "name": "Document (white)",
+            "value": ":document-white:"
           },
           {
-            "name": "download",
-            "value": ":download:"
+            "name": "Download (white)",
+            "value": ":download-white:"
           },
           {
-            "name": "friends grey",
+            "name": "Friends (grey)",
             "value": ":friends-grey:"
           },
           {
-            "name": "house fire grey",
+            "name": "House fire (grey)",
             "value": ":house-fire-grey:"
           },
           {
-            "name": "ten percent",
-            "value": ":ten-percent:"
+            "name": "Ten percent (indigo)",
+            "value": ":ten-percent-indigo:"
           }
         ],
         "condition": {
@@ -1654,32 +1818,32 @@
         "label": "Icon",
         "options": [
           {
-            "name": "calculator",
-            "value": ":calculator:"
+            "name": "Calculator (white)",
+            "value": ":calculator-white:"
           },
           {
-            "name": "compare",
-            "value": ":compare:"
+            "name": "Compare (white)",
+            "value": ":compare-white:"
           },
           {
-            "name": "document",
-            "value": ":document:"
+            "name": "Document (white)",
+            "value": ":document-white:"
           },
           {
-            "name": "download",
-            "value": ":download:"
+            "name": "Download (white)",
+            "value": ":download-white:"
           },
           {
-            "name": "friends grey",
+            "name": "Friends (grey)",
             "value": ":friends-grey:"
           },
           {
-            "name": "house fire grey",
+            "name": "House fire (grey)",
             "value": ":house-fire-grey:"
           },
           {
-            "name": "ten percent",
-            "value": ":ten-percent:"
+            "name": "Ten percent (indigo)",
+            "value": ":ten-percent-indigo:"
           }
         ],
         "condition": {
@@ -1710,32 +1874,32 @@
         "label": "Icon",
         "options": [
           {
-            "name": "calculator",
-            "value": ":calculator:"
+            "name": "Calculator (white)",
+            "value": ":calculator-white:"
           },
           {
-            "name": "compare",
-            "value": ":compare:"
+            "name": "Compare (white)",
+            "value": ":compare-white:"
           },
           {
-            "name": "document",
-            "value": ":document:"
+            "name": "Document (white)",
+            "value": ":document-white:"
           },
           {
-            "name": "download",
-            "value": ":download:"
+            "name": "Download (white)",
+            "value": ":download-white:"
           },
           {
-            "name": "friends grey",
+            "name": "Friends (grey)",
             "value": ":friends-grey:"
           },
           {
-            "name": "house fire grey",
+            "name": "House fire (grey)",
             "value": ":house-fire-grey:"
           },
           {
-            "name": "ten percent",
-            "value": ":ten-percent:"
+            "name": "Ten percent (indigo)",
+            "value": ":ten-percent-indigo:"
           }
         ],
         "condition": {
@@ -1766,32 +1930,32 @@
         "label": "Icon",
         "options": [
           {
-            "name": "calculator",
-            "value": ":calculator:"
+            "name": "Calculator (white)",
+            "value": ":calculator-white:"
           },
           {
-            "name": "compare",
-            "value": ":compare:"
+            "name": "Compare (white)",
+            "value": ":compare-white:"
           },
           {
-            "name": "document",
-            "value": ":document:"
+            "name": "Document (white)",
+            "value": ":document-white:"
           },
           {
-            "name": "download",
-            "value": ":download:"
+            "name": "Download (white)",
+            "value": ":download-white:"
           },
           {
-            "name": "friends grey",
+            "name": "Friends (grey)",
             "value": ":friends-grey:"
           },
           {
-            "name": "house fire grey",
+            "name": "House fire (grey)",
             "value": ":house-fire-grey:"
           },
           {
-            "name": "ten percent",
-            "value": ":ten-percent:"
+            "name": "Ten percent (indigo)",
+            "value": ":ten-percent-indigo:"
           }
         ],
         "condition": {
@@ -1822,32 +1986,32 @@
         "label": "Icon",
         "options": [
           {
-            "name": "calculator",
-            "value": ":calculator:"
+            "name": "Calculator (white)",
+            "value": ":calculator-white:"
           },
           {
-            "name": "compare",
-            "value": ":compare:"
+            "name": "Compare (white)",
+            "value": ":compare-white:"
           },
           {
-            "name": "document",
-            "value": ":document:"
+            "name": "Document (white)",
+            "value": ":document-white:"
           },
           {
-            "name": "download",
-            "value": ":download:"
+            "name": "Download (white)",
+            "value": ":download-white:"
           },
           {
-            "name": "friends grey",
+            "name": "Friends (grey)",
             "value": ":friends-grey:"
           },
           {
-            "name": "house fire grey",
+            "name": "House fire (grey)",
             "value": ":house-fire-grey:"
           },
           {
-            "name": "ten percent",
-            "value": ":ten-percent:"
+            "name": "Ten percent (indigo)",
+            "value": ":ten-percent-indigo:"
           }
         ],
         "condition": {
@@ -2032,27 +2196,27 @@
         "label": "Bullet Icon",
         "options": [
           {
-            "name": "chevron",
+            "name": "Chevron",
             "value": ":chevron-right-teal:"
           },
           {
-            "name": "check",
+            "name": "Check",
             "value": ":check-teal:"
           },
           {
-            "name": "plus",
+            "name": "Plus",
             "value": ":plus-teal:"
           },
           {
-            "name": "triangle",
+            "name": "Triangle",
             "value": ":triangle-right-teal:"
           },
           {
-            "name": "exclamation",
+            "name": "Exclamation",
             "value": ":exclamation-teal:"
           },
           {
-            "name": "question",
+            "name": "Question",
             "value": ":question-teal:"
           }
         ],
@@ -2241,19 +2405,19 @@
             "value": ""
           },
           {
-            "name": "Heading Tooltip",
+            "name": "Heading Tooltip (white)",
             "value": ":question-fill-white:"
           },
           {
-            "name": "Ten Percent Indigo Large",
+            "name": "Ten Percent Large (indigo)",
             "value": ":ten-percent-indigo-large:"
           },
           {
-            "name": "Body Tooltip",
+            "name": "Body Tooltip (teal)",
             "value": ":question-teal:"
           },
           {
-            "name": "Check Teal",
+            "name": "Check (teal)",
             "value": ":check-teal:"
           }
         ]
@@ -2276,19 +2440,19 @@
             "value": ""
           },
           {
-            "name": "Heading Tooltip",
+            "name": "Heading Tooltip (white)",
             "value": ":question-fill-white:"
           },
           {
-            "name": "Ten Percent Indigo Large",
+            "name": "Ten Percent Large (indigo)",
             "value": ":ten-percent-indigo-large:"
           },
           {
-            "name": "Body Tooltip",
+            "name": "Body Tooltip (teal)",
             "value": ":question-teal:"
           },
           {
-            "name": "Check Teal",
+            "name": "Check (teal)",
             "value": ":check-teal:"
           }
         ]
@@ -2364,19 +2528,19 @@
             "value": ""
           },
           {
-            "name": "Heading Tooltip",
+            "name": "Heading Tooltip (white)",
             "value": ":question-fill-white:"
           },
           {
-            "name": "Ten Percent Indigo Large",
+            "name": "Ten Percent Large (indigo)",
             "value": ":ten-percent-indigo-large:"
           },
           {
-            "name": "Body Tooltip",
+            "name": "Body Tooltip (teal)",
             "value": ":question-teal:"
           },
           {
-            "name": "Check Teal",
+            "name": "Check (teal)",
             "value": ":check-teal:"
           }
         ]
@@ -2399,19 +2563,19 @@
             "value": ""
           },
           {
-            "name": "Heading Tooltip",
+            "name": "Heading Tooltip (white)",
             "value": ":question-fill-white:"
           },
           {
-            "name": "Ten Percent Indigo Large",
+            "name": "Ten Percent Large (indigo)",
             "value": ":ten-percent-indigo-large:"
           },
           {
-            "name": "Body Tooltip",
+            "name": "Body Tooltip (teal)",
             "value": ":question-teal:"
           },
           {
-            "name": "Check Teal",
+            "name": "Check (teal)",
             "value": ":check-teal:"
           }
         ]
@@ -2482,19 +2646,19 @@
             "value": ""
           },
           {
-            "name": "Heading Tooltip",
+            "name": "Heading Tooltip (white)",
             "value": ":question-fill-white:"
           },
           {
-            "name": "Ten Percent Indigo Large",
+            "name": "Ten Percent Large (indigo)",
             "value": ":ten-percent-indigo-large:"
           },
           {
-            "name": "Body Tooltip",
+            "name": "Body Tooltip (teal)",
             "value": ":question-teal:"
           },
           {
-            "name": "Check Teal",
+            "name": "Check (teal)",
             "value": ":check-teal:"
           }
         ]
@@ -2517,19 +2681,19 @@
             "value": ""
           },
           {
-            "name": "Heading Tooltip",
+            "name": "Heading Tooltip (white)",
             "value": ":question-fill-white:"
           },
           {
-            "name": "Ten Percent Indigo Large",
+            "name": "Ten Percent Large (indigo)",
             "value": ":ten-percent-indigo-large:"
           },
           {
-            "name": "Body Tooltip",
+            "name": "Body Tooltip (teal)",
             "value": ":question-teal:"
           },
           {
-            "name": "Check Teal",
+            "name": "Check (teal)",
             "value": ":check-teal:"
           }
         ]
@@ -2605,19 +2769,19 @@
             "value": ""
           },
           {
-            "name": "Heading Tooltip",
+            "name": "Heading Tooltip (white)",
             "value": ":question-fill-white:"
           },
           {
-            "name": "Ten Percent Indigo Large",
+            "name": "Ten Percent Large (indigo)",
             "value": ":ten-percent-indigo-large:"
           },
           {
-            "name": "Body Tooltip",
+            "name": "Body Tooltip (teal)",
             "value": ":question-teal:"
           },
           {
-            "name": "Check Teal",
+            "name": "Check (teal)",
             "value": ":check-teal:"
           }
         ]
@@ -2640,19 +2804,19 @@
             "value": ""
           },
           {
-            "name": "Heading Tooltip",
+            "name": "Heading Tooltip (white)",
             "value": ":question-fill-white:"
           },
           {
-            "name": "Ten Percent Indigo Large",
+            "name": "Ten Percent Large (indigo)",
             "value": ":ten-percent-indigo-large:"
           },
           {
-            "name": "Body Tooltip",
+            "name": "Body Tooltip (teal)",
             "value": ":question-teal:"
           },
           {
-            "name": "Check Teal",
+            "name": "Check (teal)",
             "value": ":check-teal:"
           }
         ]
@@ -2723,19 +2887,19 @@
             "value": ""
           },
           {
-            "name": "Heading Tooltip",
+            "name": "Heading Tooltip (white)",
             "value": ":question-fill-white:"
           },
           {
-            "name": "Ten Percent Indigo Large",
+            "name": "Ten Percent Large (indigo)",
             "value": ":ten-percent-indigo-large:"
           },
           {
-            "name": "Body Tooltip",
+            "name": "Body Tooltip (teal)",
             "value": ":question-teal:"
           },
           {
-            "name": "Check Teal",
+            "name": "Check (teal)",
             "value": ":check-teal:"
           }
         ]
@@ -2758,19 +2922,19 @@
             "value": ""
           },
           {
-            "name": "Heading Tooltip",
+            "name": "Heading Tooltip (white)",
             "value": ":question-fill-white:"
           },
           {
-            "name": "Ten Percent Indigo Large",
+            "name": "Ten Percent Large (indigo)",
             "value": ":ten-percent-indigo-large:"
           },
           {
-            "name": "Body Tooltip",
+            "name": "Body Tooltip (teal)",
             "value": ":question-teal:"
           },
           {
-            "name": "Check Teal",
+            "name": "Check (teal)",
             "value": ":check-teal:"
           }
         ]
@@ -2841,19 +3005,19 @@
             "value": ""
           },
           {
-            "name": "Heading Tooltip",
+            "name": "Heading Tooltip (white)",
             "value": ":question-fill-white:"
           },
           {
-            "name": "Ten Percent Indigo Large",
+            "name": "Ten Percent Large (indigo)",
             "value": ":ten-percent-indigo-large:"
           },
           {
-            "name": "Body Tooltip",
+            "name": "Body Tooltip (teal)",
             "value": ":question-teal:"
           },
           {
-            "name": "Check Teal",
+            "name": "Check (teal)",
             "value": ":check-teal:"
           }
         ]
@@ -2876,19 +3040,19 @@
             "value": ""
           },
           {
-            "name": "Heading Tooltip",
+            "name": "Heading Tooltip (white)",
             "value": ":question-fill-white:"
           },
           {
-            "name": "Ten Percent Indigo Large",
+            "name": "Ten Percent Large (indigo)",
             "value": ":ten-percent-indigo-large:"
           },
           {
-            "name": "Body Tooltip",
+            "name": "Body Tooltip (teal)",
             "value": ":question-teal:"
           },
           {
-            "name": "Check Teal",
+            "name": "Check (teal)",
             "value": ":check-teal:"
           }
         ]
@@ -2964,19 +3128,19 @@
             "value": ""
           },
           {
-            "name": "Heading Tooltip",
+            "name": "Heading Tooltip (white)",
             "value": ":question-fill-white:"
           },
           {
-            "name": "Ten Percent Indigo Large",
+            "name": "Ten Percent Large (indigo)",
             "value": ":ten-percent-indigo-large:"
           },
           {
-            "name": "Body Tooltip",
+            "name": "Body Tooltip (teal)",
             "value": ":question-teal:"
           },
           {
-            "name": "Check Teal",
+            "name": "Check (teal)",
             "value": ":check-teal:"
           }
         ]
@@ -2999,19 +3163,19 @@
             "value": ""
           },
           {
-            "name": "Heading Tooltip",
+            "name": "Heading Tooltip (white)",
             "value": ":question-fill-white:"
           },
           {
-            "name": "Ten Percent Indigo Large",
+            "name": "Ten Percent Large (indigo)",
             "value": ":ten-percent-indigo-large:"
           },
           {
-            "name": "Body Tooltip",
+            "name": "Body Tooltip (teal)",
             "value": ":question-teal:"
           },
           {
-            "name": "Check Teal",
+            "name": "Check (teal)",
             "value": ":check-teal:"
           }
         ]
@@ -3082,19 +3246,19 @@
             "value": ""
           },
           {
-            "name": "Heading Tooltip",
+            "name": "Heading Tooltip (white)",
             "value": ":question-fill-white:"
           },
           {
-            "name": "Ten Percent Indigo Large",
+            "name": "Ten Percent Large (indigo)",
             "value": ":ten-percent-indigo-large:"
           },
           {
-            "name": "Body Tooltip",
+            "name": "Body Tooltip (teal)",
             "value": ":question-teal:"
           },
           {
-            "name": "Check Teal",
+            "name": "Check (teal)",
             "value": ":check-teal:"
           }
         ]
@@ -3117,19 +3281,19 @@
             "value": ""
           },
           {
-            "name": "Heading Tooltip",
+            "name": "Heading Tooltip (white)",
             "value": ":question-fill-white:"
           },
           {
-            "name": "Ten Percent Indigo Large",
+            "name": "Ten Percent Large (indigo)",
             "value": ":ten-percent-indigo-large:"
           },
           {
-            "name": "Body Tooltip",
+            "name": "Body Tooltip (teal)",
             "value": ":question-teal:"
           },
           {
-            "name": "Check Teal",
+            "name": "Check (teal)",
             "value": ":check-teal:"
           }
         ]
@@ -3200,19 +3364,19 @@
             "value": ""
           },
           {
-            "name": "Heading Tooltip",
+            "name": "Heading Tooltip (white)",
             "value": ":question-fill-white:"
           },
           {
-            "name": "Ten Percent Indigo Large",
+            "name": "Ten Percent Large (indigo)",
             "value": ":ten-percent-indigo-large:"
           },
           {
-            "name": "Body Tooltip",
+            "name": "Body Tooltip (teal)",
             "value": ":question-teal:"
           },
           {
-            "name": "Check Teal",
+            "name": "Check (teal)",
             "value": ":check-teal:"
           }
         ]
@@ -3235,19 +3399,19 @@
             "value": ""
           },
           {
-            "name": "Heading Tooltip",
+            "name": "Heading Tooltip (white)",
             "value": ":question-fill-white:"
           },
           {
-            "name": "Ten Percent Indigo Large",
+            "name": "Ten Percent Large (indigo)",
             "value": ":ten-percent-indigo-large:"
           },
           {
-            "name": "Body Tooltip",
+            "name": "Body Tooltip (teal)",
             "value": ":question-teal:"
           },
           {
-            "name": "Check Teal",
+            "name": "Check (teal)",
             "value": ":check-teal:"
           }
         ]
@@ -3318,19 +3482,19 @@
             "value": ""
           },
           {
-            "name": "Heading Tooltip",
+            "name": "Heading Tooltip (white)",
             "value": ":question-fill-white:"
           },
           {
-            "name": "Ten Percent Indigo Large",
+            "name": "Ten Percent Large (indigo)",
             "value": ":ten-percent-indigo-large:"
           },
           {
-            "name": "Body Tooltip",
+            "name": "Body Tooltip (teal)",
             "value": ":question-teal:"
           },
           {
-            "name": "Check Teal",
+            "name": "Check (teal)",
             "value": ":check-teal:"
           }
         ]
@@ -3353,19 +3517,19 @@
             "value": ""
           },
           {
-            "name": "Heading Tooltip",
+            "name": "Heading Tooltip (white)",
             "value": ":question-fill-white:"
           },
           {
-            "name": "Ten Percent Indigo Large",
+            "name": "Ten Percent Large (indigo)",
             "value": ":ten-percent-indigo-large:"
           },
           {
-            "name": "Body Tooltip",
+            "name": "Body Tooltip (teal)",
             "value": ":question-teal:"
           },
           {
-            "name": "Check Teal",
+            "name": "Check (teal)",
             "value": ":check-teal:"
           }
         ]
@@ -3441,19 +3605,19 @@
             "value": ""
           },
           {
-            "name": "Heading Tooltip",
+            "name": "Heading Tooltip (white)",
             "value": ":question-fill-white:"
           },
           {
-            "name": "Ten Percent Indigo Large",
+            "name": "Ten Percent Large (indigo)",
             "value": ":ten-percent-indigo-large:"
           },
           {
-            "name": "Body Tooltip",
+            "name": "Body Tooltip (teal)",
             "value": ":question-teal:"
           },
           {
-            "name": "Check Teal",
+            "name": "Check (teal)",
             "value": ":check-teal:"
           }
         ]
@@ -3476,19 +3640,19 @@
             "value": ""
           },
           {
-            "name": "Heading Tooltip",
+            "name": "Heading Tooltip (white)",
             "value": ":question-fill-white:"
           },
           {
-            "name": "Ten Percent Indigo Large",
+            "name": "Ten Percent Large (indigo)",
             "value": ":ten-percent-indigo-large:"
           },
           {
-            "name": "Body Tooltip",
+            "name": "Body Tooltip (teal)",
             "value": ":question-teal:"
           },
           {
-            "name": "Check Teal",
+            "name": "Check (teal)",
             "value": ":check-teal:"
           }
         ]
@@ -3559,19 +3723,19 @@
             "value": ""
           },
           {
-            "name": "Heading Tooltip",
+            "name": "Heading Tooltip (white)",
             "value": ":question-fill-white:"
           },
           {
-            "name": "Ten Percent Indigo Large",
+            "name": "Ten Percent Large (indigo)",
             "value": ":ten-percent-indigo-large:"
           },
           {
-            "name": "Body Tooltip",
+            "name": "Body Tooltip (teal)",
             "value": ":question-teal:"
           },
           {
-            "name": "Check Teal",
+            "name": "Check (teal)",
             "value": ":check-teal:"
           }
         ]
@@ -3594,19 +3758,19 @@
             "value": ""
           },
           {
-            "name": "Heading Tooltip",
+            "name": "Heading Tooltip (white)",
             "value": ":question-fill-white:"
           },
           {
-            "name": "Ten Percent Indigo Large",
+            "name": "Ten Percent Large (indigo)",
             "value": ":ten-percent-indigo-large:"
           },
           {
-            "name": "Body Tooltip",
+            "name": "Body Tooltip (teal)",
             "value": ":question-teal:"
           },
           {
-            "name": "Check Teal",
+            "name": "Check (teal)",
             "value": ":check-teal:"
           }
         ]
@@ -3677,19 +3841,19 @@
             "value": ""
           },
           {
-            "name": "Heading Tooltip",
+            "name": "Heading Tooltip (white)",
             "value": ":question-fill-white:"
           },
           {
-            "name": "Ten Percent Indigo Large",
+            "name": "Ten Percent Large (indigo)",
             "value": ":ten-percent-indigo-large:"
           },
           {
-            "name": "Body Tooltip",
+            "name": "Body Tooltip (teal)",
             "value": ":question-teal:"
           },
           {
-            "name": "Check Teal",
+            "name": "Check (teal)",
             "value": ":check-teal:"
           }
         ]
@@ -3712,19 +3876,19 @@
             "value": ""
           },
           {
-            "name": "Heading Tooltip",
+            "name": "Heading Tooltip (white)",
             "value": ":question-fill-white:"
           },
           {
-            "name": "Ten Percent Indigo Large",
+            "name": "Ten Percent Large (indigo)",
             "value": ":ten-percent-indigo-large:"
           },
           {
-            "name": "Body Tooltip",
+            "name": "Body Tooltip (teal)",
             "value": ":question-teal:"
           },
           {
-            "name": "Check Teal",
+            "name": "Check (teal)",
             "value": ":check-teal:"
           }
         ]
@@ -3795,19 +3959,19 @@
             "value": ""
           },
           {
-            "name": "Heading Tooltip",
+            "name": "Heading Tooltip (white)",
             "value": ":question-fill-white:"
           },
           {
-            "name": "Ten Percent Indigo Large",
+            "name": "Ten Percent Large (indigo)",
             "value": ":ten-percent-indigo-large:"
           },
           {
-            "name": "Body Tooltip",
+            "name": "Body Tooltip (teal)",
             "value": ":question-teal:"
           },
           {
-            "name": "Check Teal",
+            "name": "Check (teal)",
             "value": ":check-teal:"
           }
         ]
@@ -3830,19 +3994,19 @@
             "value": ""
           },
           {
-            "name": "Heading Tooltip",
+            "name": "Heading Tooltip (white)",
             "value": ":question-fill-white:"
           },
           {
-            "name": "Ten Percent Indigo Large",
+            "name": "Ten Percent Large (indigo)",
             "value": ":ten-percent-indigo-large:"
           },
           {
-            "name": "Body Tooltip",
+            "name": "Body Tooltip (teal)",
             "value": ":question-teal:"
           },
           {
-            "name": "Check Teal",
+            "name": "Check (teal)",
             "value": ":check-teal:"
           }
         ]
@@ -3913,19 +4077,19 @@
             "value": ""
           },
           {
-            "name": "Heading Tooltip",
+            "name": "Heading Tooltip (white)",
             "value": ":question-fill-white:"
           },
           {
-            "name": "Ten Percent Indigo Large",
+            "name": "Ten Percent Large (indigo)",
             "value": ":ten-percent-indigo-large:"
           },
           {
-            "name": "Body Tooltip",
+            "name": "Body Tooltip (teal)",
             "value": ":question-teal:"
           },
           {
-            "name": "Check Teal",
+            "name": "Check (teal)",
             "value": ":check-teal:"
           }
         ]
@@ -3948,19 +4112,19 @@
             "value": ""
           },
           {
-            "name": "Heading Tooltip",
+            "name": "Heading Tooltip (white)",
             "value": ":question-fill-white:"
           },
           {
-            "name": "Ten Percent Indigo Large",
+            "name": "Ten Percent Large (indigo)",
             "value": ":ten-percent-indigo-large:"
           },
           {
-            "name": "Body Tooltip",
+            "name": "Body Tooltip (teal)",
             "value": ":question-teal:"
           },
           {
-            "name": "Check Teal",
+            "name": "Check (teal)",
             "value": ":check-teal:"
           }
         ]

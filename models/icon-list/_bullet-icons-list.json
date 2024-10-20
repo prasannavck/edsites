@@ -1,27 +1,27 @@
 {
   "options": [
     {
-      "name": "chevron",
+      "name": "Chevron",
       "value": ":chevron-right-teal:"
     },
     {
-      "name": "check",
+      "name": "Check",
       "value": ":check-teal:"
     },
     {
-      "name": "plus",
+      "name": "Plus",
       "value": ":plus-teal:"
     },
     {
-      "name": "triangle",
+      "name": "Triangle",
       "value": ":triangle-right-teal:"
     },
     {
-      "name": "exclamation",
+      "name": "Exclamation",
       "value": ":exclamation-teal:"
     },
     {
-      "name": "question",
+      "name": "Question",
       "value": ":question-teal:"
     }
   ]

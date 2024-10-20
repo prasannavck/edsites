@@ -5,19 +5,19 @@
       "value": ""
     },
     {
-      "name": "Heading Tooltip",
+      "name": "Heading Tooltip (white)",
       "value": ":question-fill-white:"
     },
     {
-      "name": "Ten Percent Indigo Large",
+      "name": "Ten Percent Large (indigo)",
       "value": ":ten-percent-indigo-large:"
     },
     {
-      "name": "Body Tooltip",
+      "name": "Body Tooltip (teal)",
       "value": ":question-teal:"
     },
     {
-      "name": "Check Teal",
+      "name": "Check (teal)",
       "value": ":check-teal:"
     }
   ]
