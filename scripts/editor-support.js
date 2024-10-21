@@ -153,4 +153,6 @@ function attachEventListners(main) {
   main?.addEventListener('aue:ui-select', handleSelection);
 }
 
+window.hlx.aemRoot = 'content/terrischeer/';
+
 attachEventListners(document.querySelector('main'));

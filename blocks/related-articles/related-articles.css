@@ -1,0 +1,30 @@
+.block.related-articles {
+  display: flex;
+  flex-direction: column;
+}
+
+.block.related-articles .related-article {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--teal-mid-light);
+  padding-bottom: 1rem;
+}
+
+.block.related-articles .article-title {
+  font-size: var(--heading-font-size-ml);
+  font-weight: var(--font-weight-normal);
+}
+
+.block.related-articles .article-descr {
+  line-height: 1.3em;
+  margin-top: 0;
+}
+
+.block.related-articles .related-articles-title {
+  font-size: var(--heading-font-size-l);
+  color: var(--teal);
+}
+
+.block.related-articles .article-title img {
+  width: 100%;
+}

@@ -135,9 +135,7 @@ function buildAutoBlocks(main) {
 }
 
 function buildSidebar(section) {
-  if (section.dataset
-    && section.dataset.addSidebar === 'true'
-    && section.dataset.sidebarLink) {
+  if (section.dataset && section.dataset.addSidebar === 'true' && section.dataset.sidebarLink) {
     const href = section.dataset.sidebarLink;
     const a = document.createElement('a');
     a.href = href.replace(/^.*\/\/[^/]+/, '');
@@ -257,7 +255,6 @@ async function loadLazy(doc) {
 
   loadHeader(doc.querySelector('header'));
   loadFooter(doc.querySelector('footer'));
-
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
 }
@@ -312,4 +309,25 @@ async function loadPage() {
   loadDelayed();
 }
 
+/**
+ * Helper function that converts an AEM path into an EDS path.
+ */
+export function getEDSLink(aemPath) {
+  return window.hlx.aemRoot
+    ? aemPath.replace(window.hlx.aemRoot, '').replace('.html', '').replace('/index', '/')
+    : aemPath;
+}
+
+/**
+ * Helper function that adapts the path to work on EDS and AEM rendering
+ */
+export function getLink(edsPath) {
+  return window.hlx.aemRoot
+    && !edsPath.startsWith(window.hlx.aemRoot)
+    && edsPath.indexOf('.html') === -1
+    ? `${window.hlx.aemRoot}${edsPath}.html`
+    : edsPath;
+}
+
+window.hlx.aemRoot = '/content/terrischeer';
 loadPage();

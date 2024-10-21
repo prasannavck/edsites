@@ -28,6 +28,7 @@
       "table",
       "claims-process",
       "textandbox",
+      "related-articles",
       "boxes",
       "styled-lists"
     ]
@@ -99,6 +100,12 @@
     "id": "policy-documents",
     "components": [
       "policy-document-group"
+    ]
+  },
+  {
+    "id": "related-articles",
+    "components": [
+      "related-article"
     ]
   },
   {

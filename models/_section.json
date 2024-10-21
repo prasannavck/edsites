@@ -103,7 +103,7 @@
           "component": "text",
           "name": "tab-name",
           "label": "Tab Name",
-          "condition": { "===": [{"var" : "is-tab"}, true] }
+          "condition": { "===": [{ "var": "is-tab" }, true] }
         },
         {
           "component": "boolean",
@@ -193,6 +193,7 @@
         "table",
         "claims-process",
         "textandbox",
+        "related-articles",
         "boxes",
         "styled-lists"
       ]
