@@ -1,9 +1,9 @@
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
+import { openSearchBar } from '../../scripts/blocks-utils.js';
 
-const DROPDOWN_ICON = `${window.hlx.codeBasePath}/icons/chevron-down-black.svg`;
+const DROPDOWN_ICON = `${window.hlx.codeBasePath}/icons/chevron-down-teal.svg`;
 const HAMBURGER_ICON = `${window.hlx.codeBasePath}/icons/hamburger-white.svg`;
-const REMOVE_ICON = `${window.hlx.codeBasePath}/icons/remove-light.svg`;
 
 /**
  * Handles menu dropdown menu keyboard interaction
@@ -72,18 +72,16 @@ function enableMenuExpanding(menu) {
 }
 
 /**
- * Toggles the search bar
- * @param {Element} searchBar The search bar container element
- * @param {Element} searchButton The desktop menu section search icon
+ * Toggles the search button visibility
  */
-function toggleSearch(searchBar, searchButton) {
-  const expanded = searchBar.querySelector('.nav-search-bar-inner').getAttribute('aria-expanded');
-  searchBar.querySelector('.nav-search-bar-inner').setAttribute('aria-expanded', expanded === 'true' ? 'false' : 'true');
-  if (expanded !== 'true') {
-    searchButton.style.visibility = 'hidden';
-    searchBar.querySelector('input').focus();
-  } else {
+function toggleSearchButton(searchButton) {
+  const expanded = searchButton.getAttribute('aria-expanded') || 'false';
+  if (expanded === 'true') {
     searchButton.style.visibility = 'visible';
+    searchButton.setAttribute('aria-expanded', 'false');
+  } else {
+    searchButton.style.visibility = 'hidden';
+    searchButton.setAttribute('aria-expanded', 'true');
   }
 }
 
@@ -177,6 +175,11 @@ function buildMobileActionButtons(mobileActions, searchIcon, contactIcon, contac
   mobileActions.appendChild(hamburger);
 }
 
+function handleSearchButtonClick(button) {
+  toggleSearchButton(button);
+  openSearchBar(toggleSearchButton, button);
+}
+
 /**
  * Loads and decorates the header
  * @param {Element} block The header block element
@@ -220,23 +223,7 @@ export default async function decorate(block) {
   /* Search section */
   const searchSection = nav.querySelector('.nav-search');
   const searchIcon = searchSection.querySelector('span');
-  const searchPlaceholderText = searchSection.querySelector('p:not(:has(span))').textContent;
   searchSection.remove();
-  const searchBar = document.createElement('div');
-  searchBar.classList.add('nav-search-bar');
-  searchBar.innerHTML = `
-    <div class="nav-search-bar-inner header-section" aria-expanded="false">
-      <form class="search-bar-form">
-        <button class="search-icon"></button>
-        <label for="search-field">Search in https://www.terrischeer.com.au/</label>
-        <input type="text" id="search-field" value="" placeholder="${searchPlaceholderText}">
-      </form>
-      <button type="button" id="search-close">
-        <img src="${REMOVE_ICON}" alt="Close search field"/>
-      </button>
-    </div>
-  `;
-  searchBar.querySelector('.search-icon').append(searchIcon);
 
   /* Desktop menu section */
   const navDesktopMenu = nav.querySelector('.nav-desktop-menu');
@@ -254,12 +241,7 @@ export default async function decorate(block) {
     });
   }
 
-  searchButton.addEventListener('click', () => {
-    toggleSearch(searchBar, searchButton);
-  });
-  searchBar.querySelector('#search-close').addEventListener('click', () => {
-    toggleSearch(searchBar, searchButton);
-  });
+  searchButton.addEventListener('click', () => handleSearchButtonClick(searchButton));
 
   /* Mobile menu section */
   const navMobileMenu = nav.querySelector('.nav-mobile-menu');
@@ -281,9 +263,8 @@ export default async function decorate(block) {
   const hamburger = mobileActions.querySelector('.nav-mobile-action-hamburger');
   hamburger.addEventListener('click', () => toggleMenu(hamburger, navMobileMenu));
   const search = mobileActions.querySelector('.nav-mobile-action-search');
-  search.querySelector('button').addEventListener('click', () => {
-    toggleSearch(searchBar, searchButton);
-  });
+  const mobileSearchButton = search.querySelector('button');
+  mobileSearchButton.addEventListener('click', () => handleSearchButtonClick(mobileSearchButton));
   nav.append(mobileActions);
 
   const navWrapper = document.createElement('div');
@@ -292,5 +273,4 @@ export default async function decorate(block) {
   block.append(navWrapper);
   block.append(navDesktopMenu);
   block.append(navMobileMenu);
-  block.append(searchBar);
 }

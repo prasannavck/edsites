@@ -56,7 +56,7 @@ export default async function decorate(block) {
   const pageTitle = createPageTitle(title);
   const container = createElement('div', 'page-title-container');
   container.append(pageTitle);
-  if (flag.innerText === 'true') {
+  if (flag?.innerText === 'true') {
     const categoryMenu = createCategoryMenu(dropdownTitle, dropdownList);
     container.append(categoryMenu);
   }

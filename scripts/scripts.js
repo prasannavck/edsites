@@ -108,6 +108,28 @@ function decorateSectionTableList(main) {
   });
 }
 
+function buildSearchBlock() {
+  const main = document.querySelector('main');
+  const searchParams = new URLSearchParams(window.location.search);
+  const searchQuery = searchParams.get('s');
+  if (!main.querySelector('.search')) {
+    const searchSection = document.createElement('div');
+    searchSection.classList.add('section', 'full-width');
+    searchSection.innerHTML = '<div class="search"></div>';
+    main.prepend(searchSection);
+  }
+  if (searchQuery) {
+    main.classList.add('search-page');
+    if (!main.querySelector('.page-title')) {
+      const pageTitleSection = document.createElement('div');
+      pageTitleSection.classList.add('section', 'full-width');
+      const h1 = document.createElement('h1');
+      pageTitleSection.append(buildBlock('page-title', { elems: [h1] }));
+      main.prepend(pageTitleSection);
+    }
+  }
+}
+
 /**
  * load fonts.css and set a session storage flag
  */
@@ -127,7 +149,7 @@ async function loadFonts() {
 // eslint-disable-next-line no-unused-vars
 function buildAutoBlocks(main) {
   try {
-    // eslint-disable-next-line no-empty
+    buildSearchBlock();
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);

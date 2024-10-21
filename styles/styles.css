@@ -18,11 +18,15 @@
 
   /* mono palette */
   --white: white;
+  --white-smoke: #f5f5f5;
+  --desert-storm: #f1f1f0;
   --snow-white: #fafafa;
   --gray-lightest: #f5f5f5;
   --gray-light: #e5e5e5;
   --gray: #e0e0e0;
+  --gray-misty: #ccc;
   --gray-dark: #bbb;
+  --gray-darker: #a8a8a8;
   --black: black;
 
   /* brand palette */
@@ -350,7 +354,8 @@ main .section {
 
 main .section,
 footer .footer,
-header .header-section {
+header .header-section,
+main .section .search {
   margin-right: auto;
   margin-left: auto;
   padding-left: 0.9375rem;
@@ -384,14 +389,19 @@ main div.sidebar:not(.mobile-view) {
   display: none;
 }
 
-main .section:has(.sidebar) .sidebar > .section {
+main.search-page .section:not(.search-container, .search-results-container, .page-title-container) {
+  display: none;
+}
+
+main .section:has(.sidebar) .sidebar > .section { 
   padding: 0;
 }
 
 @media (width >= 48rem) {
   main .section,
   footer .footer,
-  header .header-section {
+  header .header-section,
+  main .section .search {
     max-width: 45.25rem;
   }
 
@@ -420,7 +430,8 @@ main .section:has(.sidebar) .sidebar > .section {
 @media (width >= 62rem) {
   main .section,
   footer .footer,
-  header .header-section {
+  header .header-section,
+  main .section .search {
     max-width: 61.875rem;
   }
 
@@ -445,7 +456,8 @@ main .section:has(.sidebar) .sidebar > .section {
 @media (width >= 75rem) {
   main .section,
   footer .footer,
-  header .header-section {
+  header .header-section,
+  main .section .search {
     max-width: 76.875rem;
   }
 
