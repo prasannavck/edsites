@@ -140,8 +140,12 @@ export default function decorate(block) {
   });
   ul.querySelectorAll('picture > img').forEach((img) => {
     const optimizedPic = createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]);
-    moveInstrumentation(img, optimizedPic.querySelector('img'));
+    const optimisedImg = optimizedPic.querySelector('img');
+    moveInstrumentation(img, optimisedImg);
     img.closest('picture').replaceWith(optimizedPic);
+    optimisedImg.onload = () => {
+      optimisedImg.style.minHeight = '0';
+    };
   });
 
   ul.querySelectorAll('li').forEach((li) => {
