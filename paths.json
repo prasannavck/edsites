@@ -3,7 +3,8 @@
     "/content/terrischeer/:/", 
     "/content/dam/assets/:/assets/",
     "/content/terrischeer/metadata:/metadata.json",
-    "/content/terrischeer/placeholders:/placeholders.json"
+    "/content/terrischeer/placeholders:/placeholders.json",
+    "/content/terrischeer/category-mapping:/category-mapping.json"
   ],
     "includes": [
       "/content/terrischeer",
