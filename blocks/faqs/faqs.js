@@ -17,12 +17,13 @@ function addEvent(faqTitle, placeholders) {
 export default async function decorate(block) {
   const placeholders = await fetchPlaceholders();
   const faqPanel = createElement('div', 'faq-panel');
-  [...block.children].forEach((row) => {
+  [...block.children].forEach((row, index) => {
     // decorate faq item label
     const label = row.children[0];
     const faqTitle = createElement('div', 'faq-title');
     const faqTitleLeft = createElement('div', 'faq-title-left');
     const toggle = createElement('div', 'faq-title-right');
+    const anchorId = row.children[2]?.textContent || `faq-${index}`;
     toggle.textContent = `${placeholders.showdetail}`;
     faqTitleLeft.append(...label.childNodes);
     faqTitle.append(faqTitleLeft);
@@ -36,6 +37,12 @@ export default async function decorate(block) {
     contentPanel.append(contentWrapper);
     content.append(contentPanel);
     const faqItem = createElement('div', 'faq-item');
+    faqItem.id = anchorId;
+    // open the faq item when anchor id matches
+    if (window.location.hash.substring(1) === anchorId) {
+      faqItem.classList.add('visible');
+      toggle.textContent = `${placeholders.hidedetail}`;
+    }
     moveInstrumentation(row, faqItem);
     faqItem.append(faqTitle, content);
     faqPanel.append(faqItem);

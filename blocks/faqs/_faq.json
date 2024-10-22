@@ -54,6 +54,13 @@
           "value": "",
           "label": "Text",
           "valueType": "string"
+        },
+        {
+          "component": "text",
+          "name": "faq_anchor_link",
+          "value": "",
+          "label": "Anchor Link",
+          "valueType": "string"
         }
       ]
     }
