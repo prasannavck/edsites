@@ -94,7 +94,25 @@
     margin-left: 1.25rem;
 }
 
-.rich-text.check-teal ul {
+.rich-text.icon-tick ul {
+    padding-left: 0;
+    margin-left: 0;
+    list-style-type: none;
+    padding-top: 0.625rem;
+    max-width: 58.75rem;
+    display: block;
+}
+
+.rich-text.arrow-bullet-teal ul {
+    padding-left: 0;
+    margin-left: 0;
+    list-style-type: none;
+    padding-top: 0.625rem;
+    max-width: 58.75rem;
+    display: block;
+}
+
+.rich-text.icon-exclamation ul {
     padding-left: 0;
     margin-left: 0;
     list-style-type: none;
