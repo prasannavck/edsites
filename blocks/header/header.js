@@ -2,7 +2,7 @@ import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 import { openSearchBar } from '../../scripts/blocks-utils.js';
 
-const DROPDOWN_ICON = `${window.hlx.codeBasePath}/icons/chevron-down-teal.svg`;
+const DROPDOWN_ICON = `${window.hlx.codeBasePath}/icons/chevron-down-black.svg`;
 const HAMBURGER_ICON = `${window.hlx.codeBasePath}/icons/hamburger-white.svg`;
 
 /**
