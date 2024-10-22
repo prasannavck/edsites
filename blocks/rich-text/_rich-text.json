@@ -31,7 +31,7 @@
         {
           "component": "multiselect",
           "valueType": "string",
-          "name": "heading-color",
+          "name": "text-color",
           "label": "Color",
           "options": [
             {
@@ -115,7 +115,7 @@
             },
             {
               "name": "Left padding",
-              "value": "line-space"
+              "value": "left-padding"
             }
           ]
         }

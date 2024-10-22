@@ -8,7 +8,7 @@ const RICHTEXT_PRESET_OPTIONS = [
   'small-font',
   'small-h3',
   'bottom-border',
-  'line-space',
+  'left-padding',
   'backgroundcolor-teal',
 ];
 export default async function decorate(block) {
