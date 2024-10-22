@@ -2218,6 +2218,126 @@
     ]
   },
   {
+    "id": "rich-text",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "rich-text-content",
+        "label": "Text",
+        "value": ""
+      },
+      {
+        "component": "multiselect",
+        "valueType": "string",
+        "name": "heading-color",
+        "label": "Color",
+        "options": [
+          {
+            "name": "h1 black",
+            "value": "h1-black"
+          },
+          {
+            "name": "h2 black",
+            "value": "h2-black"
+          },
+          {
+            "name": "h3 black",
+            "value": "h3-black"
+          },
+          {
+            "name": "h4 black",
+            "value": "h4-black"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "text_font",
+        "label": "Font",
+        "options": [
+          {
+            "name": "Default",
+            "value": "default-font"
+          },
+          {
+            "name": "Big",
+            "value": "big-font"
+          },
+          {
+            "name": "Small",
+            "value": "small-font"
+          },
+          {
+            "name": "Thin",
+            "value": "thin-font"
+          },
+          {
+            "name": "Small h3",
+            "value": "small-h3"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "list_style",
+        "label": "List Style",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Check",
+            "value": ":icon-tick:"
+          },
+          {
+            "name": "Arrow",
+            "value": ":arrow-bullet-teal:"
+          },
+          {
+            "name": "Exclamation",
+            "value": ":icon-exclamation:"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "background_color",
+        "label": "Background Color",
+        "options": [
+          {
+            "name": "Default",
+            "value": "default-color"
+          },
+          {
+            "name": "Set background color to teal",
+            "value": "backgroundcolor-teal"
+          }
+        ]
+      },
+      {
+        "component": "multiselect",
+        "valueType": "string",
+        "name": "miscellaneous",
+        "label": "Others",
+        "options": [
+          {
+            "name": "Bottom Border",
+            "value": "bottom-border"
+          },
+          {
+            "name": "Left padding",
+            "value": "line-space"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "styled-lists",
     "fields": [
       {
