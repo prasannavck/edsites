@@ -383,6 +383,14 @@ main .section > div:not(:last-child) {
   margin-bottom: 1.5625rem; /* Add space between child divs to give margin between blocks */
 }
 
+main .section.border-bottom:not(.no-border-mobile) {
+  border-bottom: 1px solid var(--light-color);
+}
+
+main .section.no-padding-top {
+  padding-top: 0;
+}
+
 /* tabs style */
 main .tabs-group > .section {
   padding: 0;
@@ -428,6 +436,10 @@ main .section:has(.sidebar) .sidebar > .section {
     width: 32%;
     right: 0.9375rem;
     top: 2.3rem;
+  }
+
+  main .section.border-bottom {
+    border-bottom: 1px solid var(--light-color);
   }
 }
 
@@ -520,7 +532,6 @@ main .section.centered-title .default-content-wrapper strong {
   color: var(--teal);
 }
 
-/* mobile-specific section styles */
 @media (width >= 48rem) {
   main .section.benefits-background-plain {
     padding-block: 3.125rem; /* 50px */

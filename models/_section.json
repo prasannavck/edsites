@@ -77,8 +77,21 @@
               "name": "Border",
               "children": [
                 {
-                  "name": "Top",
-                  "value": "border-top"
+                  "name": "Add Bottom Border",
+                  "value": "border-bottom"
+                },
+                {
+                  "name": "No Border In mobile",
+                  "value": "no-border-mobile"
+                }
+              ]
+            },
+            {
+              "name": "Padding",
+              "children": [
+                {
+                  "name": "Remove Top Padding",
+                  "value": "no-padding-top"
                 }
               ]
             },
