@@ -176,14 +176,14 @@
 }
 
 .policy-documents .prev-versions {
-  max-height: 0;
+  height: 0;
   opacity: 0;
   overflow: hidden;
   background-color: var(--gray-lightest);
   padding: 1rem;
   margin-top: -2rem;
   transition: 0.4s cubic-bezier(.25,0,0,1);
-  transform: scale(0.9);
+  transform: scale(0.9) translate(-1rem, -1rem);
   position: relative;
   z-index: -100;
 }
@@ -196,8 +196,9 @@
   display: block;
   margin-top: 0;
   opacity: 1;
-  max-height: 25rem;
+  height: max-content;
   transform: scale(1);
+  z-index: 0;
 }
 
 @media (width >= 62rem) {
