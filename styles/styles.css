@@ -282,7 +282,9 @@ main button:focus {
 
 /* orange button */
 main a.button.orange,
-main button.orange {
+main button.orange,
+main a.button.primary,
+main button.primary {
   color: var(--white);
   border: 1px solid var(--orange-btn);
   background: var(--orange-btn);
@@ -291,8 +293,12 @@ main button.orange {
 
 main a.button.orange:any-link:hover,
 main a.button.orange:any-link:focus,
+main a.button.primary:any-link:hover,
+main a.button.primary:any-link:focus,
 main button.orange:hover,
-main button.orange:focus {
+main button.orange:focus,
+main button.primary:hover,
+main button.primary:focus {
   cursor: pointer;
   background: var(--orange-btn-dark);
   background: linear-gradient(var(--orange-btn-dark), var(--orange-btn-light));
@@ -300,7 +306,9 @@ main button.orange:focus {
 
 /* dark button */
 main a.button.dark,
-main button.dark {
+main button.dark,
+main a.button.secondary,
+main button.secondary {
   color: var(--white);
   border: 1px solid var(--dark-btn);
   background: var(--dark-btn);
@@ -309,8 +317,12 @@ main button.dark {
 
 main a.button.dark:any-link:hover,
 main a.button.dark:any-link:focus,
+main a.button.secondary:any-link:hover,
+main a.button.secondary:any-link:focus,
 main button.dark:hover,
-main button.dark:focus {
+main button.dark:focus,
+main button.secondary:hover,
+main button.secondary:focus {
   cursor: pointer;
   background: var(--dark-btn-dark);
   background: linear-gradient(var(--dark-btn-dark), var(--black));
