@@ -14,18 +14,20 @@ function decorateDocGroup(groupEl, category1Name, category2Name) {
   }
   groupEl.children[0].remove();
 
+  groupEl.children[0].classList.add('category-1');
+  groupEl.children[1].classList.add('category-2');
   // Body
   if (groupEl.children[1].textContent.trim() !== '') {
     // Category 2 field contains content, thus filtering by categorisation is possible
-    groupEl.children[0].classList.add('category-1');
     const category1Title = document.createElement('h3');
     category1Title.textContent = category1Name;
     groupEl.children[0].prepend(category1Title);
 
-    groupEl.children[1].classList.add('category-2');
     const category2Title = document.createElement('h3');
     category2Title.textContent = category2Name;
     groupEl.children[1].prepend(category2Title);
+  } else {
+    groupEl.children[0].classList.add('always-show');
   }
   const docGroupBody = document.createElement('div');
   docGroupBody.classList.add('doc-group-body');
