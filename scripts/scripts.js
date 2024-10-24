@@ -17,6 +17,8 @@ import {
   getMetadata,
 } from './aem.js';
 
+const ARTICLE_BASE = 'landlord-resources';
+
 function createTabButton(tabName, tabSection) {
   const tabButton = document.createElement('button');
   tabButton.className = 'tab-link';
@@ -143,6 +145,53 @@ async function loadFonts() {
 }
 
 /**
+ *
+ * @param {Element} section
+ * @param {String} category
+ */
+function addCategoryTags(section, categories) {
+  const tagIcon = document.createElement('img');
+  const tagsWrapper = document.createElement('div');
+  tagsWrapper.append(tagIcon);
+
+  for (let i = 0; i < categories.length; i += 1) {
+    const categoryTag = document.createElement('a');
+    const categoryID = categories[i]['category-id'];
+    const categoryText = categories[i]['category-title'];
+    categoryTag.href = `/${ARTICLE_BASE}/${categoryID}`;
+    categoryTag.classList.add('news-tag');
+    categoryTag.textContent = categoryText;
+    tagsWrapper.append(categoryTag);
+  }
+
+  tagsWrapper.classList.add('tags-wrapper');
+
+  tagIcon.src = `${window.hlx.codeBasePath}/icons/tag.svg`;
+  tagIcon.alt = 'tag icon';
+
+  section.append(tagsWrapper);
+}
+
+/**
+ *
+ * @param {Element} doc
+ * @param {String} href
+ */
+function loadArticleTags(doc, href) {
+  const url = `${window.hlx.codeBasePath}/category-mapping.json`;
+  fetch(url)
+    .then((response) => response.json())
+    .then((mapping) => {
+      const categories = mapping.data;
+      const baseCategory = categories.find((cat) => cat['category-id'] === ARTICLE_BASE);
+      if (baseCategory) baseCategory['category-id'] = '';
+      const filteredCategories = categories.filter((cat) => href.includes(`${ARTICLE_BASE}/${cat['category-id']}`));
+
+      addCategoryTags(doc, filteredCategories);
+    });
+}
+
+/**
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
  */
@@ -153,6 +202,14 @@ function buildAutoBlocks(main) {
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
+  }
+}
+
+function addCategoryTagToArticle() {
+  const regex = new RegExp(`.*/${ARTICLE_BASE}/.*/.*`);
+
+  if (regex.test(window.location.pathname) && !document.querySelector('main .tags-wrapper')) {
+    loadArticleTags(document.querySelector('main .section'), window.location.href);
   }
 }
 
@@ -215,6 +272,7 @@ export function decorateMain(main) {
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
+  addCategoryTagToArticle(main);
   decorateBlocks(main);
   decorateSectionTabs(main);
   decorateSectionTableList(main);
@@ -352,4 +410,5 @@ export function getLink(edsPath) {
 }
 
 window.hlx.aemRoot = '/content/terrischeer';
+
 loadPage();

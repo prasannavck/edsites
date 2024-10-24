@@ -44,7 +44,9 @@
   --pale-aqua: #cdecef;
   --teal-blue: #4f7faa;
   --sky-blue: #6199bc;
-  --dark-shade:#4a5a6a;
+  --text-light-gray: #a8a8a8;
+  --background-light-gray: #f3f3f3;
+  --dark-shade: #4a5a6a;
   --light-grey: #d0d0d0;
   --dark-grayish-blue: #8c8e90;
   --taupe-gray: #888;
@@ -417,7 +419,7 @@ main.search-page .section:not(.search-container, .search-results-container, .pag
   display: none;
 }
 
-main .section:has(.sidebar) .sidebar > .section { 
+main .section:has(.sidebar) .sidebar > .section {
   padding: 0;
 }
 
@@ -659,6 +661,33 @@ main .tooltip-content::after {
 main .tooltip:hover .tooltip-content {
   visibility: visible;
   opacity: 1;
+}
+
+main .tags-wrapper {
+  display: flex;
+  gap: 0.3rem;
+}
+
+main .tags-wrapper .news-tag {
+  padding: 0.2em 0.4rem;
+  background-color: var(--background-light-gray);
+  border-radius: 3px;
+  color: var(--text-light-gray);
+  cursor: pointer;
+  font-size: var(--body-font-size-s);
+}
+
+main .tags-wrapper .news-tag:hover {
+  background-color: var(--teal);
+  color: var(--white);
+  text-decoration: none;
+}
+
+main .tags-wrapper img {
+  height: 0.9rem;
+  width: 0.9rem;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 /* tooltip end */
