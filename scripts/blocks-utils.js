@@ -36,9 +36,25 @@ function closeSearchBar() {
   searchCb.cb(searchCb.arg);
 }
 
+/**
+ * Add click listener to open external link in a new window
+ * @param link
+ */
+function addGenericLinkClickListener(link) {
+  link.addEventListener('click', (event) => {
+    const url = link.href;
+    const isExternal = url.startsWith('http') && !url.includes(window.location.hostname);
+    if (isExternal) {
+      event.preventDefault();
+      window.open(`${url}`, '_blank');
+    }
+  });
+}
+
 export {
   // eslint-disable-next-line import/prefer-default-export
   createElement,
   openSearchBar,
   closeSearchBar,
+  addGenericLinkClickListener,
 };

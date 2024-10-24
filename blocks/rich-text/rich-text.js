@@ -1,3 +1,5 @@
+import { addGenericLinkClickListener } from '../../scripts/blocks-utils.js';
+
 const RICHTEXT_PRESET_OPTIONS = [
   'h1-black',
   'h2-black',
@@ -10,6 +12,11 @@ const RICHTEXT_PRESET_OPTIONS = [
   'bottom-border',
   'left-padding',
   'backgroundcolor-teal',
+  'backgroundcolor-teal-mid-light',
+  'left-aligned',
+  'center-aligned',
+  'right-aligned',
+  'cta-button',
 ];
 export default async function decorate(block) {
   const blockOptions = block.querySelectorAll(':scope > div > div');
@@ -35,4 +42,11 @@ export default async function decorate(block) {
   block.classList.add(...blockSettings, 'block');
   block.textContent = '';
   block.replaceChildren(text);
+
+  if (block.classList.contains('cta-button')) {
+    block.querySelectorAll('.button')?.forEach((button) => {
+      button.classList.add('orange');
+      addGenericLinkClickListener(button);
+    });
+  }
 }

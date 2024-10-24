@@ -29,6 +29,26 @@
           "value": ""
         },
         {
+          "component": "select",
+          "valueType": "string",
+          "name": "alignment",
+          "label": "Align Content",
+          "options": [
+            {
+              "name": "Left",
+              "value": "left-aligned"
+            },
+            {
+              "name": "Center",
+              "value": "center-aligned"
+            },
+            {
+              "name": "Right",
+              "value": "right-aligned"
+            }
+          ]
+        },
+        {
           "component": "multiselect",
           "valueType": "string",
           "name": "text-color",
@@ -98,8 +118,12 @@
               "value": "default-color"
             },
             {
-              "name": "Set background color to teal",
+              "name": "Teal",
               "value": "backgroundcolor-teal"
+            },
+            {
+              "name": "Teal Mid Light",
+              "value": "backgroundcolor-teal-mid-light"
             }
           ]
         },
@@ -116,6 +140,10 @@
             {
               "name": "Left padding",
               "value": "left-padding"
+            },
+            {
+              "name": "CTA Button",
+              "value": "cta-button"
             }
           ]
         }

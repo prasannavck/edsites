@@ -1,3 +1,18 @@
+.rich-text {
+    display: flex;
+}
+
+/* margin collapse */
+.rich-text > div > :first-child,
+.rich-text > div > div > :first-child { /* UE has extra div for rich text */
+    margin-top: 0;
+}
+
+.rich-text > div > :last-child,
+.rich-text > div > div > :last-child {  /* UE has extra div for rich text */
+    margin-bottom: 0;
+}
+
 .rich-text.bottom-border {
     margin-bottom: 1.25rem;
     border: 0;
@@ -7,6 +22,21 @@
 
 .rich-text.left-padding {
     padding-left: 2.5rem;
+}
+
+.rich-text.left-aligned {
+    justify-content: left;
+    text-align: left;
+}
+
+.rich-text.center-aligned {
+    justify-content: center;
+    text-align: center;
+}
+
+.rich-text.right-aligned {
+    justify-content: right;
+    text-align: right;
 }
 
 .rich-text p {
@@ -143,19 +173,27 @@
     background: url('../../images/icon-exclamation.png') 0 0.1875rem no-repeat;
 }
 
-.rich-text.backgroundcolor-teal {
+.rich-text[class*="backgroundcolor-"] {
     margin-bottom: 1.25rem;
     padding: 1.25rem;
     background: var(--teal-light);
 }
 
-.rich-text.backgroundcolor-teal p {
+.rich-text.backgroundcolor-teal {
+    background: var(--teal-light);
+}
+
+.rich-text.backgroundcolor-teal-mid-light {
+    background: var(--teal-mid-light);
+}
+
+.rich-text[class*="backgroundcolor-"] p {
     margin-top: 0.625rem;
     font-size: 0.75rem;
     line-height: 1rem;
 }
 
-.rich-text.backgroundcolor-teal h4 {
+.rich-text[class*="backgroundcolor-"] h4 {
     font-size: 0.75rem;
     line-height: 0.75rem;
     margin: 0 0 0.625rem;
@@ -163,18 +201,24 @@
     color: var(--dark-color);
 }
 
+.rich-text.cta-button .button {
+    max-width: 12.5rem;
+    font-size: 1.125rem;
+    margin-top: 1rem;
+}
+
 @media (width >= 48rem) {
-    .rich-text.backgroundcolor-teal {
+    .rich-text[class*="backgroundcolor-"] {
         margin-bottom: unset;
     }
 
-    .rich-text.backgroundcolor-teal p {
+    .rich-text[class*="backgroundcolor-"] p {
         margin: unset;
         font-size: 0.875rem;
         line-height: 1.125rem;
     }
 
-    .rich-text.backgroundcolor-teal h4 {
+    .rich-text[class*="backgroundcolor-"] h4 {
         margin: 0 0 0.625rem;
         font-size: 0.875rem;
         line-height: 0.875rem;

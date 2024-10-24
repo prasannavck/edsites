@@ -100,6 +100,9 @@
   --nav-menu-bar: 4.3125rem;
   --nav-height-desktop: calc(var(--nav-brand-bar) + var(--nav-menu-bar));
   --nav-height-mobile: 4.375rem;
+
+  /* section */
+  --section-padding-block: 2.3rem;
 }
 
 @media (width >= 62rem) {
@@ -366,8 +369,7 @@ main img {
  * sections
  */
 main .section {
-  padding-top: 2.3rem;
-  padding-bottom: 2.3rem;
+  padding-block: var(--section-padding-block);
 }
 
 main .section,
@@ -449,7 +451,11 @@ main .section:has(.sidebar) .sidebar > .section {
     margin-left: 1rem;
     width: 32%;
     right: 0.9375rem;
-    top: 2.3rem;
+    top: var(--section-padding-block);
+  }
+
+  main div.sidebar:has(.section.no-padding-top) {
+    top: 0;
   }
 
   main .section.border-bottom {
@@ -479,7 +485,7 @@ main .section:has(.sidebar) .sidebar > .section {
     margin-left: 1rem;
     width: 32%;
     right: 0.9375rem;
-    top: 2.3rem;
+    top: var(--section-padding-block);
   }
 }
 
