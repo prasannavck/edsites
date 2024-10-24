@@ -5,8 +5,5 @@ mountpoints:
     suffix: ".html"
 
 folders:
-  /how-to-claim: /how-to-claim/loss-of-rent
-  /how-to-claim: /how-to-claim/tenant-damage
-  /how-to-claim: /how-to-claim/escape-of-liquid
-  /how-to-claim: /how-to-claim/storm-or-rainwater-damage
-  /how-to-claim: /how-to-claim/electric-motor-burnout
+  /how-to-claim/: /how-to-claim
+  

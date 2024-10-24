@@ -19,7 +19,7 @@
 }
 
 .tabs-with-comments .dropdown-list {
-    background: url('../../icons/chevron-down-green.svg') 98% no-repeat, 
+    background: url('../../icons/chevron-down-teal.svg') 98% no-repeat, 
                 linear-gradient(to bottom, #f7f7f7 0%, #e5e3e6 100%);
     background-size: var(--heading-font-size-l);
     width: 100%;
