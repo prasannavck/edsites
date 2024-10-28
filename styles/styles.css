@@ -41,12 +41,15 @@
   --purple: #485583;
   --purple-light: #3e4487;
   --ivory-gray: #e3e2dd;
+  --light-gray: #888887;
   --pale-aqua: #cdecef;
   --teal-blue: #4f7faa;
   --sky-blue: #6199bc;
+  --pale-white: #d7d6cf;
+  --dark-gray: #464540;
+  --dark-shade:#4a5a6a;
   --text-light-gray: #a8a8a8;
   --background-light-gray: #f3f3f3;
-  --dark-shade: #4a5a6a;
   --light-grey: #d0d0d0;
   --dark-grayish-blue: #8c8e90;
   --taupe-gray: #888;
@@ -66,6 +69,9 @@
   --dark-btn: #171a19;
   --dark-btn-light: #445252;
   --dark-btn-dark: #1e2424;
+
+  /* text colors */
+  --gray-link-text-color: #999;
 
   /* fonts */
   --body-font-family: 'Helvetica Neue', helvetica, arial, sans-serif;

@@ -15,6 +15,7 @@ import {
   decorateBlock,
   loadBlock,
   getMetadata,
+  createOptimizedPicture,
 } from './aem.js';
 
 const ARTICLE_BASE = 'landlord-resources';
@@ -108,6 +109,83 @@ function decorateSectionTableList(main) {
     tableWrappers[0].before(tableListDiv);
     tableListDiv.append(...tableWrappers);
   });
+}
+
+async function buildNewsListSection(main) {
+  try {
+    const path = window.location.pathname;
+    const values = path.split('/').filter(Boolean);
+    if (!(values.length === 2 && values[0] === 'landlord-resources')) {
+      return;
+    }
+
+    const category = values[1];
+    const response = await fetch(`${window.hlx.codeBasePath}/query-index.json`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const index = await response.json();
+    const mappingResponse = await fetch(`${window.hlx.codeBasePath}/category-mapping.json`);
+    if (!mappingResponse.ok) {
+      throw new Error(`HTTP error! status: ${mappingResponse.status}`);
+    }
+
+    const categoryMappings = await mappingResponse.json();
+    const categoryItem = categoryMappings.data.find((item) => item['category-id'] === category);
+    const categoryTitle = categoryItem['category-title'];
+
+    const pages = index.data
+      .filter((item) => item.path.startsWith(path) && item.path !== path)
+      .sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
+
+    const blockChildren = [];
+    pages.forEach((item) => {
+      const div = document.createElement('div');
+      div.classList.add('news-list-item');
+      const imageWrapper = document.createElement('div');
+      imageWrapper.classList.add('image-wrapper');
+      const a = document.createElement('a');
+      a.href = item.path;
+      const pic = createOptimizedPicture(new URL(item.imageThumbnail).pathname);
+      a.appendChild(pic);
+      imageWrapper.appendChild(a);
+      div.append(imageWrapper);
+
+      const categoryLink = document.createElement('a');
+      categoryLink.classList.add('category-link');
+      categoryLink.href = path;
+      categoryLink.textContent = categoryTitle.toUpperCase();
+      div.append(categoryLink);
+
+      const newsLink = document.createElement('a');
+      newsLink.classList.add('news-link');
+      newsLink.href = item.path;
+      newsLink.textContent = item.title;
+      div.append(newsLink);
+
+      const description = document.createElement('p');
+      description.textContent = item.description;
+      div.append(description);
+
+      blockChildren.push(div);
+    });
+
+    const section = document.createElement('div');
+    section.classList.add('section');
+    const blockWrapper = document.createElement('div');
+    const block = buildBlock('news-list', { elems: blockChildren });
+    blockWrapper.appendChild(block);
+    section.appendChild(blockWrapper);
+    main.appendChild(section);
+
+    decorateBlock(block);
+    await loadBlock(block);
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error('Error fetching news list', error);
+    throw error;
+  }
 }
 
 function buildSearchBlock() {
@@ -277,6 +355,7 @@ export function decorateMain(main) {
   decorateSectionTabs(main);
   decorateSectionTableList(main);
   buildSectionBasedAutoBlocks(main);
+  buildNewsListSection(main);
 }
 
 /**
