@@ -10,6 +10,11 @@ const MAX_CACHED_SEARCH_QUERIES = 5;
 const SEARCH_QUERY_PREFIX = 'search_query_';
 const SEARCH_ICON_PATH = `${window.hlx.codeBasePath}/images/icon-search-grey.png`;
 const CLOSE_ICON_PATH = `${window.hlx.codeBasePath}/icons/remove-light.svg`;
+const ALLOWED_CHARACTERS_LIMIT = 50;
+const ALLOWED_CHARACTERS_REGEX = /^[a-zA-Z0-9*]+$/;
+const ERROR_EXCEEDS_MAX_CHARACTERS = `Query is too long. Exceeds limit of ${ALLOWED_CHARACTERS_LIMIT} characters`;
+const ERROR_INVALID_CHARACTERS = 'Invalid characters used. Allowed characters [a-zA-Z0-9*]';
+const ERROR_INVALID_QUERY_STAR_ALONE = 'Invalid Query. * alone cannot be used';
 const searchParams = new URLSearchParams(window.location.search);
 
 function searchUrlWithParam(key, value) {
@@ -22,7 +27,7 @@ function searchUrlWithParam(key, value) {
   return url.toString();
 }
 
-function getKeyFromStore(key) {
+function getCachedDataFromStore(key) {
   const itemStr = localStorage.getItem(key);
   if (!itemStr) return null;
 
@@ -53,14 +58,22 @@ function evictOldestSearchQueryInStore() {
   }
 }
 
-function setKeyInStore(key, value, ttl) {
+function cacheDataInStore(key, value, ttl) {
   const now = new Date();
   const item = {
     value,
-    expiry: now.getTime() + ttl || DEFAULT_LOCAL_STORAGE_TTL,
+    expiry: now.getTime() + ttl || now.getTime() + DEFAULT_LOCAL_STORAGE_TTL,
   };
   localStorage.setItem(key, JSON.stringify(item));
   if (key.startsWith(SEARCH_QUERY_PREFIX)) evictOldestSearchQueryInStore();
+}
+
+function createRegExp(query) {
+  const containsStar = query.includes('*');
+  const escapedQuery = query.replace(/([.+?^${}()|[\]\\])/g, '\\$1');
+  let pattern = escapedQuery.replace(/\*/g, '.*?'); // Replace * with .*
+  if (containsStar) pattern = `\\b${pattern}\\b`;
+  return new RegExp(`${pattern}`, 'gi');
 }
 
 function highlightTextElements(terms, elements) {
@@ -70,12 +83,12 @@ function highlightTextElements(terms, elements) {
     const matches = [];
     const { textContent } = element;
     terms.forEach((term) => {
-      let start = 0;
-      let offset = textContent.toLowerCase().indexOf(term.toLowerCase(), start);
-      while (offset >= 0) {
-        matches.push({ offset, term: textContent.substring(offset, offset + term.length) });
-        start = offset + term.length;
-        offset = textContent.toLowerCase().indexOf(term.toLowerCase(), start);
+      const termRegex = createRegExp(term);
+      let match;
+      // eslint-disable-next-line no-cond-assign
+      while ((match = termRegex.exec(textContent)) !== null) {
+        const offset = match.index;
+        matches.push({ offset, term: match[0] });
       }
     });
 
@@ -107,7 +120,7 @@ function highlightTextElements(terms, elements) {
 }
 
 export async function fetchData(source) {
-  const storedData = getKeyFromStore('search_index_data');
+  const storedData = getCachedDataFromStore('search_index_data');
   if (storedData) return Promise.resolve(storedData);
   const response = await fetch(window.hlx.codeBasePath + source);
   if (!response.ok) {
@@ -122,7 +135,7 @@ export async function fetchData(source) {
     console.error('empty API response', source);
     return null;
   }
-  setKeyInStore('search_index_data', json.data);
+  cacheDataInStore('search_index_data', json.data);
   return json.data;
 }
 
@@ -152,14 +165,18 @@ function clearSearchResults(resultsContainer) {
   searchResults.innerHTML = '';
 }
 
-function clearSearch(block) {
-  clearSearchResults(block);
+function clearSearch() {
   if (window.history.replaceState) {
     const url = new URL(window.location.href);
     url.search = '';
     searchParams.delete('s');
     window.history.replaceState({}, '', url.toString());
   }
+}
+
+function hideSearchError(block) {
+  const searchErrorSpan = block.querySelector('.search-error');
+  searchErrorSpan.style.display = 'none';
 }
 
 async function renderResults(resultsContainer, config, filteredData, searchTerms, page) {
@@ -197,27 +214,24 @@ function filterData(searchTerms, data) {
   const foundInMeta = [];
 
   data.forEach((result) => {
-    let minIdx = -1;
-
-    searchTerms.forEach((term) => {
-      const idx = (result.header || result.title).toLowerCase().indexOf(term);
-      if (idx < 0) return;
-      if (minIdx < idx) minIdx = idx;
+    let found = searchTerms.some((term) => {
+      const regex = createRegExp(term);
+      const header = (result.header || result.title).toLowerCase();
+      return regex.test(header);
     });
 
-    if (minIdx >= 0) {
+    if (found) {
       foundInHeader.push(result);
       return;
     }
 
     const metaContents = `${result.title} ${result.description} ${result.path.split('/').pop()}`.toLowerCase();
-    searchTerms.forEach((term) => {
-      const idx = metaContents.indexOf(term);
-      if (idx < 0) return;
-      if (minIdx < idx) minIdx = idx;
+    found = searchTerms.some((term) => {
+      const regex = createRegExp(term);
+      return regex.test(metaContents);
     });
 
-    if (minIdx >= 0) {
+    if (found) {
       foundInMeta.push(result);
     }
   });
@@ -228,7 +242,27 @@ function filterData(searchTerms, data) {
   ];
 }
 
-function navigateToSearchPage(searchValue) {
+function isValidQuery(input, config) {
+  if (input.length > ALLOWED_CHARACTERS_LIMIT) {
+    return config.placeholders.searchErrorExceedsMaxCharacters || ERROR_EXCEEDS_MAX_CHARACTERS;
+  }
+  const terms = input.trim().split(/\s+/);
+  // Check if all terms match the pattern
+  const isValid = terms.every((term) => ALLOWED_CHARACTERS_REGEX.test(term));
+  if (!terms.every((term) => term !== '*')) {
+    return config.placeholders.searchErrorInvalidQueryStarAlone || ERROR_INVALID_QUERY_STAR_ALONE;
+  }
+  return isValid ? '' : config.placeholders.searchErrorInvalidCharacters || ERROR_INVALID_CHARACTERS;
+}
+
+function handleSearch(container, searchValue, config) {
+  const errorMsg = isValidQuery(searchValue, config);
+  if (errorMsg) {
+    const errorSpan = container.querySelector('.search-error');
+    errorSpan.innerText = errorMsg;
+    errorSpan.style.display = 'block';
+    return;
+  }
   window.location.href = searchUrlWithParam('s', searchValue);
 }
 
@@ -248,25 +282,36 @@ function searchInput(block, config) {
   input.placeholder = searchPlaceholder;
   input.setAttribute('aria-label', searchPlaceholder);
 
+  input.addEventListener('keydown', () => hideSearchError(block));
   input.addEventListener('keyup', (e) => {
-    if (e.code === 'Escape') clearSearch(block);
-    if (e.code === 'Enter') navigateToSearchPage(e.target.value);
+    if (e.code === 'Escape') clearSearch();
+    if (e.code === 'Enter') handleSearch(block, e.target.value, config);
   });
 
   return input;
 }
 
-function noResultSearchBox() {
+function createSearchError() {
+  const div = document.createElement('div');
+  div.classList.add('search-error');
+  return div;
+}
+
+function noResultSearchBox(container, config) {
   const divNoResultSearchBox = document.createElement('div');
   divNoResultSearchBox.classList.add('no-result-search');
   const input = document.createElement('input');
   input.setAttribute('type', 'search');
   input.className = 'search-input';
+  input.addEventListener('keydown', () => hideSearchError(container));
+  input.addEventListener('keyup', (e) => {
+    if (e.code === 'Enter') handleSearch(container, input.value, config);
+  });
 
   const searchButton = document.createElement('button');
   searchButton.classList.add('orange');
   searchButton.innerText = 'Search';
-  searchButton.addEventListener('click', () => navigateToSearchPage(input.value));
+  searchButton.addEventListener('click', () => handleSearch(container, input.value, config));
   divNoResultSearchBox.append(input, searchButton);
   return divNoResultSearchBox;
 }
@@ -367,8 +412,9 @@ export default async function decorate(block) {
   const searchQuery = searchParams.get('s');
   let nextSection = section.nextElementSibling;
   const source = '/query-index.json';
+  const config = { source, placeholders };
   block.innerHTML = '';
-  block.append(searchBox(block, { source, placeholders }));
+  block.append(searchBox(block, config), createSearchError());
   // If search page
   if (searchQuery) {
     const query = searchQuery.toLowerCase();
@@ -376,15 +422,16 @@ export default async function decorate(block) {
     if (!nextSection?.classList.contains('search-results-container')) {
       nextSection = document.createElement('div');
       nextSection.classList.add('section', 'search-results-container');
-      nextSection.append(searchResultsList(block), noResultSearchBox(nextSection));
+      // eslint-disable-next-line max-len
+      nextSection.append(searchResultsList(block), noResultSearchBox(nextSection, config), createSearchError());
       section.after(nextSection);
     }
     const searchTerms = query.split(/\s+/).filter((term) => !!term);
-    let filteredData = getKeyFromStore(`${SEARCH_QUERY_PREFIX}${query}`);
+    let filteredData = getCachedDataFromStore(`${SEARCH_QUERY_PREFIX}${query}`);
     if (!filteredData) {
       const data = await fetchData(source);
       filteredData = filterData(searchTerms, data);
-      setKeyInStore(`${SEARCH_QUERY_PREFIX}${query}`, filteredData);
+      cacheDataInStore(`${SEARCH_QUERY_PREFIX}${query}`, filteredData);
     }
     await renderResults(nextSection, { source, placeholders }, filteredData, searchTerms, page);
     decorateSearchPageTitle(block, placeholders, (filteredData.length > 0), searchQuery);

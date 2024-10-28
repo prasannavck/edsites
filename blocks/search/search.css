@@ -47,6 +47,13 @@
     outline: none;
 }
 
+.search .search-error,
+.search-results-container .search-error{
+    color: red;
+    font-size: var(--body-font-size-m);
+    display: none;
+}
+
 /* clears the ‘X’ from Internet Explorer */
 .search input[type="search"]::-ms-clear,
 .search-results-container input[type="search"]::-ms-clear {
@@ -159,6 +166,12 @@
     font-size: 0.875rem;
     width: 100%;
     height: 2.125rem;
+}
+
+.search-results-container .no-result-search input:focus {
+    outline: none;
+    border: 1px solid var(--sky-blue);
+    box-shadow: 0 0 3px 1px rgb(77 166 255 / 50%);
 }
 
 .search-results-container .no-result-search button {
