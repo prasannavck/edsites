@@ -294,6 +294,24 @@
             "label": "Keywords"
           },
           {
+            "component": "multiselect",
+            "valueType": "string",
+            "name": "cq:robotsTags",
+            "label": "Robots Tags",
+            "options": [
+              {
+                "name": "noindex",
+                "value": "noindex"
+              }
+            ]
+          },
+          {
+            "component": "text",
+            "valueType": "string",
+            "name": "cq:canonicalUrl",
+            "label": "Canonical Url"
+          },
+          {
             "component": "reference",
             "valueType": "string",
             "name": "image",

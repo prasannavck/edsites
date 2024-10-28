@@ -16,6 +16,7 @@ const ERROR_EXCEEDS_MAX_CHARACTERS = `Query is too long. Exceeds limit of ${ALLO
 const ERROR_INVALID_CHARACTERS = 'Invalid characters used. Allowed characters [a-zA-Z0-9*]';
 const ERROR_INVALID_QUERY_STAR_ALONE = 'Invalid Query. * alone cannot be used';
 const searchParams = new URLSearchParams(window.location.search);
+const METADATA_NOINDEX = 'noindex';
 
 function searchUrlWithParam(key, value) {
   const url = window.hlx.codeBasePath ? new URL(window.location.href)
@@ -214,6 +215,7 @@ function filterData(searchTerms, data) {
   const foundInMeta = [];
 
   data.forEach((result) => {
+    if (result.robots === `${METADATA_NOINDEX}`) return;
     let found = searchTerms.some((term) => {
       const regex = createRegExp(term);
       const header = (result.header || result.title).toLowerCase();
