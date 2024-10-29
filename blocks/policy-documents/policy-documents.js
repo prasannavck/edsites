@@ -47,6 +47,13 @@ function decorateDocGroup(groupEl, category1Name, category2Name) {
         ? 'Hide previous versions'
         : 'Show previous versions';
     });
+    em.addEventListener('keypress', (event) => {
+      if (event.key !== 'Enter') return;
+      previousVersions.classList.toggle('appear');
+      em.textContent = previousVersions.classList.contains('appear')
+        ? 'Hide previous versions'
+        : 'Show previous versions';
+    });
     previousVersions.classList.add('prev-versions');
   });
 
