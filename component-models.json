@@ -1551,7 +1551,7 @@
         "label": "Options",
         "valueType": "string",
         "required": true,
-        "maxSize": 3,
+        "maxSize": 4,
         "options": [
           {
             "name": "Buttons Style",
@@ -1592,8 +1592,78 @@
                 "value": "background-gradient"
               }
             ]
+          },
+          {
+            "name": "Content Border",
+            "children": [
+              {
+                "name": "Orange",
+                "value": "left-border-orange"
+              },
+              {
+                "name": "White",
+                "value": "left-border-white"
+              }
+            ]
+          },
+          {
+            "name": "Banner Height",
+            "children": [
+              {
+                "name": "Small",
+                "value": "height-small"
+              },
+              {
+                "name": "Scale with Width",
+                "value": "height-scale-vw"
+              }
+            ]
           }
         ]
+      },
+      {
+        "component": "number",
+        "valueType": "number",
+        "name": "active-button",
+        "label": "Active Button",
+        "value": "1",
+        "condition": {
+          "in": [
+            "tabs",
+            {
+              "var": "classes"
+            }
+          ]
+        }
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "content_image_mobile",
+        "label": "Image Mobile",
+        "multi": false,
+        "condition": {
+          "!": {
+            "or": [
+              {
+                "in": [
+                  "tabs",
+                  {
+                    "var": "classes"
+                  }
+                ]
+              },
+              {
+                "in": [
+                  "buttons-stack",
+                  {
+                    "var": "classes"
+                  }
+                ]
+              }
+            ]
+          }
+        }
       },
       {
         "component": "reference",
@@ -1842,7 +1912,25 @@
         "valueType": "string",
         "name": "button1_text",
         "value": "",
-        "label": "Text"
+        "label": "Text",
+        "condition": {
+          "some": [
+            {
+              "var": "classes"
+            },
+            {
+              "in": [
+                {
+                  "var": ""
+                },
+                [
+                  "buttons-stack",
+                  "tabs"
+                ]
+              ]
+            }
+          ]
+        }
       },
       {
         "component": "tab",
@@ -1898,7 +1986,25 @@
         "valueType": "string",
         "name": "button2_text",
         "value": "",
-        "label": "Text"
+        "label": "Text",
+        "condition": {
+          "some": [
+            {
+              "var": "classes"
+            },
+            {
+              "in": [
+                {
+                  "var": ""
+                },
+                [
+                  "buttons-stack",
+                  "tabs"
+                ]
+              ]
+            }
+          ]
+        }
       },
       {
         "component": "tab",
@@ -1954,7 +2060,25 @@
         "valueType": "string",
         "name": "button3_text",
         "value": "",
-        "label": "Text"
+        "label": "Text",
+        "condition": {
+          "some": [
+            {
+              "var": "classes"
+            },
+            {
+              "in": [
+                {
+                  "var": ""
+                },
+                [
+                  "buttons-stack",
+                  "tabs"
+                ]
+              ]
+            }
+          ]
+        }
       },
       {
         "component": "tab",
@@ -2010,7 +2134,25 @@
         "valueType": "string",
         "name": "button4_text",
         "value": "",
-        "label": "Text"
+        "label": "Text",
+        "condition": {
+          "some": [
+            {
+              "var": "classes"
+            },
+            {
+              "in": [
+                {
+                  "var": ""
+                },
+                [
+                  "buttons-stack",
+                  "tabs"
+                ]
+              ]
+            }
+          ]
+        }
       },
       {
         "component": "tab",
@@ -2066,7 +2208,25 @@
         "valueType": "string",
         "name": "button5_text",
         "value": "",
-        "label": "Text"
+        "label": "Text",
+        "condition": {
+          "some": [
+            {
+              "var": "classes"
+            },
+            {
+              "in": [
+                {
+                  "var": ""
+                },
+                [
+                  "buttons-stack",
+                  "tabs"
+                ]
+              ]
+            }
+          ]
+        }
       }
     ]
   },

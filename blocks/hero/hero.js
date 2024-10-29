@@ -2,12 +2,25 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
   const rows = block.querySelectorAll(':scope > div > div');
-  const content = rows[0];
+  const content = rows[1];
+  let activeTab = -1;
+  if (block.classList.contains('tabs')) {
+    activeTab = Number(rows[0].querySelector('p').textContent) + 1;
+  }
+  rows[0].parentNode.remove();
+
   const h1 = content.querySelector('h1');
   const h2 = content.querySelector('h2');
   const h3 = content.querySelector('h3');
   const allPTags = content.querySelectorAll('p');
   const pTagsWithPicture = Array.from(allPTags).filter((p) => p.querySelector('.icon'));
+  const pTagsWithBackgroundImage = Array.from(allPTags).filter((p) => p.querySelector('picture'));
+  if (pTagsWithBackgroundImage.length > 1) {
+    pTagsWithBackgroundImage[0].classList.add('background-mobile');
+    pTagsWithBackgroundImage[1].classList.add('background-desktop');
+  } else {
+    pTagsWithBackgroundImage[0].classList.add('background-desktop');
+  }
   // eslint-disable-next-line arrow-body-style
   const pTagsWithoutIconOrPicture = Array.from(allPTags).filter((p) => {
     return !p.querySelector('.icon') && !p.querySelector('picture');
@@ -58,23 +71,23 @@ export default function decorate(block) {
     });
   }
 
-  const activeTab = 3;
   const ul = document.createElement('ul');
-  for (let i = 1; i < rows.length; i += 1) {
+  for (let i = 2; i < rows.length; i += 1) {
     if (rows[i].childNodes.length > 0) {
       const li = document.createElement('li');
       const buttonContainer = rows[i].querySelector('.button-container');
       const link = buttonContainer.querySelector('a');
       const pWithIcon = rows[i].querySelector('p:has(.icon)');
+
       if (pWithIcon) {
         const iconSpan = pWithIcon.querySelector('span.icon');
         moveInstrumentation(pWithIcon, iconSpan);
         link.prepend(iconSpan);
       }
-      link.classList.add('button');
 
+      link.classList.add('button');
       if (block.classList.contains('buttons-stack')) {
-        if (i === 1) {
+        if (i === 2) {
           link.classList.add('orange');
         } else {
           link.classList.add('dark');
@@ -92,12 +105,22 @@ export default function decorate(block) {
   }
 
   if (block.classList.contains('tabs')) {
-    const searchBar = document.createElement('li');
-    searchBar.innerHTML = `
-    <img src="${window.hlx.codeBasePath}/images/icon-search-grey.png" alt="Search" />
-    <input type="text" id="search" placeholder="Search Articles" >
+    const listItem = document.createElement('li');
+    const container = document.createElement('div');
+    container.classList.add('search-container');
+    container.innerHTML = `
+      <img src="${window.hlx.codeBasePath}/images/icon-search-grey.png" alt="Search" />
+      <input type="text" id="search" placeholder="Search Articles" >
     `;
-    ul.appendChild(searchBar);
+
+    container.querySelector('input').addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        window.location.href = `/landlord-resources?s=${event.target.value}`;
+      }
+    });
+    listItem.appendChild(container);
+    ul.appendChild(listItem);
   }
 
   const heroMenu = document.createElement('div');
@@ -120,6 +143,8 @@ export default function decorate(block) {
   }
 
   heroMenu.appendChild(heroContent);
-  heroMenu.appendChild(ul);
+  if (ul.hasChildNodes()) {
+    heroMenu.appendChild(ul);
+  }
   content.appendChild(heroMenu);
 }
