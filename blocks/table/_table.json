@@ -146,6 +146,10 @@
                   "value": "heading-bg"
                 },
                 {
+                  "name": "Body",
+                  "value": "body-bg"
+                },
+                {
                   "name": "Alternate Row",
                   "value": "alternate-row-bg"
                 }
@@ -170,6 +174,10 @@
                 {
                   "name": "No Header",
                   "value": "no-header"
+                },
+                {
+                  "name": "Large Header",
+                  "value": "large-header"
                 }
               ]
             }
@@ -210,6 +218,12 @@
           "name": "headingBgColor",
           "label": "Heading Background Color(Hex code)",
           "condition": {"in": ["heading-bg", { "var": "classes" }] }
+        },
+        {
+          "component": "text",
+          "name": "bodyBgColor",
+          "label": "Body Background Color(Hex code)",
+          "condition": {"in": ["body-bg", { "var": "classes" }] }
         },
         {
           "component": "text",

@@ -1,6 +1,8 @@
 .table {
   width: 100%;
   overflow-x: auto;
+
+  --border-color: var(--white);
 }
 
 .table table {
@@ -22,16 +24,27 @@
   border-collapse: collapse;
 }
 
+.table table tr {
+  display: flex;
+  justify-content: space-between;
+}
+
 .table table th {
   font-weight: var(--font-weight-bold);
   padding: 0.5rem;
   text-align: left;
+  flex: 1;
 }
 
 .table table td {
   padding-inline: 0.5rem;
   padding-block: 0.3rem;
   text-align: left;
+  flex: 1;
+}
+
+.table.large-header table th {
+  font-size: var(--heading-font-size-mxxl);
 }
 
 .table table th p,
@@ -178,23 +191,18 @@
   display: none;
 }
 
-.table.list table tr {
-  display: flex;
-  justify-content: space-between;
-}
-
 .table:not(.list) table thead tr {
-  border-top: 0.125rem solid #dadada;
-  border-bottom: 0.125rem solid #dadada;
+  border-top: 0.0625rem solid var(--border-color);
+  border-bottom: 0.0625rem solid var(--border-color);
 }
 
 .table:not(.list) table tbody tr {
-  border-bottom: 0.0625rem solid #dadada;
+  border-bottom: 0.0625rem solid var(--border-color);
 }
 
 /* no header variant */
 .table.no-header table tbody tr {
-  border-top: 0.0625rem solid #dadada;
+  border-top: 0.0625rem solid var(--border-color);
 }
 
 /* striped variant */
@@ -205,7 +213,8 @@
 /* bordered variant */
 .table.bordered table th,
 .table.bordered table td {
-  border: 0.0625rem solid #dadada;
+  border: 0.0625rem solid var(--border-color);
+  border-bottom: 0;
 }
 
 .table.list table th,

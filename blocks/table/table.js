@@ -7,15 +7,22 @@
 import { moveInstrumentation } from '../../scripts/scripts.js';
 import { fetchPlaceholders } from '../../scripts/aem.js';
 
-const BLOCK_ATTRIBUTES = ['heading-bg', 'alternate-row-bg', 'list', 'description'];
-
 const BLOCK_VARIANTS = {
   default: 'default',
   headingBg: 'heading-bg',
+  bodyBg: 'body-bg',
   alternateRowBg: 'alternate-row-bg',
   list: 'list',
   description: 'description',
 };
+
+const BLOCK_ORDERED_ATTRIBUTES = [
+  BLOCK_VARIANTS.headingBg,
+  BLOCK_VARIANTS.bodyBg,
+  BLOCK_VARIANTS.alternateRowBg,
+  BLOCK_VARIANTS.list,
+  BLOCK_VARIANTS.description,
+];
 
 const BREAKPOINTS = {
   mobile: '(max-width: 767px)',
@@ -33,8 +40,17 @@ function isHeadingBgBlockVariant(block) {
   return block.classList.contains(BLOCK_VARIANTS.headingBg);
 }
 
+function isBodyBgBlockVariant(block) {
+  return block.classList.contains(BLOCK_VARIANTS.bodyBg);
+}
+
 function isAlternateRowBgBlockVariant(block) {
   return block.classList.contains(BLOCK_VARIANTS.alternateRowBg);
+}
+
+function isBgBlockAttribute(attr) {
+  // eslint-disable-next-line max-len
+  return attr === BLOCK_VARIANTS.headingBg || attr === BLOCK_VARIANTS.bodyBg || attr === BLOCK_VARIANTS.alternateRowBg;
 }
 
 function isDescriptionBlockVariant(block) {
@@ -52,6 +68,9 @@ function getBgColorByVariant(block, variant) {
   switch (variant) {
     case BLOCK_VARIANTS.headingBg:
       bgColor = block.getAttribute('data-heading-bg');
+      break;
+    case BLOCK_VARIANTS.bodyBg:
+      bgColor = block.getAttribute('data-body-bg');
       break;
     case BLOCK_VARIANTS.alternateRowBg:
       bgColor = block.getAttribute('data-alternate-row-bg');
@@ -159,6 +178,7 @@ function decorateTableBody(table, block) {
   const rows = table.querySelectorAll('tbody > tr');
   const isAlternateRowBgVariant = isAlternateRowBgBlockVariant(block);
   const isListVariant = isListBlockVariant(block);
+  const isBodyBgVariant = isBodyBgBlockVariant(block);
   rows.forEach((row, i) => {
     if (isListVariant) {
       [...row.children].forEach((cell) => {
@@ -173,6 +193,14 @@ function decorateTableBody(table, block) {
       if (color && i % 2 === 0) {
         row.classList.add('custom-bg');
         row.style.backgroundColor = !color.startsWith('#') ? `#${color}` : color;
+      }
+    }
+
+    if (isBodyBgVariant) {
+      const color = getBgColorByVariant(block, BLOCK_VARIANTS.bodyBg);
+      if (color) {
+        const tbody = table.querySelector('tbody');
+        if (tbody) tbody.style.backgroundColor = !color.startsWith('#') ? `#${color}` : color;
       }
     }
   });
@@ -285,13 +313,14 @@ function buildCell(rowIndex, headerInd) {
 }
 
 function setBlockAttributes(block) {
-  const [...blockAttributesDivs] = Array.from(block.children).slice(0, BLOCK_ATTRIBUTES.length);
+  const [...blockAttributesDivs] = Array.from(block.children)
+    .slice(0, BLOCK_ORDERED_ATTRIBUTES.length);
   blockAttributesDivs.forEach((div, index) => {
     if (div.firstElementChild?.innerText === '') div.remove();
     else {
-      block.setAttribute(`data-${BLOCK_ATTRIBUTES[index]}`, div.firstElementChild?.innerText);
-      if (BLOCK_ATTRIBUTES[index] === 'heading-bg' || BLOCK_ATTRIBUTES[index] === 'alternate-row-bg'
-      || (BLOCK_ATTRIBUTES[index] === 'description' && !block.getAttribute('data-list'))) {
+      block.setAttribute(`data-${BLOCK_ORDERED_ATTRIBUTES[index]}`, div.firstElementChild?.innerText);
+      if (isBgBlockAttribute(BLOCK_ORDERED_ATTRIBUTES[index])
+      || (BLOCK_ORDERED_ATTRIBUTES[index] === 'description' && !block.getAttribute('data-list'))) {
         div.remove();
       }
     }
