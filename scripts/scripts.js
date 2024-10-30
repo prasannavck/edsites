@@ -171,13 +171,15 @@ async function buildNewsListSection(main) {
     }
 
     const category = values[1];
-    const response = await fetch(`${window.hlx.codeBasePath}/query-index.json`);
+    const [response, mappingResponse] = await Promise.all([
+      fetch(`${window.hlx.codeBasePath}/query-index.json`),
+      fetch(`${window.hlx.codeBasePath}/category-mapping.json`),
+    ]);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
     const index = await response.json();
-    const mappingResponse = await fetch(`${window.hlx.codeBasePath}/category-mapping.json`);
     if (!mappingResponse.ok) {
       throw new Error(`HTTP error! status: ${mappingResponse.status}`);
     }
@@ -379,8 +381,6 @@ async function loadEager(doc) {
   const main = doc.querySelector('main');
   if (main) {
     decorateMain(main);
-    await loadNotificationBanner(doc.querySelector('header'));
-
     document.body.classList.add('appear');
     await loadSection(main.querySelector('.section'), waitForFirstImage);
   }
@@ -421,7 +421,7 @@ async function loadLazy(doc) {
   const { hash } = window.location;
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
   if (hash && element) element.scrollIntoView();
-
+  loadNotificationBanner(doc.querySelector('header'));
   loadHeader(doc.querySelector('header'));
   loadFooter(doc.querySelector('footer'));
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
