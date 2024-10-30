@@ -1,8 +1,6 @@
-import {
-  decorateIcons,
-  fetchPlaceholders,
-} from '../../scripts/aem.js';
+import { decorateIcons, fetchPlaceholders } from '../../scripts/aem.js';
 import { closeSearchBar } from '../../scripts/blocks-utils.js';
+import { buildArticleSearchResult } from '../../scripts/scripts.js';
 
 const PAGE_SIZE = 10;
 const DEFAULT_LOCAL_STORAGE_TTL = 60 * 1000;
@@ -19,7 +17,8 @@ const searchParams = new URLSearchParams(window.location.search);
 const METADATA_NOINDEX = 'noindex';
 
 function searchUrlWithParam(key, value) {
-  const url = window.hlx.codeBasePath ? new URL(window.location.href)
+  const url = window.hlx.codeBasePath
+    ? new URL(window.location.href)
     : new URL(`${window.location.protocol}//${window.location.host}`);
   if (searchParams) {
     searchParams.forEach((v, k) => url.searchParams.set(k, v));
@@ -120,7 +119,7 @@ function highlightTextElements(terms, elements) {
   });
 }
 
-export async function fetchData(source) {
+export async function fetchData(source, fetchArticles = false) {
   const storedData = getCachedDataFromStore('search_index_data');
   if (storedData) return Promise.resolve(storedData);
   const response = await fetch(window.hlx.codeBasePath + source);
@@ -137,7 +136,10 @@ export async function fetchData(source) {
     return null;
   }
   cacheDataInStore('search_index_data', json.data);
-  return json.data;
+
+  return json.data.filter(
+    (result) => !fetchArticles || result?.path?.includes('/landlord-resources'),
+  );
 }
 
 function renderResult(result, searchTerms, titleTag) {
@@ -180,21 +182,32 @@ function hideSearchError(block) {
   searchErrorSpan.style.display = 'none';
 }
 
-async function renderResults(resultsContainer, config, filteredData, searchTerms, page) {
+async function renderResults(
+  resultsContainer,
+  config,
+  filteredData,
+  searchTerms,
+  page,
+  isArticle = false,
+) {
   clearSearchResults(resultsContainer);
   const resultsList = resultsContainer.querySelector('.search-results');
   const headingTag = resultsList.dataset.h;
   const pageData = filteredData.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
   if (pageData.length) {
     resultsList.classList.remove('no-results');
-    pageData.forEach((result) => {
-      const li = renderResult(result, searchTerms, headingTag);
-      resultsList.append(li);
-    });
+    if (!isArticle) {
+      pageData.forEach((result) => {
+        const li = renderResult(result, searchTerms, headingTag);
+        resultsList.append(li);
+      });
+    }
   } else {
     const noResultsMessage = document.createElement('li');
     resultsList.classList.add('no-results');
-    noResultsMessage.innerHTML = `<p>${config.placeholders.searchTryAgain || 'No results found'}</p>`;
+    noResultsMessage.innerHTML = `<p>${
+      config.placeholders.searchTryAgain || 'No results found'
+    }</p>`;
     resultsList.append(noResultsMessage);
     const noResultSearch = resultsContainer.querySelector('input');
     noResultSearch.focus();
@@ -227,7 +240,9 @@ function filterData(searchTerms, data) {
       return;
     }
 
-    const metaContents = `${result.title} ${result.description} ${result.path.split('/').pop()}`.toLowerCase();
+    const metaContents = `${result.title} ${result.description} ${result.path
+      .split('/')
+      .pop()}`.toLowerCase();
     found = searchTerms.some((term) => {
       const regex = createRegExp(term);
       return regex.test(metaContents);
@@ -238,10 +253,7 @@ function filterData(searchTerms, data) {
     }
   });
 
-  return [
-    ...foundInHeader.sort(compareFound),
-    ...foundInMeta.sort(compareFound),
-  ];
+  return [...foundInHeader.sort(compareFound), ...foundInMeta.sort(compareFound)];
 }
 
 function isValidQuery(input, config) {
@@ -254,7 +266,9 @@ function isValidQuery(input, config) {
   if (!terms.every((term) => term !== '*')) {
     return config.placeholders.searchErrorInvalidQueryStarAlone || ERROR_INVALID_QUERY_STAR_ALONE;
   }
-  return isValid ? '' : config.placeholders.searchErrorInvalidCharacters || ERROR_INVALID_CHARACTERS;
+  return isValid
+    ? ''
+    : config.placeholders.searchErrorInvalidCharacters || ERROR_INVALID_CHARACTERS;
 }
 
 function handleSearch(container, searchValue, config) {
@@ -345,11 +359,7 @@ function searchBox(block, config) {
   const box = document.createElement('div');
   box.classList.add('search-box');
   const srchIcon = searchIcon();
-  box.append(
-    srchIcon,
-    searchInput(block, config),
-    closeIcon(),
-  );
+  box.append(srchIcon, searchInput(block, config), closeIcon());
 
   const input = box.querySelector('input');
   srchIcon.addEventListener('click', () => {
@@ -373,12 +383,16 @@ function decoratePaginationControls(resultsContainer, resultCount, currentPage) 
   paginationDiv.classList.add('pagination-ctrl');
   const previousPage = Math.max(1, currentPage - 1);
   const buttons = [];
-  const prevButton = createButton(searchUrlWithParam('page', previousPage), ['page-prev'], 'Previous');
+  const prevButton = createButton(
+    searchUrlWithParam('page', previousPage),
+    ['page-prev'],
+    'Previous',
+  );
   buttons.push(prevButton);
   for (let pageNum = 1; pageNum <= totalPages; pageNum += 1) {
     const distance = pageNum - currentPage;
     if ((distance > 2 && pageNum !== totalPages) || (distance < -2 && pageNum !== 1)) {
-      if ((distance === -3) || (distance === 3)) {
+      if (distance === -3 || distance === 3) {
         buttons.push(createButton('', ['page-num'], '...'));
       }
     } else {
@@ -412,10 +426,12 @@ export default async function decorate(block) {
   const placeholders = await fetchPlaceholders();
   const section = block.closest('.section');
   const searchQuery = searchParams.get('s');
+  const isArticleSearch = window.location.pathname.includes('/landlord-resources');
   let nextSection = section.nextElementSibling;
   const source = '/query-index.json';
   const config = { source, placeholders };
   block.innerHTML = '';
+
   block.append(searchBox(block, config), createSearchError());
   // If search page
   if (searchQuery) {
@@ -425,19 +441,44 @@ export default async function decorate(block) {
       nextSection = document.createElement('div');
       nextSection.classList.add('section', 'search-results-container');
       // eslint-disable-next-line max-len
-      nextSection.append(searchResultsList(block), noResultSearchBox(nextSection, config), createSearchError());
+      nextSection.append(
+        searchResultsList(block),
+        noResultSearchBox(nextSection, config),
+        createSearchError(),
+      );
       section.after(nextSection);
     }
     const searchTerms = query.split(/\s+/).filter((term) => !!term);
     let filteredData = getCachedDataFromStore(`${SEARCH_QUERY_PREFIX}${query}`);
     if (!filteredData) {
-      const data = await fetchData(source);
+      const data = await fetchData(source, isArticleSearch);
       filteredData = filterData(searchTerms, data);
       cacheDataInStore(`${SEARCH_QUERY_PREFIX}${query}`, filteredData);
     }
-    await renderResults(nextSection, { source, placeholders }, filteredData, searchTerms, page);
-    decorateSearchPageTitle(block, placeholders, (filteredData.length > 0), searchQuery);
-    decoratePaginationControls(nextSection, filteredData.length, page, searchQuery);
+    if (isArticleSearch) {
+      await buildArticleSearchResult(document.querySelector('main'), filteredData, ' ', ' ');
+      await renderResults(
+        nextSection,
+        { source, placeholders },
+        filteredData,
+        searchTerms,
+        page,
+        true,
+      );
+      nextSection = document.querySelector('main .section');
+    } else {
+      await renderResults(nextSection, { source, placeholders }, filteredData, searchTerms, page);
+    }
+    decorateSearchPageTitle(block, placeholders, filteredData.length > 0, searchQuery);
+    if (!isArticleSearch) {
+      decoratePaginationControls(nextSection, filteredData.length, page, searchQuery);
+    } else {
+      // trick to show all articles
+      const loadMore = document.querySelector('main .section .load-more-btn');
+      while (loadMore.parentElement.style.display !== 'none') {
+        loadMore.click();
+      }
+    }
   }
   decorateIcons(block);
 }

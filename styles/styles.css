@@ -47,7 +47,7 @@
   --sky-blue: #6199bc;
   --pale-white: #d7d6cf;
   --dark-gray: #464540;
-  --dark-shade:#4a5a6a;
+  --dark-shade: #4a5a6a;
   --text-light-gray: #a8a8a8;
   --background-light-gray: #f3f3f3;
   --light-grey: #d0d0d0;
@@ -423,8 +423,22 @@ main div.sidebar:not(.mobile-view) {
   display: none;
 }
 
-main.search-page .section:not(.search-container, .search-results-container, .page-title-container) {
+main.search-page
+  .section:not(
+    .search-container,
+    .search-results-container,
+    .page-title-container,
+    .news-list-container
+  ) {
   display: none;
+}
+
+main.search-page:has(.news-list-container) .section.hero-container {
+  display: unset;
+}
+
+main.search-page:has(.news-list-container) .search-results-container {
+  display: none !important;
 }
 
 main .section:has(.sidebar) .sidebar > .section {

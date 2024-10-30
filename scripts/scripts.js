@@ -111,6 +111,57 @@ function decorateSectionTableList(main) {
   });
 }
 
+export async function buildArticleSearchResult(main, pages, path, categoryTitle) {
+  const blockChildren = [];
+  pages.forEach((item) => {
+    const div = document.createElement('div');
+    div.classList.add('news-list-item');
+    const imageWrapper = document.createElement('div');
+    imageWrapper.classList.add('image-wrapper');
+    const a = document.createElement('a');
+    a.href = item.path;
+    const pic = createOptimizedPicture(new URL(item.imageThumbnail).pathname);
+    a.appendChild(pic);
+    imageWrapper.appendChild(a);
+    div.append(imageWrapper);
+
+    const categoryLink = document.createElement('a');
+    categoryLink.classList.add('category-link');
+    categoryLink.href = path;
+    categoryLink.textContent = categoryTitle.toUpperCase();
+    div.append(categoryLink);
+
+    const newsLink = document.createElement('a');
+    newsLink.classList.add('news-link');
+    newsLink.href = item.path;
+    newsLink.textContent = item.title;
+    div.append(newsLink);
+
+    const description = document.createElement('p');
+    description.textContent = item.description;
+    div.append(description);
+
+    blockChildren.push(div);
+  });
+
+  const section = document.createElement('div');
+  section.classList.add('section');
+  section.style.display = 'none';
+  section.style.minHeight = '25rem';
+  const blockWrapper = document.createElement('div');
+  const block = buildBlock('news-list', { elems: blockChildren });
+  blockWrapper.appendChild(block);
+  section.appendChild(blockWrapper);
+  main.appendChild(section);
+
+  decorateBlock(block);
+  await loadBlock(block);
+  requestAnimationFrame(() => {
+    section.style.display = 'block';
+    section.style.minHeight = '0';
+  });
+}
+
 async function buildNewsListSection(main) {
   try {
     const path = window.location.pathname;
@@ -138,49 +189,7 @@ async function buildNewsListSection(main) {
     const pages = index.data
       .filter((item) => item.path.startsWith(path) && item.path !== path)
       .sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
-
-    const blockChildren = [];
-    pages.forEach((item) => {
-      const div = document.createElement('div');
-      div.classList.add('news-list-item');
-      const imageWrapper = document.createElement('div');
-      imageWrapper.classList.add('image-wrapper');
-      const a = document.createElement('a');
-      a.href = item.path;
-      const pic = createOptimizedPicture(new URL(item.imageThumbnail).pathname);
-      a.appendChild(pic);
-      imageWrapper.appendChild(a);
-      div.append(imageWrapper);
-
-      const categoryLink = document.createElement('a');
-      categoryLink.classList.add('category-link');
-      categoryLink.href = path;
-      categoryLink.textContent = categoryTitle.toUpperCase();
-      div.append(categoryLink);
-
-      const newsLink = document.createElement('a');
-      newsLink.classList.add('news-link');
-      newsLink.href = item.path;
-      newsLink.textContent = item.title;
-      div.append(newsLink);
-
-      const description = document.createElement('p');
-      description.textContent = item.description;
-      div.append(description);
-
-      blockChildren.push(div);
-    });
-
-    const section = document.createElement('div');
-    section.classList.add('section');
-    const blockWrapper = document.createElement('div');
-    const block = buildBlock('news-list', { elems: blockChildren });
-    blockWrapper.appendChild(block);
-    section.appendChild(blockWrapper);
-    main.appendChild(section);
-
-    decorateBlock(block);
-    await loadBlock(block);
+    await buildArticleSearchResult(main, pages, path, categoryTitle);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Error fetching news list', error);
@@ -192,12 +201,7 @@ function buildSearchBlock() {
   const main = document.querySelector('main');
   const searchParams = new URLSearchParams(window.location.search);
   const searchQuery = searchParams.get('s');
-  if (!main.querySelector('.search')) {
-    const searchSection = document.createElement('div');
-    searchSection.classList.add('section', 'full-width');
-    searchSection.innerHTML = '<div class="search"></div>';
-    main.prepend(searchSection);
-  }
+
   if (searchQuery) {
     main.classList.add('search-page');
     if (!main.querySelector('.page-title')) {
@@ -205,8 +209,14 @@ function buildSearchBlock() {
       pageTitleSection.classList.add('section', 'full-width');
       const h1 = document.createElement('h1');
       pageTitleSection.append(buildBlock('page-title', { elems: [h1] }));
-      main.prepend(pageTitleSection);
+      main.append(pageTitleSection);
     }
+  }
+  if (!main.querySelector('.search')) {
+    const searchSection = document.createElement('div');
+    searchSection.classList.add('section', 'full-width');
+    searchSection.innerHTML = '<div class="search"></div>';
+    main.append(searchSection);
   }
 }
 
