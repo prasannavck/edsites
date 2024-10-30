@@ -653,6 +653,16 @@ main .tooltip {
   position: relative;
   display: inline-block;
   cursor: pointer;
+  overflow: visible;
+  background: none;
+  border: none;
+}
+
+main .tooltip:focus,
+main .tooltip:hover,
+main .tooltip:active {
+  background: none;
+  box-shadow: none;
 }
 
 main .tooltip-content {
@@ -662,7 +672,7 @@ main .tooltip-content {
   color: #fff;
   line-height: 1.5;
   text-align: center;
-  border-radius: 0.125rem 0.125rem 0.125rem 0;
+  border-radius: 0 0.125rem 0.125rem;
   padding: 0.9375rem;
   position: absolute;
   z-index: 10;
@@ -672,6 +682,7 @@ main .tooltip-content {
   opacity: 0;
   transition: opacity 0.3s;
   margin-left: 0.625rem;
+  font-style: normal;
 }
 
 main .tooltip-content::after {
@@ -684,9 +695,11 @@ main .tooltip-content::after {
   border-color: transparent rgb(18 117 125 / 80%) transparent transparent;
 }
 
-main .tooltip:hover .tooltip-content {
+main .tooltip:hover .tooltip-content,
+main .tooltip:focus .tooltip-content {
   visibility: visible;
   opacity: 1;
+  font-weight: var(--font-weight-normal);
 }
 
 main .tags-wrapper {

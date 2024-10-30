@@ -483,14 +483,14 @@
           }
         },
         {
-          "title": "Column",
+          "title": "Styled List Column",
           "id": "styled-list-column",
           "plugins": {
             "xwalk": {
               "page": {
                 "resourceType": "core/franklin/components/block/v1/item",
                 "template": {
-                  "name": "Column",
+                  "name": "Styled List Column",
                   "model": "styled-list-column"
                 }
               }

@@ -1,16 +1,29 @@
-.styled-lists {
+.styled-lists .list-columns {
   display: flex;
   flex-direction: column;
-  gap: 3.5rem;
+  gap: 1.5rem;
 }
 
-.styled-lists > div {
+.styled-lists .list-columns > div {
   flex: 1;
 }
 
+.styled-lists h3 {
+  display: flex;
+  color: var(--teal);
+  gap: 0.3125rem;
+  font-weight: var(--font-weight-normal);
+}
+
+.styled-lists a.button:any-link {
+  width: min-content;
+  padding: 0.3125rem 2rem;
+}
+
 @media (width >= 62rem) {
-  .styled-lists {
+  .styled-lists .list-columns {
     flex-direction: row;
+    gap: 3.5rem;
   }
 }
 
@@ -24,6 +37,11 @@
   margin: 0.8rem 0;
   font-size: 0.875rem;
   line-height: 1.2rem;
+}
+
+.styled-lists.teal-background {
+  background-color: var(--teal-light);
+  padding: 1.25rem;
 }
 
 .styled-lists .show-more-btn {
@@ -51,4 +69,19 @@
 .styled-lists .show-more-btn img {
   width: 1.3rem;
   height: 1.3rem;
+}
+
+.styled-lists .footnote {
+  font-size: 0.6875rem;
+  padding-top: 0.625rem;
+}
+
+.styled-lists .tooltip {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  padding: 0;
+  width: 1.2rem;
+  height: 1.2rem;
 }

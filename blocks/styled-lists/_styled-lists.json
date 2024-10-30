@@ -17,14 +17,14 @@
       }
     },
     {
-      "title": "Column",
+      "title": "Styled List Column",
       "id": "styled-list-column",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/item",
             "template": {
-              "name": "Column",
+              "name": "Styled List Column",
               "model": "styled-list-column"
             }
           }
@@ -57,6 +57,19 @@
           "label": "Max list items to show",
           "value": "0",
           "description": "Set to 0 to show all items"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "footnote",
+          "value": "",
+          "label": "Footnote"
+        },
+        {
+          "component": "boolean",
+          "label": "Light teal background",
+          "name": "lightTealBackground",
+          "valueType": "boolean"
         }
       ]
     },

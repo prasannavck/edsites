@@ -2574,6 +2574,10 @@
             "value": ":check-teal:"
           },
           {
+            "name": "Check (dark)",
+            "value": ":check-dark:"
+          },
+          {
             "name": "Plus",
             "value": ":plus-teal:"
           },
@@ -2599,6 +2603,19 @@
         "label": "Max list items to show",
         "value": "0",
         "description": "Set to 0 to show all items"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "footnote",
+        "value": "",
+        "label": "Footnote"
+      },
+      {
+        "component": "boolean",
+        "label": "Light teal background",
+        "name": "lightTealBackground",
+        "valueType": "boolean"
       }
     ]
   },

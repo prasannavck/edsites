@@ -9,6 +9,10 @@
       "value": ":check-teal:"
     },
     {
+      "name": "Check (dark)",
+      "value": ":check-dark:"
+    },
+    {
       "name": "Plus",
       "value": ":plus-teal:"
     },
