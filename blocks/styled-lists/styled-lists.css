@@ -37,6 +37,7 @@
   margin: 0.8rem 0;
   font-size: 0.875rem;
   line-height: 1.2rem;
+  display: flex;
 }
 
 .styled-lists.teal-background {
