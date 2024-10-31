@@ -53,6 +53,8 @@
   --light-grey: #d0d0d0;
   --dark-grayish-blue: #8c8e90;
   --taupe-gray: #888;
+  --lighter-gray: #fbfbfb;
+  --midlight-gray: #e8e8e8;
 
   /* global color usage */
   --link-color: var(--teal);

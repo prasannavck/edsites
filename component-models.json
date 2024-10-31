@@ -910,6 +910,10 @@
           {
             "name": "Benefit",
             "value": "cards-benefits"
+          },
+          {
+            "name": "Title Description",
+            "value": "cards-title-description"
           }
         ]
       },
@@ -1386,6 +1390,35 @@
         "name": "description",
         "label": "Description",
         "value": ""
+      }
+    ]
+  },
+  {
+    "id": "card-title-description",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "classes",
+        "hidden": true
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "content_title",
+        "label": "Title"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "content_description",
+        "label": "Description"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "link",
+        "label": "Link"
       }
     ]
   },

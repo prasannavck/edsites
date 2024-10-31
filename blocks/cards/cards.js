@@ -11,14 +11,26 @@ const VARIANT = {
   centeredIconTitle: 'centered-icon-title',
   product: 'product',
   benefit: 'benefit',
+  titleDescription: 'title-description',
 };
 
 function updateCardsBlockColumnsProperty(block) {
   // eslint-disable-next-line max-len
-  const [mobileColPropertyDiv, tabletColPropertyDiv, desktopColPropertyDiv] = Array.from(block.children).slice(0, 3);
-  block.style.setProperty('--columns-mobile', mobileColPropertyDiv.textContent?.trim() || DEFAULT_COLUMNS_PER_ROW_MOBILE);
-  block.style.setProperty('--columns-tablet', tabletColPropertyDiv.textContent?.trim() || DEFAULT_COLUMNS_PER_ROW_TABLET);
-  block.style.setProperty('--columns-desktop', desktopColPropertyDiv.textContent?.trim() || DEFAULT_COLUMNS_PER_ROW_DESKTOP);
+  const [mobileColPropertyDiv, tabletColPropertyDiv, desktopColPropertyDiv] = Array.from(
+    block.children,
+  ).slice(0, 3);
+  block.style.setProperty(
+    '--columns-mobile',
+    mobileColPropertyDiv.textContent?.trim() || DEFAULT_COLUMNS_PER_ROW_MOBILE,
+  );
+  block.style.setProperty(
+    '--columns-tablet',
+    tabletColPropertyDiv.textContent?.trim() || DEFAULT_COLUMNS_PER_ROW_TABLET,
+  );
+  block.style.setProperty(
+    '--columns-desktop',
+    desktopColPropertyDiv.textContent?.trim() || DEFAULT_COLUMNS_PER_ROW_DESKTOP,
+  );
   mobileColPropertyDiv.remove();
   tabletColPropertyDiv.remove();
   desktopColPropertyDiv.remove();
@@ -46,7 +58,8 @@ function decorateOtherIcon(iconContainer) {
   const firstIcon = iconContainer.querySelector('.icon:first-child');
   if (!firstIcon) return;
   const otherIconDiv = firstIcon.parentElement?.nextElementSibling?.querySelector('.icon')
-    ? firstIcon.parentElement?.nextElementSibling : undefined;
+    ? firstIcon.parentElement?.nextElementSibling
+    : undefined;
   if (getIconName(firstIcon) === 'other') firstIcon?.parentElement.remove();
   else otherIconDiv?.remove();
 }
@@ -63,7 +76,8 @@ function decorateBenefitVariant(benefitCard) {
 
   if (header.children.length > 0) {
     const title = header.children.length > 1
-      ? header.querySelector('p:nth-of-type(2)') : header.querySelector('p:first-of-type');
+      ? header.querySelector('p:nth-of-type(2)')
+      : header.querySelector('p:first-of-type');
     if (title && title.textContent?.trim() !== '') title.classList.add('title');
     decorateOtherIcon(header);
   }
@@ -106,12 +120,38 @@ function decorateProductVariant(productCard) {
   if (buttonGroup) {
     description?.append(buttonGroup);
     buttonGroup.classList.add('button-grp');
-    buttonGroup.querySelectorAll('p em a')?.forEach((button) => button.classList.add('button', 'orange'));
+    buttonGroup
+      .querySelectorAll('p em a')
+      ?.forEach((button) => button.classList.add('button', 'orange'));
   }
-  if (productCard.classList.contains('active') || !productCard.nextElementSibling
-      || productCard.nextElementSibling.classList.contains('active')) {
+  if (
+    productCard.classList.contains('active')
+    || !productCard.nextElementSibling
+    || productCard.nextElementSibling.classList.contains('active')
+  ) {
     productCard.classList.add('no-separator');
   }
+}
+
+/**
+ * @param {Element} titleDescCard
+ */
+function decorateTitleDescriptionVariant(titleDescCard) {
+  const [content, url] = titleDescCard.children;
+  const [title, desc] = content.children;
+  const link = url?.querySelector('a')?.href || '';
+  const a = document.createElement('a');
+
+  a.href = link;
+  url?.remove();
+  a.append(content);
+
+  a.classList.add(...titleDescCard.classList.values());
+  title?.classList?.add('title-d');
+  desc?.classList?.add('description');
+
+  moveInstrumentation(titleDescCard, a);
+  titleDescCard.replaceWith(a);
 }
 
 export default function decorate(block) {
@@ -129,7 +169,7 @@ export default function decorate(block) {
       }
     });
     const hasDefaultCardItems = li.classList.contains(VARIANT.imageTitleDescription)
-        || li.classList.contains(VARIANT.logoAndDescription);
+      || li.classList.contains(VARIANT.logoAndDescription);
     while (row.firstElementChild) li.append(row.firstElementChild);
     [...li.children].forEach((div) => {
       if (div.children.length === 1 && div.querySelector('picture')) div.className = 'cards-card-image';
@@ -158,6 +198,8 @@ export default function decorate(block) {
       decorateBenefitVariant(li);
     } else if (li.classList.contains(VARIANT.product)) {
       decorateProductVariant(li);
+    } else if (li.classList.contains(VARIANT.titleDescription)) {
+      decorateTitleDescriptionVariant(li);
     }
   });
 

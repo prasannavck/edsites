@@ -72,6 +72,12 @@
     ]
   },
   {
+    "id": "cards-title-description",
+    "components": [
+      "card-title-description"
+    ]
+  },
+  {
     "id": "claims-process",
     "components": [
       "claims-process-option"
