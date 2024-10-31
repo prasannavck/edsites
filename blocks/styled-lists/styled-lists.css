@@ -40,6 +40,10 @@
   display: flex;
 }
 
+.styled-lists ul li.hidden {
+  display: none;
+}
+
 .styled-lists.teal-background {
   background-color: var(--teal-light);
   padding: 1.25rem;
