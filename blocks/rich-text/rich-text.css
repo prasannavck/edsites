@@ -46,6 +46,11 @@
     color: var(--text-color);
 }
 
+.rich-text h1 {
+    font-size: var(--heading-font-size-xxl);
+    margin-bottom: 1.25rem;
+}
+
 .rich-text h2 {
     font-size: 1.75rem;
     margin-bottom: 1.25rem;
@@ -53,8 +58,7 @@
 
 .rich-text h3 {
     line-height: 1.625rem;
-    font-size: 1.375rem;
-    font-weight: var(--font-weight-normal);
+    font-size: 1.25rem;
 }
 
 .rich-text h4 {
@@ -68,7 +72,7 @@
 .rich-text h4,
 .rich-text h5,
 .rich-text h6 {
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-normal);
     margin-bottom: 0.625rem;
     color: var(--teal);
     line-height: 1.1;
@@ -89,13 +93,7 @@
 .rich-text.h2-black h2,
 .rich-text.h3-black h3,
 .rich-text.h4-black h4 {
-    color: var(--dark-color);
-}
-
-.rich-text.small-h3 h3 {
-    font-size: 1.125rem;
-    line-height: 1.625rem;
-    font-weight: var(--font-weight-normal);
+    color: var(--black-headings);
 }
 
 .rich-text.thin-font p {

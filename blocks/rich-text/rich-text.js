@@ -8,7 +8,6 @@ const RICHTEXT_PRESET_OPTIONS = [
   'thin-font',
   'big-font',
   'small-font',
-  'small-h3',
   'bottom-border',
   'left-padding',
   'backgroundcolor-teal',

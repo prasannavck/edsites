@@ -2516,10 +2516,6 @@
           {
             "name": "Thin",
             "value": "thin-font"
-          },
-          {
-            "name": "Small h3",
-            "value": "small-h3"
           }
         ]
       },
