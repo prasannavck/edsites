@@ -20,6 +20,7 @@
 
 .hero.height-scale-vw h1 {
   font-weight: var(--font-weight-bold);
+  max-width: 50%;
 }
 
 .hero .hero-menu {
@@ -318,6 +319,10 @@
 
   .hero.height-scale-vw {
     height: 24vw;
+  }
+
+  .hero.height-scale-vw h1 {
+    max-width: 40%;
   }
 
   .hero .background-mobile {
