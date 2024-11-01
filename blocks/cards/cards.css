@@ -232,7 +232,7 @@
   left: 0;
 }
 
-.cards ul .title-description {
+.cards ul .title-description-card {
   color: var(--teal);
   text-align: center;
   background-color: var(--lighter-gray);
@@ -243,17 +243,17 @@
   justify-content: center;
 }
 
-.cards ul .title-description .title-d {
+.cards ul .title-description-card .title-d {
   font-weight: var(--font-weight-bold);
   font-size: var(--heading-font-size-mxxl);
   margin: 0;
 }
 
-.cards ul .title-description .description {
+.cards ul .title-description-card .description {
   margin: 0;
 }
 
-.cards ul .title-description:hover {
+.cards ul .title-description-card:hover {
   background-color: var(--midlight-gray);
   text-decoration: none;
 }

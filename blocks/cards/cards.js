@@ -11,7 +11,7 @@ const VARIANT = {
   centeredIconTitle: 'centered-icon-title',
   product: 'product',
   benefit: 'benefit',
-  titleDescription: 'title-description',
+  titleDescription: 'title-description-card',
 };
 
 function updateCardsBlockColumnsProperty(block) {
