@@ -138,10 +138,10 @@ function decorateProductVariant(productCard) {
  */
 function decorateTitleDescriptionVariant(titleDescCard) {
   const [content, url] = titleDescCard.children;
-  const [title, desc] = content.children;
+  const [title, desc] = content?.children || [];
   const link = url?.querySelector('a')?.href || '';
   const a = document.createElement('a');
-
+  if (!title && !desc) return;
   a.href = link;
   url?.remove();
   a.append(content);
