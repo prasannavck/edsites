@@ -142,7 +142,15 @@ export default function decorate(block) {
     heroContent.appendChild(pTagsWithoutIconOrPicture[i]);
   }
 
-  heroMenu.appendChild(heroContent);
+  if (block.classList.contains('tabs')) {
+    const boxContainer = document.createElement('div');
+    boxContainer.classList.add('box-container');
+    boxContainer.appendChild(heroContent);
+    heroMenu.appendChild(boxContainer);
+  } else {
+    heroMenu.appendChild(heroContent);
+  }
+
   if (ul.hasChildNodes()) {
     heroMenu.appendChild(ul);
   }
