@@ -6,8 +6,8 @@ const PAGE_SIZE = 10;
 const DEFAULT_LOCAL_STORAGE_TTL = 60 * 1000;
 const MAX_CACHED_SEARCH_QUERIES = 5;
 const SEARCH_QUERY_PREFIX = 'search_query_';
-const SEARCH_ICON_PATH = `${window.hlx.codeBasePath}/images/icon-search-grey.png`;
-const CLOSE_ICON_PATH = `${window.hlx.codeBasePath}/icons/remove-light.svg`;
+const SEARCH_ICON = 'icon-menu-search-teal';
+const CLOSE_ICON = 'icon-remove-light';
 const ALLOWED_CHARACTERS_LIMIT = 50;
 const ALLOWED_CHARACTERS_REGEX = /^[a-zA-Z0-9*]+$/;
 const ERROR_EXCEEDS_MAX_CHARACTERS = `Query is too long. Exceeds limit of ${ALLOWED_CHARACTERS_LIMIT} characters`;
@@ -334,23 +334,13 @@ function noResultSearchBox(container, config) {
 
 function searchIcon() {
   const icon = document.createElement('span');
-  icon.classList.add('icon', 'search');
-  const img = document.createElement('img');
-  img.src = SEARCH_ICON_PATH;
-  img.alt = 'search';
-  icon.append(img);
+  icon.classList.add('icon', 'search', SEARCH_ICON);
   return icon;
 }
 
 function closeIcon() {
   const span = document.createElement('span');
-  const pathTokens = CLOSE_ICON_PATH.split('/');
-  const iconName = pathTokens[pathTokens.length - 1];
-  span.classList.add('icon', `icon-${iconName}`);
-  const img = document.createElement('img');
-  img.src = CLOSE_ICON_PATH;
-  img.alt = iconName;
-  span.append(img);
+  span.classList.add('icon', CLOSE_ICON);
   span.addEventListener('click', () => closeSearchBar());
   return span;
 }
