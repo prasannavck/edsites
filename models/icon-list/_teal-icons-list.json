@@ -33,6 +33,10 @@
       "value": ":exclamation-teal:"
     },
     {
+      "name": "Fire",
+      "value": ":fire-teal:"
+    },
+    {
       "name": "Friends",
       "value": ":friends-teal:"
     },
@@ -71,6 +75,10 @@
     {
       "name": "Rent",
       "value": ":rent-teal:"
+    },
+    {
+      "name": "Repair",
+      "value": ":repair-teal:"
     },
     {
       "name": "10 percent",
