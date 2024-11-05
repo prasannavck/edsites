@@ -346,11 +346,11 @@ async function loadNotificationBanner(main) {
   const fragment = getMetadata('notificationfragment');
   if (!fragment || fragment === '') return;
   const notificationBanner = buildBlock('fragment', fragment);
-  notificationBanner.style.display = 'none';
+  notificationBanner.classList.add('notification-banner-skeleton');
   main.prepend(notificationBanner);
   decorateBlock(notificationBanner);
   await loadBlock(notificationBanner);
-  notificationBanner.style.display = '';
+  notificationBanner.classList.remove('notification-banner-skeleton');
 }
 
 /**
@@ -383,6 +383,7 @@ async function loadEager(doc) {
   if (main) {
     decorateMain(main);
     document.body.classList.add('appear');
+    loadNotificationBanner(doc.querySelector('header'));
     await loadSection(main.querySelector('.section'), waitForFirstImage);
     await buildNewsListSection(main);
   }
@@ -423,7 +424,6 @@ async function loadLazy(doc) {
   const { hash } = window.location;
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
   if (hash && element) element.scrollIntoView();
-  loadNotificationBanner(doc.querySelector('header'));
   loadHeader(doc.querySelector('header'));
   loadFooter(doc.querySelector('footer'));
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);

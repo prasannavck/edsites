@@ -733,4 +733,32 @@ main .tags-wrapper img {
   margin-bottom: auto;
 }
 
+.notification-banner-skeleton {
+  min-height: 7.6rem;
+  color: transparent;
+  background-color: transparent;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.notification-banner-skeleton * {
+  margin-top: 0;
+  padding-top: 0;
+  height: 0;
+}
+
+header:has(.notification-banner-skeleton, .notification-banner-container) {
+  min-height: calc(7.6rem + var(--nav-height-mobile));
+}
+
+@media (width >= 62rem) {
+  .notification-banner-skeleton {
+    min-height: 3.83rem;
+  }
+
+  header:has(.notification-banner-skeleton, .notification-banner-container) {
+    min-height: calc(3.83rem + var(--nav-height-desktop));
+  }
+}
+
 /* tooltip end */
