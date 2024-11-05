@@ -175,6 +175,7 @@ async function buildNewsListSection(main) {
       fetch(`${window.hlx.codeBasePath}/query-index.json`),
       fetch(`${window.hlx.codeBasePath}/category-mapping.json`),
     ]);
+
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -191,6 +192,7 @@ async function buildNewsListSection(main) {
     const pages = index.data
       .filter((item) => item.path.startsWith(path) && item.path !== path)
       .sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
+
     await buildArticleSearchResult(main, pages, path, categoryTitle);
   } catch (error) {
     // eslint-disable-next-line no-console
@@ -367,7 +369,6 @@ export function decorateMain(main) {
   decorateSectionTabs(main);
   decorateSectionTableList(main);
   buildSectionBasedAutoBlocks(main);
-  buildNewsListSection(main);
 }
 
 /**
@@ -383,6 +384,7 @@ async function loadEager(doc) {
     decorateMain(main);
     document.body.classList.add('appear');
     await loadSection(main.querySelector('.section'), waitForFirstImage);
+    await buildNewsListSection(main);
   }
 
   sampleRUM.enhance();
