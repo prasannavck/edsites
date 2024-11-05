@@ -4,6 +4,10 @@
   gap: 1.5rem;
 }
 
+.styled-lists.teal-background .list-columns {
+  gap: 0;
+}
+
 .styled-lists .list-columns > div {
   flex: 1;
 }
@@ -13,6 +17,14 @@
   color: var(--teal);
   gap: 0.3125rem;
   font-weight: var(--font-weight-normal);
+  font-size: 1.25rem;
+  align-items: center;
+}
+
+.styled-lists h3 span.icon {
+  height: 2rem;
+  width: 2rem;
+  min-width: 2rem;
 }
 
 .styled-lists a.button:any-link {
