@@ -462,6 +462,7 @@ main .section:has(.sidebar) .sidebar > .section {
 
   main .section:has(.sidebar.tablet-view) {
     position: relative;
+    display: flex;
   }
 
   main .section:has(.sidebar.tablet-view) > div:not(.sidebar) {
@@ -470,7 +471,6 @@ main .section:has(.sidebar) .sidebar > .section {
 
   main div.sidebar.tablet-view {
     display: block;
-    position: absolute;
     margin-left: 1rem;
     width: 32%;
     right: 0.9375rem;
@@ -496,6 +496,7 @@ main .section:has(.sidebar) .sidebar > .section {
 
   main .section:has(.sidebar) {
     position: relative;
+    display: flex;
   }
 
   main .section:has(.sidebar) > div:not(.sidebar) {
@@ -504,7 +505,6 @@ main .section:has(.sidebar) .sidebar > .section {
 
   main .section:has(.sidebar) .sidebar {
     display: block;
-    position: absolute;
     margin-left: 1rem;
     width: 32%;
     right: 0.9375rem;
