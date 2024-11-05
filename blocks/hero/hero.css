@@ -164,10 +164,10 @@
 .hero.tabs .hero-menu ul {
   position: relative;
   transform: translateY(-1.875rem);
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   justify-content: space-between;
   gap: 0.25rem;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .hero.buttons-stack.coverage .hero-menu ul {
@@ -191,6 +191,11 @@
   height: 100%;
 }
 
+.hero.tabs .hero-menu li:has(.search-container) {
+  display: flex;
+  justify-content: center;
+}
+
 .hero.buttons-stack.coverage .hero-menu ul li {
   list-style-type: none;
   display: none;
@@ -200,7 +205,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--gray-lightest);
   gap: 0.25rem;
   padding: 1.25rem 0.5rem;
   line-height: 1.125rem;
@@ -212,6 +216,7 @@
   font-weight: 500;
   font-size: 0.875rem;
   outline: none;
+  width: 70%;
 }
 
 .hero.buttons-stack.coverage .hero-menu ul li:nth-child(-n+2) {
@@ -476,6 +481,7 @@
   }
 
   .hero.tabs .hero-menu ul {
+    display: flex;
     flex-wrap: nowrap;
     width: 100%;
     box-shadow: 0 0 0.9375rem 0 rgba(0 0 0 / 25%);
@@ -487,6 +493,14 @@
     flex: auto;
     box-shadow: none;
     margin-bottom: 0;
+  }
+
+  .hero.tabs .hero-menu li:has(.search-container) {
+    display: block;
+  }
+
+  .hero.tabs .hero-menu .search-container {
+    background-color: var(--gray-lightest);
   }
 
   .hero.tabs .hero-menu .search-container input {
