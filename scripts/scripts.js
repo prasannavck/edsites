@@ -72,7 +72,7 @@ function decorateSectionTabs(main) {
   let tabSections = [];
   const createTabsGroup = () => {
     const tabsGroupDiv = document.createElement('div');
-    tabsGroupDiv.classList.add('section', 'tabs-group');
+    tabsGroupDiv.classList.add('section', 'tabs-group', 'no-padding-top');
     tabsGroupDiv.append(createTabs(tabSections));
     tabSections[0].before(tabsGroupDiv);
     tabsGroupDiv.append(...tabSections);
