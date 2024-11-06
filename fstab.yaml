@@ -6,4 +6,5 @@ mountpoints:
 
 folders:
   /how-to-claim/: /how-to-claim
+  /privacy/: /privacy
   

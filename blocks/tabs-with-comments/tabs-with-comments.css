@@ -5,7 +5,7 @@
 .tabs-with-comments .custom-side-nav,
 .tabs-with-comments .button-container,
 .tabs-with-comments .navigation,
-.tabs-with-comments > div:nth-last-of-type(2) > ul {
+.tabs-with-comments > div:nth-child(11) > ul {
     display: none;
 }
 

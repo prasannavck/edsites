@@ -84,12 +84,16 @@ function createSideNavigation(links, sections) {
 
   return sideNav;
 }
-
 // Function to handle testimonials
 function handleTestimonials(testimonialBlock) {
-  const testimonialContainer = testimonialBlock.querySelector('div > div > ul');
+  // Select the <ul> element with the class 'testimonial-list'
+  const testimonialContainer = testimonialBlock.querySelector('div > div:nth-child(2) > ul');
   if (testimonialContainer) {
     const testimonials = testimonialContainer.querySelectorAll('li');
+    // Check if there are any testimonials
+    if (testimonials.length === 0) {
+      return; // Exit if no testimonials
+    }
     let currentTestimonial = 0;
     const showTestimonial = function showTestimonial(index) {
       testimonials.forEach((testimonial, i) => {
@@ -97,14 +101,23 @@ function handleTestimonials(testimonialBlock) {
       });
     };
     showTestimonial(currentTestimonial);
+
     const rotateTestimonials = function rotateTestimonials() {
       currentTestimonial = (currentTestimonial + 1) % testimonials.length;
       showTestimonial(currentTestimonial);
     };
+
     setInterval(rotateTestimonials, 5000);
+
+    // Move the parent div of the <ul> to the end of testimonialBlock
     testimonialBlock.appendChild(testimonialContainer.parentElement);
   }
 }
+
+// Call the function with the correct block
+const testimonialBlock = document.querySelector('div');
+handleTestimonials(testimonialBlock);
+
 export default function decorate(block) {
   const buttonLinks = block.querySelectorAll('.button-container a');
   const contentSections = Array.from(block.querySelectorAll('.tabs-with-comments > div > div:nth-child(2)'));
