@@ -40,6 +40,10 @@
   margin: 0;
 }
 
+.claims-process .claim-process-option > div > p {
+  font-size: 0.875rem;
+}
+
 .claims-process .claim-process-option > div:last-child {
   background-color: var(--teal-mid);
 }
@@ -175,6 +179,14 @@
   .claims-process .claim-process-menu > div {
     min-height: 13.75rem;
     flex: 1;
+  }
+
+  .claims-process .claim-process-option > div > p {
+    font-size: 0.875rem;
+  }
+
+  .claims-process .claim-process-option > div > h3 {
+    color: var(--teal);
   }
 
   .claims-process .claim-process-menu > div:first-child {
