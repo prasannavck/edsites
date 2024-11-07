@@ -1279,6 +1279,34 @@
         "value": ""
       },
       {
+        "component": "select",
+        "label": "Bazaarvoice Product ID",
+        "name": "bv_productid",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Don't show BV rating",
+            "value": "disable"
+          },
+          {
+            "name": "Landlord Insurance",
+            "value": "landlordinsurance"
+          },
+          {
+            "name": "Holiday Rental",
+            "value": "holidayrental"
+          },
+          {
+            "name": "Building Insurance",
+            "value": "buildinginsurance"
+          },
+          {
+            "name": "Combined Coverage",
+            "value": "combinedcoverage"
+          }
+        ]
+      },
+      {
         "component": "tab",
         "name": "tab1",
         "label": "Button 1"

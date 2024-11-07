@@ -38,6 +38,7 @@
   --teal-dark: #016c7e;
   --teal-dark-alt: #10737b;
   --orange: #e05804;
+  --orange-light: #ffb600;
   --purple: #485583;
   --purple-light: #3e4487;
   --ivory-gray: #e3e2dd;
@@ -446,6 +447,32 @@ main.search-page:has(.news-list-container) .search-results-container {
 
 main .section:has(.sidebar) .sidebar > .section {
   padding: 0;
+}
+
+main .ts-bv-rating a {
+  font-size: 1.1875rem;
+  color: unset;
+  text-decoration: none;
+  width: 6.25rem;
+  display: contents;
+}
+
+main .ts-bv-rating-star {
+  position: relative;
+  display: inline-block;
+}
+
+main .ts-bv-empty-star {
+  color: var(--gray-darker);
+}
+
+main .ts-bv-rating-star .ts-bv-filled-star {
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    color: var(--orange-light);
+    width: 100%;
 }
 
 @media (width >= 48rem) {

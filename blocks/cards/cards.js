@@ -1,5 +1,9 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
+import {
+  createElement, generateBvStarMarkup, fetchBVProductRating,
+  getEnvType, PROD_BV_CARDS_RATING_URL, STAGE_BV_CARDS_RATING_URL,
+} from '../../scripts/blocks-utils.js';
 
 const DEFAULT_COLUMNS_PER_ROW_MOBILE = 1;
 const DEFAULT_COLUMNS_PER_ROW_TABLET = 3;
@@ -83,9 +87,60 @@ function decorateBenefitVariant(benefitCard) {
   }
 }
 
+function generateRatingMarkup(aHref) {
+  const bvRating = createElement('div', 'ts-bv-rating');
+  const bvRatingReviews = createElement('div', 'ts-bv-rating-reviews');
+  const bvRatingReviewNum = createElement('p', 'ts-bv-rating-reviews-number');
+  bvRatingReviewNum.textContent = '(0)';
+  if (aHref) {
+    const bvReviewLink = createElement('a', '');
+    bvReviewLink.href = aHref;
+    bvReviewLink.append(bvRatingReviewNum);
+    bvRatingReviews.append(bvReviewLink);
+  } else {
+    bvRatingReviews.append(bvRatingReviewNum);
+  }
+  const bvRatingStars = generateBvStarMarkup(aHref);
+  bvRating.append(bvRatingStars);
+  bvRating.append(bvRatingReviews);
+  return bvRating;
+}
+
+function getBvApiUrl() {
+  return (getEnvType() === 'prod' || getEnvType() === 'live') ? PROD_BV_CARDS_RATING_URL : STAGE_BV_CARDS_RATING_URL;
+}
+
+async function decorateRating(starContent, productId) {
+  const results = await fetchBVProductRating(getBvApiUrl());
+  if (results) {
+    results.forEach((result) => {
+      if (result.ProductStatistics?.ProductId?.toLowerCase() === productId) {
+        const averageOverallRating = result
+          ?.ProductStatistics
+          ?.ReviewStatistics
+          ?.AverageOverallRating;
+        const totalReviewCount = result
+          ?.ProductStatistics
+          ?.ReviewStatistics
+          ?.TotalReviewCount;
+
+        const rating = starContent.querySelector('.ts-bv-filled-star');
+        const starWidth = (averageOverallRating * 100) / 5;
+        rating.style.width = `${starWidth}%`;
+        const reviews = starContent.querySelector('.ts-bv-rating-reviews-number');
+        reviews.textContent = `(${totalReviewCount})`;
+      }
+    });
+  }
+}
+
 function decorateProductVariant(productCard) {
   if (productCard.children.length === 0) return;
-  const [header, description, firstButtonContainer, secondButtonContainer] = productCard.children;
+  const [header,
+    description,
+    bazaarvoiceProductId,
+    firstButtonContainer,
+    secondButtonContainer] = productCard.children;
   header.classList.add('header');
 
   if (header.children.length > 0) {
@@ -107,6 +162,21 @@ function decorateProductVariant(productCard) {
     if (description.children.length > 1) {
       const costPara = description.querySelector(':scope p:nth-child(2)');
       costPara?.classList.add('cost');
+    }
+  }
+
+  const productId = bazaarvoiceProductId?.textContent;
+  if (bazaarvoiceProductId) bazaarvoiceProductId.remove();
+  if (productId && productId !== 'disable') {
+    const titleLink = header.querySelector(':scope .title a');
+    const linkHref = (titleLink && titleLink.href) ? titleLink.href : null;
+    const starContent = generateRatingMarkup(linkHref);
+    description?.append(starContent);
+    try {
+      decorateRating(starContent, productId);
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.log('Error on integrate BV rating: ', error);
     }
   }
 
@@ -173,7 +243,7 @@ export default function decorate(block) {
     while (row.firstElementChild) li.append(row.firstElementChild);
     [...li.children].forEach((div) => {
       if (div.children.length === 1 && div.querySelector('picture')) div.className = 'cards-card-image';
-      else if (div.innerHTML.trim() === '') div.remove();
+      else if (!li.classList.contains(VARIANT.product) && div.innerHTML.trim() === '') div.remove();
       else if (hasDefaultCardItems) div.className = 'cards-card-body';
     });
     ul.append(li);
