@@ -67,8 +67,9 @@
   font-size: 1rem;
 }
 
-.policy-documents .doc-group-body a {
-  font-size: 0.9rem;
+.policy-documents .doc-group-body {
+  font-size: 0.875rem;
+  line-height: 1.5rem;
 }
 
 .policy-documents .filters-container .filter-button-group {
@@ -122,12 +123,13 @@
   margin-bottom: 1.25rem;
 }
 
-.policy-documents .doc-group em {
+.policy-documents .doc-group li em {
   text-decoration: underline;
   font-style: normal;
+  font-size: 0.75rem;
 }
 
-.policy-documents .doc-group em:hover {
+.policy-documents .doc-group li em:hover {
   cursor: pointer;
 }
 
