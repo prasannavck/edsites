@@ -78,6 +78,16 @@
     line-height: 1.1;
 }
 
+.rich-text h1 a:hover,
+.rich-text h2 a:hover,
+.rich-text h3 a:hover,
+.rich-text h4 a:hover,
+.rich-text h5 a:hover,
+.rich-text h6 a:hover {
+    text-decoration: none;
+    color: var(--link-color);
+}
+
 .rich-text h1,
 .rich-text h2,
 .rich-text h3 {
