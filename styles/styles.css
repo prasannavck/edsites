@@ -427,6 +427,10 @@ main div.sidebar:not(.mobile-view) {
   display: none;
 }
 
+main .fragment-wrapper > .section {
+  padding: 0;
+}
+
 main.search-page
   .section:not(
     .search-container,
@@ -443,10 +447,6 @@ main.search-page:has(.news-list-container) .section.hero-container {
 
 main.search-page:has(.news-list-container) .search-results-container {
   display: none !important;
-}
-
-main .section:has(.sidebar) .sidebar > .section {
-  padding: 0;
 }
 
 main .ts-bv-rating a {
@@ -489,7 +489,6 @@ main .ts-bv-rating-star .ts-bv-filled-star {
 
   main .section:has(.sidebar.tablet-view) {
     position: relative;
-    display: flex;
   }
 
   main .section:has(.sidebar.tablet-view) > div:not(.sidebar) {
@@ -498,10 +497,11 @@ main .ts-bv-rating-star .ts-bv-filled-star {
 
   main div.sidebar.tablet-view {
     display: block;
-    margin-left: 1rem;
-    width: 32%;
-    right: 0.9375rem;
+    position: absolute;
+    margin-left: 1.875rem;
+    width: calc(33% - 1.875rem);
     top: var(--section-padding-block);
+    right: 0.9375rem;
   }
 
   main div.sidebar:has(.section.no-padding-top) {
@@ -523,7 +523,6 @@ main .ts-bv-rating-star .ts-bv-filled-star {
 
   main .section:has(.sidebar) {
     position: relative;
-    display: flex;
   }
 
   main .section:has(.sidebar) > div:not(.sidebar) {
@@ -532,10 +531,11 @@ main .ts-bv-rating-star .ts-bv-filled-star {
 
   main .section:has(.sidebar) .sidebar {
     display: block;
-    margin-left: 1rem;
-    width: 32%;
-    right: 0.9375rem;
+    position: absolute;
+    margin-left: 1.875rem;
+    width: calc(33% - 1.875rem);
     top: var(--section-padding-block);
+    right: 0.9375rem;
   }
 }
 

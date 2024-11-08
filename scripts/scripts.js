@@ -238,12 +238,11 @@ async function loadFonts() {
 
 /**
  *
- * @param {Element} section
+ * @param {Element} tagsWrapper
  * @param {String} category
  */
-function addCategoryTags(section, categories) {
+function addCategoryTags(tagsWrapper, categories) {
   const tagIcon = document.createElement('img');
-  const tagsWrapper = document.createElement('div');
   tagsWrapper.append(tagIcon);
 
   for (let i = 0; i < categories.length; i += 1) {
@@ -256,20 +255,16 @@ function addCategoryTags(section, categories) {
     tagsWrapper.append(categoryTag);
   }
 
-  tagsWrapper.classList.add('tags-wrapper');
-
   tagIcon.src = `${window.hlx.codeBasePath}/icons/tag.svg`;
   tagIcon.alt = 'tag icon';
-
-  section.append(tagsWrapper);
 }
 
 /**
  *
- * @param {Element} doc
+ * @param {Element} tagsWrapper
  * @param {String} href
  */
-function loadArticleTags(doc, href) {
+function loadArticleTags(tagsWrapper, href) {
   const url = `${window.hlx.codeBasePath}/category-mapping.json`;
   fetch(url)
     .then((response) => response.json())
@@ -279,7 +274,7 @@ function loadArticleTags(doc, href) {
       if (baseCategory) baseCategory['category-id'] = '';
       const filteredCategories = categories.filter((cat) => href.includes(`${ARTICLE_BASE}/${cat['category-id']}`));
 
-      addCategoryTags(doc, filteredCategories);
+      addCategoryTags(tagsWrapper, filteredCategories);
     });
 }
 
@@ -301,7 +296,19 @@ function addCategoryTagToArticle() {
   const regex = new RegExp(`.*/${ARTICLE_BASE}/.*/.*`);
 
   if (regex.test(window.location.pathname) && !document.querySelector('main .tags-wrapper')) {
-    loadArticleTags(document.querySelector('main .section'), window.location.href);
+    const sections = document.querySelectorAll('main .section');
+    const tagsWrapper = document.createElement('div');
+    tagsWrapper.classList.add('tags-wrapper');
+    sections[1].append(tagsWrapper);
+    loadArticleTags(tagsWrapper, window.location.href);
+  }
+}
+
+function adjustSectionHeight() {
+  const sidebar = document.querySelector('.sidebar');
+  if (sidebar) {
+    const section = sidebar.parentElement;
+    section.style.minHeight = `${sidebar.offsetHeight}px`;
   }
 }
 
@@ -329,6 +336,10 @@ function buildSidebar(section) {
     fragmentWrapper.appendChild(fragmentBlock);
     section.append(fragmentWrapper);
     decorateBlock(fragmentBlock);
+
+    window.addEventListener('resize', () => {
+      adjustSectionHeight();
+    });
   }
 }
 
@@ -369,6 +380,7 @@ export function decorateMain(main) {
   decorateSectionTabs(main);
   decorateSectionTableList(main);
   buildSectionBasedAutoBlocks(main);
+  requestAnimationFrame(adjustSectionHeight);
 }
 
 /**
