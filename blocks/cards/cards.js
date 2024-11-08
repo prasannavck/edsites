@@ -2,7 +2,6 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 import {
   createElement, generateBvStarMarkup, fetchBVProductRating,
-  getEnvType, PROD_BV_CARDS_RATING_URL, STAGE_BV_CARDS_RATING_URL,
 } from '../../scripts/blocks-utils.js';
 
 const DEFAULT_COLUMNS_PER_ROW_MOBILE = 1;
@@ -106,12 +105,8 @@ function generateRatingMarkup(aHref) {
   return bvRating;
 }
 
-function getBvApiUrl() {
-  return (getEnvType() === 'prod' || getEnvType() === 'live') ? PROD_BV_CARDS_RATING_URL : STAGE_BV_CARDS_RATING_URL;
-}
-
 async function decorateRating(starContent, productId) {
-  const results = await fetchBVProductRating(getBvApiUrl());
+  const results = await fetchBVProductRating();
   if (results) {
     results.forEach((result) => {
       if (result.ProductStatistics?.ProductId?.toLowerCase() === productId) {

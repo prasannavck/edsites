@@ -110,15 +110,6 @@ async function fetchBVData(apiUrl, prefix = 'default') {
 }
 
 /**
- * Get BV api by product id.
- * @param apiUrl API url
- */
-async function fetchBVProductRating(apiUrl) {
-  const apiData = await fetchBVData(apiUrl, 'productBV');
-  return apiData.BatchedResults?.q1?.Results;
-}
-
-/**
  * Returns the environment type based on the hostname.
  */
 function getEnvType(hostname = window.location.hostname) {
@@ -133,6 +124,22 @@ function getEnvType(hostname = window.location.hostname) {
   return fqdnToEnvType[hostname] || 'dev';
 }
 
+/**
+ * Returns BV cards rating url
+ */
+function getBvCardsRatingUrl() {
+  return (getEnvType() === 'prod' || getEnvType() === 'live') ? PROD_BV_CARDS_RATING_URL : STAGE_BV_CARDS_RATING_URL;
+}
+
+/**
+ * Get BV api by product id.
+ * @param apiUrl API url
+ */
+async function fetchBVProductRating() {
+  const apiData = await fetchBVData(getBvCardsRatingUrl(), 'productBV');
+  return apiData.BatchedResults?.q1?.Results;
+}
+
 export {
   // eslint-disable-next-line import/prefer-default-export
   createElement,
@@ -142,6 +149,4 @@ export {
   generateBvStarMarkup,
   fetchBVProductRating,
   getEnvType,
-  STAGE_BV_CARDS_RATING_URL,
-  PROD_BV_CARDS_RATING_URL,
 };
