@@ -1640,8 +1640,12 @@
             "name": "Variant",
             "children": [
               {
-                "name": "Coverage",
+                "name": "Text Coverage",
                 "value": "coverage"
+              },
+              {
+                "name": "Image Coverage",
+                "value": "imagecoverage"
               }
             ]
           },
@@ -1726,6 +1730,14 @@
               {
                 "in": [
                   "buttons-stack",
+                  {
+                    "var": "classes"
+                  }
+                ]
+              },
+              {
+                "in": [
+                  "imagecoverage",
                   {
                     "var": "classes"
                   }

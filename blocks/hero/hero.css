@@ -270,6 +270,11 @@
   display: none;
 }
 
+.hero.imagecoverage picture {
+  z-index: unset;
+  position: unset;
+}
+
 .hero.tabs .hero-menu .search-container picture {
   position: relative;
   height: auto;
@@ -285,6 +290,12 @@
 
 .hero.tabs img {
   object-position: 50% 50%;
+}
+
+.hero.imagecoverage .background-desktop img {
+  z-index: 1;
+  position: relative;
+  vertical-align: middle;
 }
 
 .hero.tabs .hero-menu .search-container img {
@@ -319,6 +330,56 @@
 .hero.tabs .hero-menu ul li a:hover {
   background-color: var(--teal);
   color: var(--white);
+}
+
+.hero.imagecoverage {
+  background-color: var(--teal);
+  height: auto;
+  overflow: hidden;
+}
+
+.hero.imagecoverage > div > div {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  width: auto;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+}
+
+.hero.imagecoverage .hero-menu {
+  width: 70%;
+  display: unset;
+  padding: unset;
+}
+
+.hero.imagecoverage .hero-menu h1 {
+  font-weight: var(--font-weight-bold);
+  margin-top: 1.25rem;
+  margin-bottom: 0.625rem;
+}
+
+.hero.imagecoverage .hero-content {
+  padding: unset;
+}
+
+.hero.imagecoverage .background-desktop {
+  position: relative;
+  width: 30%;
+}
+
+.hero.imagecoverage picture::before {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 40vw;
+  height: 40vw;
+  background-color: var(--white);
+  transform: rotate(45deg);
+  z-index: 0;
+  left: 5vw;
 }
 
 @media (width >=48rem) {
@@ -362,6 +423,11 @@
   .hero.tabs .hero-menu {
     flex-direction: column;
     padding: 0 2.375rem;
+  }
+
+
+  .hero.imagecoverage .hero-menu {
+    width: 64%;
   }
 
   .hero.buttons-stack.coverage .hero-menu {
@@ -455,6 +521,19 @@
   .hero.coverage picture {
     display: block;
   }
+
+  .hero.imagecoverage > div > div {
+    width: 45.25rem;
+  }
+
+  .hero.imagecoverage .hero-menu h1 {
+    font-size: 3rem;
+    width: 90%;
+  }
+
+  .hero.imagecoverage .background-desktop {
+    width: 36%;
+  }
 }
 
 @media (width >=62rem) {
@@ -540,6 +619,15 @@
     padding: 0 0 0 1.875rem;
     font-size: 1.25rem;
   }
+
+  .hero.imagecoverage > div > div {
+    width: 61.875rem;
+  }
+
+  .hero.imagecoverage picture::before {
+    width: 32vw;
+    height: 32vw;
+  }
 }
 
 @media (width >=75rem) {
@@ -582,5 +670,14 @@
 
   .hero.tabs .hero-menu ul li a {
     font-size: 1rem;
+  }
+
+  .hero.imagecoverage > div > div {
+    width: 75rem;
+  }
+
+  .hero.imagecoverage picture::before {
+    width: 35vw;
+    height: 35vw;
   }
 }
