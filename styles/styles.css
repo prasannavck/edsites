@@ -504,7 +504,7 @@ main .ts-bv-rating-star .ts-bv-filled-star {
     right: 0.9375rem;
   }
 
-  main div.sidebar:has(.section.no-padding-top) {
+  main .section.no-padding-top .sidebar.tablet-view {
     top: 0;
   }
 

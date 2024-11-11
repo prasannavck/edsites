@@ -3,9 +3,12 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
 export default function decorate(block) {
   const rows = block.querySelectorAll(':scope > div > div');
   const content = rows[1];
-  let activeTab = -1;
+  let activeTab = 2;
   if (block.classList.contains('tabs')) {
-    activeTab = Number(rows[0].querySelector('p').textContent) + 1;
+    const div = rows[0].querySelector('p');
+    if (div) {
+      activeTab = Number(div.textContent) + 1;
+    }
   }
   rows[0].parentNode.remove();
 
