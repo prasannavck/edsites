@@ -21,7 +21,7 @@
 }
 
 .block.related-articles .related-articles-title h3 {
-  font-size: var(--heading-font-size-xl);
+  font-size: 1.25rem;
   font-weight: var(--font-weight-bold);
   line-height: 1.625rem;
   color: var(--teal);
