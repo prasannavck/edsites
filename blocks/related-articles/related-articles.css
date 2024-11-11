@@ -20,9 +20,12 @@
   margin-top: 0;
 }
 
-.block.related-articles .related-articles-title {
-  font-size: var(--heading-font-size-l);
+.block.related-articles .related-articles-title h3 {
+  font-size: var(--heading-font-size-xl);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.625rem;
   color: var(--teal);
+  margin-top: unset;
 }
 
 .block.related-articles .article-title img {

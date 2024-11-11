@@ -1,11 +1,17 @@
 import { getEDSLink, moveInstrumentation } from '../../scripts/scripts.js';
+import { createElement } from '../../scripts/blocks-utils.js';
 
 /**
  * @param {Element} block
  */
 export default async function decorate(block) {
   const [title, ...items] = block.querySelectorAll(':scope > div');
-  title?.classList.add('related-articles-title');
+  if (title) {
+    title.classList.add('related-articles-title');
+    const h3 = createElement('h3', '');
+    h3.textContent = title.children[0]?.textContent;
+    title.replaceChildren(h3);
+  }
   const links = items.map((x) => x.textContent.trim());
   const queryIndex = await (await fetch(`${window.hlx.codeBasePath}/query-index.json`)).json();
   const articles = links.map((link) => ({
