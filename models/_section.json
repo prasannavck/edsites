@@ -210,7 +210,8 @@
         "related-articles",
         "boxes",
         "styled-lists",
-        "rich-text"
+        "rich-text",
+        "image-with-link"
       ]
     }
   ]
