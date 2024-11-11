@@ -396,7 +396,11 @@ async function loadEager(doc) {
     decorateMain(main);
     document.body.classList.add('appear');
     loadNotificationBanner(doc.querySelector('header'));
-    await loadSection(main.querySelector('.section'), waitForFirstImage);
+    const firstSection = main.querySelector('.section');
+    await loadSection(firstSection, waitForFirstImage);
+    if (firstSection.classList.contains('fragment-container') && firstSection.classList.contains('page-title-container')) {
+      await loadSection(main.querySelector('.section:nth-child(2)'), waitForFirstImage);
+    }
     await buildNewsListSection(main);
   }
 

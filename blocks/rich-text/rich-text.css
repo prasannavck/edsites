@@ -163,14 +163,13 @@
 }
 
 .rich-text ul li {
-    min-height: 1.4375rem;
     font-size: var(--body-font-size-l);
 }
 
 .rich-text.icon-tick ul li {
-    padding: 0.1875rem 0 0.5rem 1.875rem;
+    padding: 0 0 0.5rem 1.875rem;
     list-style-type: none;
-    background: url('../../images/icon-tick.png') 0 0.1875rem no-repeat;
+    background: url('../../images/icon-tick.png') 0 0 no-repeat;
 }
 
 .rich-text.arrow-bullet-teal ul li {
