@@ -2323,6 +2323,13 @@
         "multi": false
       },
       {
+        "component": "reference",
+        "valueType": "string",
+        "name": "mobileimage",
+        "label": "Mobile Image",
+        "multi": false
+      },
+      {
         "component": "text",
         "valueType": "string",
         "name": "imagelink",
