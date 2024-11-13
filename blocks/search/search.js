@@ -446,7 +446,7 @@ export default async function decorate(block) {
       cacheDataInStore(`${SEARCH_QUERY_PREFIX}${query}`, filteredData);
     }
     if (isArticleSearch) {
-      await buildArticleSearchResult(document.querySelector('main'), filteredData, ' ', ' ');
+      await buildArticleSearchResult(document.querySelector('main'), filteredData);
       await renderResults(
         nextSection,
         { source, placeholders },

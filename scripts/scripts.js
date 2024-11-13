@@ -127,29 +127,34 @@ function decorateSectionTableList(main) {
   });
 }
 
-export async function buildArticleSearchResult(main, pages, path, categoryTitle) {
+export async function buildArticleSearchResult(main, pages, categoryMappings) {
   const blockChildren = [];
   pages.forEach((item) => {
+    const values = item.path.split('/').filter(Boolean);
     const div = document.createElement('div');
     div.classList.add('news-list-item');
     const imageWrapper = document.createElement('div');
     imageWrapper.classList.add('image-wrapper');
     const a = document.createElement('a');
-    a.href = item.path;
+    a.href = new URL(item.path, window.location.origin).href;
     const pic = createOptimizedPicture(new URL(item.imageThumbnail).pathname);
     a.appendChild(pic);
     imageWrapper.appendChild(a);
     div.append(imageWrapper);
 
-    const categoryLink = document.createElement('a');
-    categoryLink.classList.add('category-link');
-    categoryLink.href = path;
-    categoryLink.textContent = categoryTitle.toUpperCase();
-    div.append(categoryLink);
+    if (categoryMappings) {
+      const categoryLink = document.createElement('a');
+      categoryLink.classList.add('category-link');
+      categoryLink.href = new URL(values.slice(0, 2).join('/'), window.location.origin).href;
+      const categoryItem = categoryMappings.data.find((category) => category['category-id'] === values[1]);
+      const categoryTitle = categoryItem['category-title'];
+      categoryLink.textContent = categoryTitle.toUpperCase();
+      div.append(categoryLink);
+    }
 
     const newsLink = document.createElement('a');
     newsLink.classList.add('news-link');
-    newsLink.href = item.path;
+    newsLink.href = new URL(item.path, window.location.origin).href;
     newsLink.textContent = item.title;
     div.append(newsLink);
 
@@ -180,13 +185,17 @@ export async function buildArticleSearchResult(main, pages, path, categoryTitle)
 
 async function buildNewsListSection(main) {
   try {
-    const path = window.location.pathname;
-    const values = path.split('/').filter(Boolean);
-    if (!(values.length === 2 && values[0] === 'landlord-resources')) {
+    if (window.location.search) {
       return;
     }
 
-    const category = values[1];
+    const path = window.location.pathname;
+    const values = path.split('/').filter(Boolean);
+    if (!((values.length === 1 && values[0] === 'landlord-resources')
+      || (values.length === 2 && values[0] === 'landlord-resources'))) {
+      return;
+    }
+
     const [response, mappingResponse] = await Promise.all([
       fetch(`${window.hlx.codeBasePath}/query-index.json`),
       fetch(`${window.hlx.codeBasePath}/category-mapping.json`),
@@ -196,20 +205,18 @@ async function buildNewsListSection(main) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
-    const index = await response.json();
     if (!mappingResponse.ok) {
       throw new Error(`HTTP error! status: ${mappingResponse.status}`);
     }
 
+    const index = await response.json();
     const categoryMappings = await mappingResponse.json();
-    const categoryItem = categoryMappings.data.find((item) => item['category-id'] === category);
-    const categoryTitle = categoryItem['category-title'];
 
     const pages = index.data
-      .filter((item) => item.path.startsWith(path) && item.path !== path)
+      .filter((item) => item.path.startsWith(path) && item.path.split('/').filter(Boolean).length > 2)
       .sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
 
-    await buildArticleSearchResult(main, pages, path, categoryTitle);
+    await buildArticleSearchResult(main, pages, categoryMappings);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Error fetching news list', error);
