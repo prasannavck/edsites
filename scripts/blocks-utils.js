@@ -2,6 +2,10 @@ let searchCb = {};
 const BV_STARS = '★★★★★';
 const STAGE_BV_CARDS_RATING_URL = 'https://stg.api.bazaarvoice.com/data/batch.json?passkey=caVSYi4TkoqEJSJmz3z3a8CV6XZNCoaAF9H4D8DEJ1CzY&apiversion=5.5&displaycode=10370-en_au&resource.q0=products&filter.q0=id%3Aeq%3Acombinedcoverage%2Clandlordinsurance%2Cbuildinginsurance%2Cholidayrental&limit.q0=4&resource.q1=statistics&filter.q1=productid%3Aeq%3Acombinedcoverage%2Clandlordinsurance%2Cbuildinginsurance%2Cholidayrental&filter.q1=contentlocale%3Aeq%3Aen_AU&stats.q1=reviews&filter_reviews.q1=contentlocale%3Aeq%3Aen_AU&filter_reviewcomments.q1=contentlocale%3Aeq%3Aen_AU&limit.q1=4';
 const PROD_BV_CARDS_RATING_URL = 'https://api.bazaarvoice.com/data/batch.json?passkey=caex2yzNyLbKnBWEIyAQlQw7dZWLvp8NxAolCBS0jVHBo&apiversion=5.5&displaycode=10370-en_au&resource.q0=products&filter.q0=id%3Aeq%3Acombinedcoverage%2Clandlordinsurance%2Cbuildinginsurance%2Cholidayrental&limit.q0=4&resource.q1=statistics&filter.q1=productid%3Aeq%3Acombinedcoverage%2Clandlordinsurance%2Cbuildinginsurance%2Cholidayrental&filter.q1=contentlocale%3Aeq%3Aen_AU&stats.q1=reviews&filter_reviews.q1=contentlocale%3Aeq%3Aen_AU&filter_reviewcomments.q1=contentlocale%3Aeq%3Aen_AU&limit.q1=4';
+const STAGE_BV_OVERVIEW_RATING_URL = 'https://stg.api.bazaarvoice.com/data/statistics.json?apiVersion=5.4&Passkey=caVSYi4TkoqEJSJmz3z3a8CV6XZNCoaAF9H4D8DEJ1CzY&stats=Reviews&filter=productid%3A';
+const PROD_BV_OVERVIEW_RATING_URL = 'https://api.bazaarvoice.com/data/statistics.json?apiVersion=5.4&Passkey=caizO0i0FzVCD2ADjvPDtmiFSAcC5UVBJmSr2wIFcDev0&stats=Reviews&filter=productid%3A';
+const STAGE_BV_OVERVIEW_RATING_COMMENT_URL = 'https://stg.api.bazaarvoice.com/data/reviews.json?apiVersion=5.4&Passkey=caVSYi4TkoqEJSJmz3z3a8CV6XZNCoaAF9H4D8DEJ1CzY&Limit=40&filter=productid%3A';
+const PROD_BV_OVERVIEW_RATING_COMMENT_URL = 'https://api.bazaarvoice.com/data/reviews.json?apiVersion=5.4&Passkey=caizO0i0FzVCD2ADjvPDtmiFSAcC5UVBJmSr2wIFcDev0&Limit=40&filter=productid%3A';
 
 /**
  * Create new DOM element with tag name and class name.
@@ -132,12 +136,46 @@ function getBvCardsRatingUrl() {
 }
 
 /**
- * Get BV api by product id.
+ * Get BV product rating data by product id.
  * @param apiUrl API url
  */
 async function fetchBVProductRating() {
   const apiData = await fetchBVData(getBvCardsRatingUrl(), 'productBV');
   return apiData.BatchedResults?.q1?.Results;
+}
+
+/**
+ * Returns BV overview rating url
+ */
+function getBvOverviewRatingUrl() {
+  return (getEnvType() === 'prod' || getEnvType() === 'live') ? PROD_BV_OVERVIEW_RATING_URL : STAGE_BV_OVERVIEW_RATING_URL;
+}
+
+/**
+ * Returns BV overview rating comment url
+ */
+function getBvOverviewRatingCommentUrl() {
+  return (getEnvType() === 'prod' || getEnvType() === 'live') ? PROD_BV_OVERVIEW_RATING_COMMENT_URL : STAGE_BV_OVERVIEW_RATING_COMMENT_URL;
+}
+
+/**
+ * Get BV overview rating data by product id.
+ * @param apiUrl API url
+ */
+async function fetchBVOverviewRating(productId) {
+  const apiUrl = getBvOverviewRatingUrl();
+  const apiData = await fetchBVData(`${apiUrl}${productId}`, `overrating_${productId}`);
+  return apiData.Results[0]?.ProductStatistics?.ReviewStatistics;
+}
+
+/**
+ * Get BV overview rating comment data by product id.
+ * @param apiUrl API url
+ */
+async function fetchBVOverviewRatingComment(productId) {
+  const apiUrl = getBvOverviewRatingCommentUrl();
+  const apiData = await fetchBVData(`${apiUrl}${productId}`, `comment_${productId}`);
+  return apiData.Results;
 }
 
 export {
@@ -148,5 +186,7 @@ export {
   addGenericLinkClickListener,
   generateBvStarMarkup,
   fetchBVProductRating,
+  fetchBVOverviewRating,
+  fetchBVOverviewRatingComment,
   getEnvType,
 };

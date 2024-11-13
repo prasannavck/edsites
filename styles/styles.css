@@ -44,6 +44,7 @@
   --ivory-gray: #e3e2dd;
   --light-gray: #888887;
   --pale-aqua: #cdecef;
+  --pale-aqua-dark: #a4cdd1;
   --teal-blue: #4f7faa;
   --sky-blue: #6199bc;
   --pale-white: #d7d6cf;
@@ -405,7 +406,7 @@ main .section.no-margin {
   padding-bottom: unset;
 }
 
-main .section > div:not(:last-child) {
+main .section > div:not(:last-child, .hero-wrapper) {
   margin-bottom: 1.5625rem; /* Add space between child divs to give margin between blocks */
 }
 
@@ -450,10 +451,8 @@ main.search-page:has(.news-list-container) .search-results-container {
 }
 
 main .ts-bv-rating a {
-  font-size: 1.1875rem;
   color: unset;
   text-decoration: none;
-  width: 6.25rem;
   display: contents;
 }
 
@@ -462,12 +461,14 @@ main .ts-bv-rating-star {
   display: inline-block;
 }
 
-main .ts-bv-empty-star {
+main .ts-bv-rating-star .ts-bv-empty-star {
   color: var(--gray-darker);
+  font-size: 1.1875rem;
 }
 
 main .ts-bv-rating-star .ts-bv-filled-star {
     position: absolute;
+    font-size: 1.1875rem;
     top: 0;
     overflow: hidden;
     white-space: nowrap;

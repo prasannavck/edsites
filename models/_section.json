@@ -211,6 +211,7 @@
         "boxes",
         "styled-lists",
         "rich-text",
+        "bazaarvoice-integration",
         "image-with-link"
       ]
     }

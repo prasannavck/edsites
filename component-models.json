@@ -323,6 +323,61 @@
     ]
   },
   {
+    "id": "bazaarvoice-integration",
+    "fields": [
+      {
+        "component": "select",
+        "label": "Block type",
+        "name": "block_type",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "BV Overview Rating",
+            "value": "bv_overview_rating"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "label": "Bazaarvoice Product ID",
+        "name": "bv_productid",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Landlord Insurance",
+            "value": "landlordinsurance"
+          },
+          {
+            "name": "Holiday Rental",
+            "value": "holidayrental"
+          },
+          {
+            "name": "Building Insurance",
+            "value": "buildinginsurance"
+          },
+          {
+            "name": "Combined Coverage",
+            "value": "combinedcoverage"
+          }
+        ],
+        "condition": {
+          "===": [
+            {
+              "var": "block_type"
+            },
+            "bv_overview_rating"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "review_link",
+        "label": "Review Link"
+      }
+    ]
+  },
+  {
     "id": "box",
     "fields": [
       {
