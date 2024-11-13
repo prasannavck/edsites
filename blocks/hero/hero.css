@@ -163,7 +163,7 @@
 
 .hero.tabs .hero-menu ul {
   position: relative;
-  transform: translateY(-1.875rem);
+  margin-top: -1.875rem;
   display: grid;
   justify-content: space-between;
   gap: 0.25rem;

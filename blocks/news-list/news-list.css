@@ -62,10 +62,6 @@
     border-left: 0.125rem solid var(--gray-link-text-color);
 }
 
-.news-list .flex-row-1 .news-list-item .category-link {
-    border-color: var(--white);
-}
-
 .news-list .news-list-item .news-link {
     color: var(--dark-color);
     line-height: 1.25;
@@ -176,6 +172,10 @@
 
     .news-list .flex-row-3 .news-list-item .news-link {
         font-size: 1rem;
+    }
+
+    .news-list .flex-row-1 .news-list-item .category-link {
+        border-color: var(--white);
     }
 
     .news-list .flex-row-1 .news-list-item p {
