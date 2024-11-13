@@ -71,12 +71,28 @@ function decorateSectionTabs(main) {
   const sections = main.querySelectorAll('.section');
   let tabSections = [];
   const createTabsGroup = () => {
-    const tabsGroupDiv = document.createElement('div');
-    tabsGroupDiv.classList.add('section', 'tabs-group', 'no-padding-top');
-    tabsGroupDiv.append(createTabs(tabSections));
-    tabSections[0].before(tabsGroupDiv);
-    tabsGroupDiv.append(...tabSections);
-    tabSections = []; // initialise tabSections to create new tabs group
+    const newSection = document.createElement('div');
+    newSection.classList.add('section', 'no-padding-top');
+    const tabsContainer = document.createElement('div');
+    tabsContainer.classList.add('tabs-group');
+    tabsContainer.append(createTabs(tabSections));
+    tabSections[0].before(newSection);
+    tabsContainer.append(...tabSections);
+    newSection.append(tabsContainer);
+
+    // Copy sidebar properties of tab section to parent section
+    tabSections.forEach((section) => {
+      const {
+        addSidebar, sidebarLink, sidebarMobileView, sidebarTabletView,
+      } = section.dataset;
+      if (section.dataset && addSidebar === 'true' && sidebarLink) {
+        newSection.dataset.addSidebar = addSidebar;
+        newSection.dataset.sidebarLink = sidebarLink;
+        newSection.dataset.sidebarMobileView = sidebarMobileView;
+        newSection.dataset.sidebarTabletView = sidebarTabletView;
+      }
+    });
+    tabSections = [];
   };
   sections.forEach((section, index) => {
     const isTab = section.getAttribute('data-is-tab');
