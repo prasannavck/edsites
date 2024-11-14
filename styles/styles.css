@@ -492,7 +492,7 @@ main .ts-bv-rating-star .ts-bv-filled-star {
     position: relative;
   }
 
-  main .section:has(.sidebar.tablet-view) > div:not(.sidebar) {
+  main .section:has(.sidebar.tablet-view) > div:not(.sidebar):not(.fragment-wrapper) {
     width: 66%;
   }
 
@@ -526,7 +526,7 @@ main .ts-bv-rating-star .ts-bv-filled-star {
     position: relative;
   }
 
-  main .section:has(.sidebar) > div:not(.sidebar) {
+  main .section:has(.sidebar) > div:not(.sidebar):not(.fragment-wrapper) {
     width: 66%;
   }
 
