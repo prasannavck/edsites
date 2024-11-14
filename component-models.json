@@ -2394,6 +2394,93 @@
     ]
   },
   {
+    "id": "landing-ctas",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "heading",
+        "label": "Heading",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "description",
+        "label": "Description",
+        "value": ""
+      },
+      {
+        "component": "tab",
+        "name": "tab1",
+        "label": "CTA 1"
+      },
+      {
+        "component": "text",
+        "name": "button1_text",
+        "label": "Text"
+      },
+      {
+        "component": "text",
+        "name": "button1_link",
+        "label": "Link"
+      },
+      {
+        "component": "select",
+        "name": "button1_type",
+        "label": "Style",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Primary",
+            "value": "primary"
+          },
+          {
+            "name": "Secondary",
+            "value": "secondary"
+          }
+        ]
+      },
+      {
+        "component": "tab",
+        "name": "tab2",
+        "label": "CTA 2"
+      },
+      {
+        "component": "text",
+        "name": "button2_text",
+        "label": "Text"
+      },
+      {
+        "component": "text",
+        "name": "button2_link",
+        "label": "Link"
+      },
+      {
+        "component": "select",
+        "name": "button2_type",
+        "label": "Style",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Primary",
+            "value": "primary"
+          },
+          {
+            "name": "Secondary",
+            "value": "secondary"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "notification-banner",
     "fields": [
       {
