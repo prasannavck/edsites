@@ -417,6 +417,44 @@
     ]
   },
   {
+    "id": "brochure-list",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "bgImage",
+        "label": "Background image",
+        "required": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "bgImageAlt",
+        "label": "Background Image Alt Text"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "required": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Image Alt Text"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "ribbonText",
+        "label": "Text",
+        "required": true
+      }
+    ]
+  },
+  {
     "id": "button-stack",
     "fields": [
       {
