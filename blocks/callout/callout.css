@@ -8,8 +8,11 @@
     border-radius: 0.1875rem;
 }
 
-.callout p {
+.callout p,
+.callout a {
     margin-top: 0;
+    background-color: var(--teal);
+    color: var(--white);
 }
 
 .callout .info {

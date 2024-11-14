@@ -35,7 +35,7 @@
             "...": "../../models/icon-list/_white-icons-list.json"
           },
           {
-            "component": "text",
+            "component": "richtext",
             "valueType": "string",
             "name": "info_text",
             "label": "Text"

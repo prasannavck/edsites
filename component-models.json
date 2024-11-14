@@ -922,7 +922,7 @@
         ]
       },
       {
-        "component": "text",
+        "component": "richtext",
         "valueType": "string",
         "name": "info_text",
         "label": "Text"
