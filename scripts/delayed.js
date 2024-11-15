@@ -6,7 +6,7 @@ const BV_SCRIPT = 'https://display.ugc.bazaarvoice.com/bvstaging/static/terrisch
 async function loadBazaarVoiceScript() {
   const scriptSrc = BV_SCRIPT;
   const envType = getEnvType();
-  if (envType === 'prod') scriptSrc.replace('/bvstaging', '');
+  if (envType === 'prod' || envType === 'live') scriptSrc.replace('/bvstaging', '');
   await loadScript(scriptSrc);
   addBazaarVoiceReviewsScript();
 }
