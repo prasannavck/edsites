@@ -138,7 +138,7 @@
         {
           "component": "select",
           "valueType": "string",
-          "name": "content_icon1",
+          "name": "header_icon1",
           "label": "Title Icon 1",
           "...": "../../models/icon-list/_hero-icons-list.json",
           "condition": { "in": ["coverage", { "var": "classes" }] }
@@ -146,22 +146,30 @@
         {
           "component": "select",
           "valueType": "string",
-          "name": "content_icon2",
+          "name": "header_icon2",
           "label": "Title Icon 2",
           "...": "../../models/icon-list/_hero-icons-list.json",
           "condition": { "in": ["coverage", { "var": "classes" }] }
         },
         {
           "component": "richtext",
-          "name": "content_text",
+          "name": "header_title",
           "value": "",
           "label": "Title",
           "valueType": "string"
         },
         {
           "component": "richtext",
+          "name": "header_subtitle",
+          "value": "",
+          "label": "Sub Title",
           "valueType": "string",
-          "name": "content_descr",
+          "condition": { "in": ["coverage", { "var": "classes" }] }
+        },
+        {
+          "component": "richtext",
+          "valueType": "string",
+          "name": "description",
           "value": "",
           "label": "Description",
           "condition": {"some": [{ "var": "classes" }, { "in": [ { "var": "" }, ["coverage", "tabs"] ] }]}
@@ -169,17 +177,33 @@
         {
           "component": "select",
           "valueType": "string",
-          "name": "content_descr_icon",
-          "label": "Add'l Description Icon",
+          "name": "discount_one_icon",
+          "label": "Discount Icon 1",
           "...": "../../models/icon-list/_hero-icons-list.json",
           "condition": { "in": ["coverage", { "var": "classes" }] }
         },
         {
           "component": "richtext",
           "valueType": "string",
-          "name": "content_descr2",
+          "name": "discount_one_description",
           "value": "",
-          "label": "Add'l Description",
+          "label": "Discount Description 1",
+          "condition": { "in": ["coverage", { "var": "classes" }] }
+        },
+        {
+          "component": "select",
+          "valueType": "string",
+          "name": "discount_two_icon",
+          "label": "Discount Icon 2",
+          "...": "../../models/icon-list/_hero-icons-list.json",
+          "condition": { "in": ["coverage", { "var": "classes" }] }
+        },
+        {
+          "component": "richtext",
+          "valueType": "string",
+          "name": "discount_two_description",
+          "value": "",
+          "label": "Discount Description 2",
           "condition": { "in": ["coverage", { "var": "classes" }] }
         },
         {

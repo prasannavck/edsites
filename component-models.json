@@ -1857,9 +1857,13 @@
       {
         "component": "select",
         "valueType": "string",
-        "name": "content_icon1",
+        "name": "header_icon1",
         "label": "Title Icon 1",
         "options": [
+          {
+            "name": "No Icon",
+            "value": ""
+          },
           {
             "name": "Calculator (white)",
             "value": ":calculator-white:"
@@ -1881,12 +1885,32 @@
             "value": ":friends-grey:"
           },
           {
+            "name": "Friends (teal)",
+            "value": ":friends-teal:"
+          },
+          {
             "name": "House fire (grey)",
             "value": ":house-fire-grey:"
           },
           {
+            "name": "House fire (teal)",
+            "value": ":house-fire-teal:"
+          },
+          {
+            "name": "Beach Ball (grey)",
+            "value": ":beach-ball-grey:"
+          },
+          {
+            "name": "Beach Ball (teal)",
+            "value": ":beach-ball-teal:"
+          },
+          {
             "name": "Ten percent (indigo)",
             "value": ":ten-percent-indigo:"
+          },
+          {
+            "name": "Five percent (green)",
+            "value": ":five-percent-green:"
           }
         ],
         "condition": {
@@ -1901,9 +1925,13 @@
       {
         "component": "select",
         "valueType": "string",
-        "name": "content_icon2",
+        "name": "header_icon2",
         "label": "Title Icon 2",
         "options": [
+          {
+            "name": "No Icon",
+            "value": ""
+          },
           {
             "name": "Calculator (white)",
             "value": ":calculator-white:"
@@ -1925,12 +1953,32 @@
             "value": ":friends-grey:"
           },
           {
+            "name": "Friends (teal)",
+            "value": ":friends-teal:"
+          },
+          {
             "name": "House fire (grey)",
             "value": ":house-fire-grey:"
           },
           {
+            "name": "House fire (teal)",
+            "value": ":house-fire-teal:"
+          },
+          {
+            "name": "Beach Ball (grey)",
+            "value": ":beach-ball-grey:"
+          },
+          {
+            "name": "Beach Ball (teal)",
+            "value": ":beach-ball-teal:"
+          },
+          {
             "name": "Ten percent (indigo)",
             "value": ":ten-percent-indigo:"
+          },
+          {
+            "name": "Five percent (green)",
+            "value": ":five-percent-green:"
           }
         ],
         "condition": {
@@ -1944,15 +1992,30 @@
       },
       {
         "component": "richtext",
-        "name": "content_text",
+        "name": "header_title",
         "value": "",
         "label": "Title",
         "valueType": "string"
       },
       {
         "component": "richtext",
+        "name": "header_subtitle",
+        "value": "",
+        "label": "Sub Title",
         "valueType": "string",
-        "name": "content_descr",
+        "condition": {
+          "in": [
+            "coverage",
+            {
+              "var": "classes"
+            }
+          ]
+        }
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "description",
         "value": "",
         "label": "Description",
         "condition": {
@@ -1977,9 +2040,13 @@
       {
         "component": "select",
         "valueType": "string",
-        "name": "content_descr_icon",
-        "label": "Add'l Description Icon",
+        "name": "discount_one_icon",
+        "label": "Discount Icon 1",
         "options": [
+          {
+            "name": "No Icon",
+            "value": ""
+          },
           {
             "name": "Calculator (white)",
             "value": ":calculator-white:"
@@ -2001,12 +2068,32 @@
             "value": ":friends-grey:"
           },
           {
+            "name": "Friends (teal)",
+            "value": ":friends-teal:"
+          },
+          {
             "name": "House fire (grey)",
             "value": ":house-fire-grey:"
           },
           {
+            "name": "House fire (teal)",
+            "value": ":house-fire-teal:"
+          },
+          {
+            "name": "Beach Ball (grey)",
+            "value": ":beach-ball-grey:"
+          },
+          {
+            "name": "Beach Ball (teal)",
+            "value": ":beach-ball-teal:"
+          },
+          {
             "name": "Ten percent (indigo)",
             "value": ":ten-percent-indigo:"
+          },
+          {
+            "name": "Five percent (green)",
+            "value": ":five-percent-green:"
           }
         ],
         "condition": {
@@ -2021,9 +2108,92 @@
       {
         "component": "richtext",
         "valueType": "string",
-        "name": "content_descr2",
+        "name": "discount_one_description",
         "value": "",
-        "label": "Add'l Description",
+        "label": "Discount Description 1",
+        "condition": {
+          "in": [
+            "coverage",
+            {
+              "var": "classes"
+            }
+          ]
+        }
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "discount_two_icon",
+        "label": "Discount Icon 2",
+        "options": [
+          {
+            "name": "No Icon",
+            "value": ""
+          },
+          {
+            "name": "Calculator (white)",
+            "value": ":calculator-white:"
+          },
+          {
+            "name": "Compare (white)",
+            "value": ":compare-white:"
+          },
+          {
+            "name": "Document (white)",
+            "value": ":document-white:"
+          },
+          {
+            "name": "Download (white)",
+            "value": ":download-white:"
+          },
+          {
+            "name": "Friends (grey)",
+            "value": ":friends-grey:"
+          },
+          {
+            "name": "Friends (teal)",
+            "value": ":friends-teal:"
+          },
+          {
+            "name": "House fire (grey)",
+            "value": ":house-fire-grey:"
+          },
+          {
+            "name": "House fire (teal)",
+            "value": ":house-fire-teal:"
+          },
+          {
+            "name": "Beach Ball (grey)",
+            "value": ":beach-ball-grey:"
+          },
+          {
+            "name": "Beach Ball (teal)",
+            "value": ":beach-ball-teal:"
+          },
+          {
+            "name": "Ten percent (indigo)",
+            "value": ":ten-percent-indigo:"
+          },
+          {
+            "name": "Five percent (green)",
+            "value": ":five-percent-green:"
+          }
+        ],
+        "condition": {
+          "in": [
+            "coverage",
+            {
+              "var": "classes"
+            }
+          ]
+        }
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "discount_two_description",
+        "value": "",
+        "label": "Discount Description 2",
         "condition": {
           "in": [
             "coverage",
@@ -2045,6 +2215,10 @@
         "label": "Icon",
         "options": [
           {
+            "name": "No Icon",
+            "value": ""
+          },
+          {
             "name": "Calculator (white)",
             "value": ":calculator-white:"
           },
@@ -2065,12 +2239,32 @@
             "value": ":friends-grey:"
           },
           {
+            "name": "Friends (teal)",
+            "value": ":friends-teal:"
+          },
+          {
             "name": "House fire (grey)",
             "value": ":house-fire-grey:"
           },
           {
+            "name": "House fire (teal)",
+            "value": ":house-fire-teal:"
+          },
+          {
+            "name": "Beach Ball (grey)",
+            "value": ":beach-ball-grey:"
+          },
+          {
+            "name": "Beach Ball (teal)",
+            "value": ":beach-ball-teal:"
+          },
+          {
             "name": "Ten percent (indigo)",
             "value": ":ten-percent-indigo:"
+          },
+          {
+            "name": "Five percent (green)",
+            "value": ":five-percent-green:"
           }
         ],
         "condition": {
@@ -2119,6 +2313,10 @@
         "label": "Icon",
         "options": [
           {
+            "name": "No Icon",
+            "value": ""
+          },
+          {
             "name": "Calculator (white)",
             "value": ":calculator-white:"
           },
@@ -2139,12 +2337,32 @@
             "value": ":friends-grey:"
           },
           {
+            "name": "Friends (teal)",
+            "value": ":friends-teal:"
+          },
+          {
             "name": "House fire (grey)",
             "value": ":house-fire-grey:"
           },
           {
+            "name": "House fire (teal)",
+            "value": ":house-fire-teal:"
+          },
+          {
+            "name": "Beach Ball (grey)",
+            "value": ":beach-ball-grey:"
+          },
+          {
+            "name": "Beach Ball (teal)",
+            "value": ":beach-ball-teal:"
+          },
+          {
             "name": "Ten percent (indigo)",
             "value": ":ten-percent-indigo:"
+          },
+          {
+            "name": "Five percent (green)",
+            "value": ":five-percent-green:"
           }
         ],
         "condition": {
@@ -2193,6 +2411,10 @@
         "label": "Icon",
         "options": [
           {
+            "name": "No Icon",
+            "value": ""
+          },
+          {
             "name": "Calculator (white)",
             "value": ":calculator-white:"
           },
@@ -2213,12 +2435,32 @@
             "value": ":friends-grey:"
           },
           {
+            "name": "Friends (teal)",
+            "value": ":friends-teal:"
+          },
+          {
             "name": "House fire (grey)",
             "value": ":house-fire-grey:"
           },
           {
+            "name": "House fire (teal)",
+            "value": ":house-fire-teal:"
+          },
+          {
+            "name": "Beach Ball (grey)",
+            "value": ":beach-ball-grey:"
+          },
+          {
+            "name": "Beach Ball (teal)",
+            "value": ":beach-ball-teal:"
+          },
+          {
             "name": "Ten percent (indigo)",
             "value": ":ten-percent-indigo:"
+          },
+          {
+            "name": "Five percent (green)",
+            "value": ":five-percent-green:"
           }
         ],
         "condition": {
@@ -2267,6 +2509,10 @@
         "label": "Icon",
         "options": [
           {
+            "name": "No Icon",
+            "value": ""
+          },
+          {
             "name": "Calculator (white)",
             "value": ":calculator-white:"
           },
@@ -2287,12 +2533,32 @@
             "value": ":friends-grey:"
           },
           {
+            "name": "Friends (teal)",
+            "value": ":friends-teal:"
+          },
+          {
             "name": "House fire (grey)",
             "value": ":house-fire-grey:"
           },
           {
+            "name": "House fire (teal)",
+            "value": ":house-fire-teal:"
+          },
+          {
+            "name": "Beach Ball (grey)",
+            "value": ":beach-ball-grey:"
+          },
+          {
+            "name": "Beach Ball (teal)",
+            "value": ":beach-ball-teal:"
+          },
+          {
             "name": "Ten percent (indigo)",
             "value": ":ten-percent-indigo:"
+          },
+          {
+            "name": "Five percent (green)",
+            "value": ":five-percent-green:"
           }
         ],
         "condition": {
@@ -2341,6 +2607,10 @@
         "label": "Icon",
         "options": [
           {
+            "name": "No Icon",
+            "value": ""
+          },
+          {
             "name": "Calculator (white)",
             "value": ":calculator-white:"
           },
@@ -2361,12 +2631,32 @@
             "value": ":friends-grey:"
           },
           {
+            "name": "Friends (teal)",
+            "value": ":friends-teal:"
+          },
+          {
             "name": "House fire (grey)",
             "value": ":house-fire-grey:"
           },
           {
+            "name": "House fire (teal)",
+            "value": ":house-fire-teal:"
+          },
+          {
+            "name": "Beach Ball (grey)",
+            "value": ":beach-ball-grey:"
+          },
+          {
+            "name": "Beach Ball (teal)",
+            "value": ":beach-ball-teal:"
+          },
+          {
             "name": "Ten percent (indigo)",
             "value": ":ten-percent-indigo:"
+          },
+          {
+            "name": "Five percent (green)",
+            "value": ":five-percent-green:"
           }
         ],
         "condition": {

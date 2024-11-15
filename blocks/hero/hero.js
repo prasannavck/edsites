@@ -1,84 +1,94 @@
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
-export default function decorate(block) {
-  const rows = block.querySelectorAll(':scope > div > div');
-  const content = rows[1];
-  let activeTab = 2;
-  if (block.classList.contains('tabs')) {
-    const div = rows[0].querySelector('p');
-    if (div) {
-      activeTab = Number(div.textContent) + 1;
+function decorateCoverageVariant(block) {
+  const backgroundImageContainer = block.querySelector('div:has(div picture)');
+  const heroContentChildren = [];
+  const headerContainer = backgroundImageContainer?.nextElementSibling || block.firstChild;
+  const descriptionContainer = headerContainer?.nextElementSibling;
+  const discountContainer = descriptionContainer.nextElementSibling;
+
+  if (headerContainer) {
+    const headerTitle = headerContainer.querySelector('h1') || document.createElement('h1');
+    const headerSubTitle = headerContainer.querySelector('h2')
+      || headerContainer.querySelector('h3')
+      || headerContainer.querySelector('h4')
+      || headerContainer.querySelector('h5');
+    const titleWrapper = document.createElement('div');
+    titleWrapper.classList.add('title-wrapper');
+    titleWrapper.append(headerTitle);
+    if (headerSubTitle) titleWrapper.append(headerSubTitle);
+    const header = headerContainer.firstElementChild;
+    header.classList.add('header');
+    const icons = Array.from(headerContainer.querySelectorAll('.icon'));
+    const headerIcon1 = icons[0];
+    const headerIcon2 = icons.length > 1 ? icons[1] : undefined;
+    const iconH1 = document.createElement('h1');
+    if (headerIcon1) iconH1.append(headerIcon1);
+    if (headerIcon2) iconH1.append('+', headerIcon2);
+    if (iconH1.innerHTML !== '') {
+      iconH1.classList.add('header-icons');
+      if (iconH1.childNodes.length === 1) iconH1.classList.add('single');
+      header.append(iconH1);
     }
-  }
-  rows[0].parentNode.remove();
-
-  const h1 = content.querySelector('h1');
-  const h2 = content.querySelector('h2');
-  const h3 = content.querySelector('h3');
-  const allPTags = content.querySelectorAll('p');
-  const pTagsWithPicture = Array.from(allPTags).filter((p) => p.querySelector('.icon'));
-  const pTagsWithBackgroundImage = Array.from(allPTags).filter((p) => p.querySelector('picture'));
-  if (pTagsWithBackgroundImage.length > 1) {
-    pTagsWithBackgroundImage[0].classList.add('background-mobile');
-    pTagsWithBackgroundImage[1].classList.add('background-desktop');
-  } else {
-    pTagsWithBackgroundImage[0].classList.add('background-desktop');
-  }
-  // eslint-disable-next-line arrow-body-style
-  const pTagsWithoutIconOrPicture = Array.from(allPTags).filter((p) => {
-    return !p.querySelector('.icon') && !p.querySelector('picture');
-  });
-
-  if (block.classList.contains('background-gradient')) {
-    const backgroundImageContainer = content.querySelector('p:has(picture)');
-    const gradientOverlay = document.createElement('div');
-    gradientOverlay.classList.add('gradient-overlay');
-    backgroundImageContainer.appendChild(gradientOverlay);
+    header.append(titleWrapper);
+    heroContentChildren.push(headerContainer);
   }
 
-  if (block.classList.contains('coverage')) {
-    // Decorate heading
-    if (h1 && pTagsWithPicture[0] && pTagsWithPicture[1]) {
-      const icon1 = pTagsWithPicture[0].querySelector('.icon');
-      moveInstrumentation(pTagsWithPicture[0], icon1);
-      const icon2 = pTagsWithPicture[1].querySelector('.icon');
-      moveInstrumentation(pTagsWithPicture[1], icon2);
-      h1.prepend(icon2);
-      h1.prepend('+');
-      h1.prepend(icon1);
-      pTagsWithPicture[0].remove();
-      pTagsWithPicture[1].remove();
-    }
+  if (descriptionContainer) {
+    descriptionContainer.firstElementChild?.classList.add('description');
+    heroContentChildren.push(descriptionContainer);
+  }
 
-    // Decorate paragraph
-    if (pTagsWithoutIconOrPicture[1] && pTagsWithPicture[2]) {
-      const icon = pTagsWithPicture[2].querySelector('.icon');
-      moveInstrumentation(pTagsWithPicture[2], icon);
-      pTagsWithoutIconOrPicture[1].prepend(icon);
-      pTagsWithPicture[2].remove();
-    }
+  if (discountContainer) {
+    const discountDiv = discountContainer.firstElementChild;
+    discountDiv.classList.add('discount-wrapper');
+    let group = document.createElement('div');
+    group.classList.add('group');
 
-    const pTagsWithIcon = Array.from(allPTags).filter((p) => p.querySelector('.icon'));
-    pTagsWithIcon.forEach((p) => {
-      const textSpan = document.createElement('span');
-      textSpan.classList.add('icon-text');
-      Array.from(p.childNodes).forEach((node) => {
-        if (node.nodeType === Node.ELEMENT_NODE && node.classList.contains('icon')) {
-          // Skip the icon span
-          return;
-        }
-        textSpan.appendChild(node);
-      });
-      p.appendChild(textSpan);
-      moveInstrumentation(p, textSpan);
+    let currentPara = discountDiv.querySelector('p:first-of-type');
+    let next = currentPara.nextElementSibling;
+    group.append(currentPara);
+    while (next) {
+      if (next.querySelector('.icon')) {
+        discountDiv.prepend(group);
+        group = document.createElement('div');
+        group.classList.add('group');
+      }
+      if (currentPara.textContent !== '') currentPara.classList.add('description');
+      currentPara = next;
+      next = next.nextElementSibling;
+      group.append(currentPara);
+    }
+    if (currentPara.textContent !== '') currentPara.classList.add('description');
+    discountDiv.append(group);
+    const descriptions = discountContainer.querySelectorAll('.description');
+    if (descriptions.length === 1) group.classList.add('single');
+    heroContentChildren.push(discountContainer);
+  }
+  return heroContentChildren;
+}
+
+function decorateButtons(block, activeTab) {
+  const isTabVariant = block.classList.contains('tabs');
+  const rows = Array.from(block.querySelectorAll(':scope > div > div'))
+    .filter((row) => {
+      const paragraphs = row.querySelectorAll('p');
+      if (isTabVariant && paragraphs.length === 1) {
+        return paragraphs[0].classList.contains('button-container');
+      }
+      if (paragraphs.length === 2) {
+        return paragraphs[0].querySelector('.icon') !== null
+          && paragraphs[1].classList.contains('button-container');
+      }
+      return false;
     });
-  }
-
   const ul = document.createElement('ul');
-  for (let i = 2; i < rows.length; i += 1) {
+  for (let i = 0; i < rows.length; i += 1) {
     if (rows[i].childNodes.length > 0) {
       const li = document.createElement('li');
       const buttonContainer = rows[i].querySelector('.button-container');
+      // eslint-disable-next-line no-continue
+      if (!buttonContainer) continue;
       const link = buttonContainer.querySelector('a');
       const pWithIcon = rows[i].querySelector('p:has(.icon)');
 
@@ -90,24 +100,74 @@ export default function decorate(block) {
 
       link.classList.add('button');
       if (block.classList.contains('buttons-stack')) {
-        if (i === 2) {
+        if (i === 0) {
           link.classList.add('orange');
         } else {
           link.classList.add('dark');
         }
       }
 
-      if (block.classList.contains('tabs') && i === activeTab) {
+      if (isTabVariant && i + 1 === activeTab) {
         li.classList.add('active');
       }
 
       li.append(buttonContainer);
       ul.appendChild(li);
     }
-    rows[i].parentNode.remove();
+  }
+  return ul;
+}
+
+function decorateBackgroundImage(block) {
+  const backgroundImageContainer = block.querySelector(':scope > div > div:has(picture)');
+  const backgroundPictures = backgroundImageContainer.querySelectorAll('picture');
+  if (!backgroundPictures || backgroundPictures.length === 0) return '';
+  backgroundPictures.forEach((picture, index) => {
+    let pictureParent = picture.parentNode;
+    if (pictureParent?.nodeName !== 'P') {
+      pictureParent = document.createElement('p');
+      pictureParent.classList.add('background-desktop');
+      pictureParent.append(picture);
+      backgroundImageContainer.append(pictureParent);
+    }
+    if (index === 0) pictureParent.classList.add('background-mobile');
+    else pictureParent.classList.add('background-desktop');
+  });
+  return backgroundImageContainer;
+}
+
+export default function decorate(block) {
+  const isCoverageBlockVariant = block.classList.contains('coverage');
+  const isTabsBlockVariant = block.classList.contains('tabs');
+  const h1 = block.querySelector('h1');
+  const h2 = block.querySelector('h2');
+  const h3 = block.querySelector('h3');
+  const content = decorateBackgroundImage(block);
+  let heroContentChildren = [];
+
+  // find active tab for tabs variant
+  let activeTab = 1;
+  if (isTabsBlockVariant) {
+    const firstPropertyDiv = block.querySelector(':scope > div > div');
+    if (firstPropertyDiv && firstPropertyDiv.childNodes.length === 1 && firstPropertyDiv.firstElementChild.nodeName === 'P') {
+      const activeTabText = firstPropertyDiv.querySelector('p').textContent;
+      if (activeTabText) activeTab = Math.max(activeTab, Number(activeTabText));
+    }
+    firstPropertyDiv?.parentNode?.remove();
   }
 
-  if (block.classList.contains('tabs')) {
+  if (isCoverageBlockVariant) {
+    heroContentChildren = decorateCoverageVariant(block);
+  }
+
+  if (block.classList.contains('background-gradient')) {
+    const gradientOverlay = document.createElement('div');
+    gradientOverlay.classList.add('gradient-overlay');
+    content.appendChild(gradientOverlay);
+  }
+
+  const ul = decorateButtons(block, activeTab);
+  if (isTabsBlockVariant) {
     const listItem = document.createElement('li');
     const container = document.createElement('div');
     container.classList.add('search-container');
@@ -131,21 +191,21 @@ export default function decorate(block) {
   const heroContent = document.createElement('div');
   heroContent.classList.add('hero-content');
 
-  if (h1) {
-    heroContent.appendChild(h1);
-  }
-  if (h2) {
-    heroContent.appendChild(h2);
-  }
-  if (h3) {
-    heroContent.appendChild(h3);
-  }
+  if (!isCoverageBlockVariant) {
+    if (h1) heroContentChildren.push(h1);
+    if (h2) heroContentChildren.push(h2);
+    if (h3) heroContentChildren.push(h3);
 
-  for (let i = 0; i < pTagsWithoutIconOrPicture.length; i += 1) {
-    heroContent.appendChild(pTagsWithoutIconOrPicture[i]);
-  }
+    const headingContainer = block.querySelector('div:has(div > h1)')
+      || block.querySelector('div:has(div > h2)')
+      || block.querySelector('div:has(div > h3)');
 
-  if (block.classList.contains('tabs')) {
+    const description = headingContainer?.nextElementSibling?.querySelector('p');
+    if (description) heroContentChildren.push(description);
+  }
+  heroContent.append(...heroContentChildren);
+
+  if (isTabsBlockVariant) {
     const boxContainer = document.createElement('div');
     boxContainer.classList.add('box-container');
     boxContainer.appendChild(heroContent);
@@ -157,5 +217,9 @@ export default function decorate(block) {
   if (ul.hasChildNodes()) {
     heroMenu.appendChild(ul);
   }
-  content.appendChild(heroMenu);
+  content.append(heroMenu);
+  // remove all empty divs, as a result of decorating the markup
+  Array.from(block.querySelectorAll(':scope > div > div')).forEach(((div) => {
+    if (div.className === '' && div.innerHTML.trim() === '') div.parentNode.remove();
+  }));
 }
