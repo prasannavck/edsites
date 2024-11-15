@@ -220,6 +220,8 @@ export default function decorate(block) {
   content.append(heroMenu);
   // remove all empty divs, as a result of decorating the markup
   Array.from(block.querySelectorAll(':scope > div > div')).forEach(((div) => {
-    if (div.className === '' && div.innerHTML.trim() === '') div.parentNode.remove();
+    const pTag = div.querySelector('p');
+    if ((div.className === '' && div.innerHTML.trim() === '')
+      || (div.className === '' && pTag.className === '' && pTag.innerHTML.trim() === '')) div.parentNode.remove();
   }));
 }
