@@ -55,6 +55,17 @@ async function decorateRating(ratingContent, productId) {
   }
 }
 
+function decorateReviews(block, bvProductId) {
+  block.classList.add('bv-reviews');
+  block.setAttribute('data-product-id', bvProductId);
+  block.innerHTML = `
+      <div itemscope itemtype="https://schema.org/Product">
+        <div id="BVRRSummaryContainer"></div>
+        <div id="BVRRContainer"></div>
+      </div>
+    `;
+}
+
 export default async function decorate(block) {
   const [bvBlockType, bvProductId, bvReviewLink] = block.querySelectorAll(':scope > div > div');
   block.textContent = '';
@@ -63,6 +74,7 @@ export default async function decorate(block) {
   const reviewLink = bvReviewLink?.textContent;
   const placeholders = await fetchPlaceholders();
   if (blockType === 'bv_overview_rating' && productId) {
+    block.classList.add('bv-overview-rating');
     const ratingContent = generateOverviewRatingMarkup(placeholders, reviewLink);
     try {
       decorateRating(ratingContent, productId);
@@ -71,5 +83,7 @@ export default async function decorate(block) {
       console.log('Error on integrate BV overview rating: ', error);
     }
     block.replaceChildren(ratingContent);
+  } else if (blockType === 'bv_reviews' && productId) {
+    decorateReviews(block, productId);
   }
 }

@@ -334,6 +334,10 @@
           {
             "name": "BV Overview Rating",
             "value": "bv_overview_rating"
+          },
+          {
+            "name": "BV Reviews",
+            "value": "bv_reviews"
           }
         ]
       },
@@ -359,7 +363,13 @@
             "name": "Combined Coverage",
             "value": "combinedcoverage"
           }
-        ],
+        ]
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "review_link",
+        "label": "Review Link",
         "condition": {
           "===": [
             {
@@ -368,12 +378,6 @@
             "bv_overview_rating"
           ]
         }
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "review_link",
-        "label": "Review Link"
       }
     ]
   },

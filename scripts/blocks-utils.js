@@ -178,6 +178,25 @@ async function fetchBVOverviewRatingComment(productId) {
   return apiData.Results;
 }
 
+function addBazaarVoiceReviewsScript() {
+  const main = document.querySelector('main');
+  const bvReviewsBlocks = Array.from(main.querySelectorAll('.block.bv-reviews'));
+  bvReviewsBlocks.forEach((block) => {
+    const productId = block.getAttribute('data-product-id');
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.text = `
+      $BV.ui('rr', 'show_reviews', {
+        productId: '${productId}',
+        doShowContent: function() {
+          // If the container is hidden (such as behind a tab), put code here to make it visible
+        }
+      });
+    `;
+    block.appendChild(script);
+  });
+}
+
 export {
   // eslint-disable-next-line import/prefer-default-export
   createElement,
@@ -189,4 +208,5 @@ export {
   fetchBVOverviewRating,
   fetchBVOverviewRatingComment,
   getEnvType,
+  addBazaarVoiceReviewsScript,
 };
