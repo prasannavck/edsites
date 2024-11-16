@@ -17,6 +17,7 @@ import {
   getMetadata,
   createOptimizedPicture,
 } from './aem.js';
+import { generateSuperScripts } from './blocks-utils.js';
 
 const ARTICLE_BASE = 'landlord-resources';
 
@@ -309,6 +310,7 @@ function loadArticleTags(tagsWrapper, href) {
 function buildAutoBlocks(main) {
   try {
     buildSearchBlock();
+    generateSuperScripts(main);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);

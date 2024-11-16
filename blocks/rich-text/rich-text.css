@@ -46,6 +46,25 @@
     color: var(--text-color);
 }
 
+.rich-text p sup {
+    display: inline-block;
+}
+
+.rich-text p sup .footnote-wrapper {
+    position: absolute;
+    z-index: 1;
+    border: 0.0625rem solid var(--dark-gray);
+    background: var(--white);
+    padding: .7rem 1rem;
+    border-radius: 0.1875rem;
+    max-width: 18.75rem;
+}
+
+.rich-text p sup .footnote-anchor {
+    color: var(--teal);
+    cursor: pointer;
+}
+
 .rich-text h1 {
     font-size: var(--heading-font-size-xxl);
     margin-bottom: 1.25rem;

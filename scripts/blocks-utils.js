@@ -197,8 +197,40 @@ function addBazaarVoiceReviewsScript() {
   });
 }
 
+/**
+ * Generate super script for richtext block.
+ * @param main main content
+ */
+function generateSuperScripts(main) {
+  let count = 1;
+  main.querySelectorAll('.rich-text a:has(sup)').forEach((supLink) => {
+    if (supLink) {
+      const targetLink = supLink.cloneNode(true);
+      targetLink.textContent = supLink.textContent;
+      const sup = createElement('sup');
+      const wrapper = createElement('div');
+      wrapper.classList.add('footnote-wrapper');
+      wrapper.style.display = 'none';
+      const clickableLink = createElement('div', 'footnote-anchor');
+      clickableLink.textContent = count;
+      sup.appendChild(clickableLink);
+      clickableLink.addEventListener('mouseenter', () => {
+        wrapper.style.display = 'block';
+      });
+      document.addEventListener('click', (event) => {
+        if (!clickableLink.contains(event.target)) {
+          wrapper.style.display = 'none';
+        }
+      });
+      wrapper.appendChild(targetLink);
+      sup.appendChild(wrapper);
+      supLink.replaceWith(sup);
+      count += 1;
+    }
+  });
+}
+
 export {
-  // eslint-disable-next-line import/prefer-default-export
   createElement,
   openSearchBar,
   closeSearchBar,
@@ -209,4 +241,5 @@ export {
   fetchBVOverviewRatingComment,
   getEnvType,
   addBazaarVoiceReviewsScript,
+  generateSuperScripts,
 };
