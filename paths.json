@@ -6,7 +6,7 @@
     "/content/terrischeer/redirects:/redirects.json",
     "/content/terrischeer/placeholders:/placeholders.json",
     "/content/terrischeer/category-mapping:/category-mapping.json",
-    "/content/terrischeer/configuration:/.helix/configuration.json"
+    "/content/terrischeer/configuration:/.helix/config.json"
   ],
     "includes": [
       "/content/terrischeer",
