@@ -55,15 +55,26 @@ async function decorateRating(ratingContent, productId) {
   }
 }
 
-function decorateReviews(block, bvProductId) {
+function decorateReviews(block, productId) {
   block.classList.add('bv-reviews');
-  block.setAttribute('data-product-id', bvProductId);
+  block.setAttribute('data-product-id', productId);
   block.innerHTML = `
       <div itemscope itemtype="https://schema.org/Product">
-        <div id="BVRRSummaryContainer"></div>
         <div id="BVRRContainer"></div>
       </div>
     `;
+}
+
+function decorateSubmissionForm(block) {
+  block.classList.add('bv-submission-form');
+  const isLiveView = !window.hlx.codeBasePath;
+  if (isLiveView) block.innerHTML = '';
+  else {
+    block.innerHTML = `<div>
+        <h3>Bazaarvoice Form Submission Block Configured</h3>
+        <p>Verify it on stage or prod URL</p>
+      </div>`;
+  }
 }
 
 export default async function decorate(block) {
@@ -85,5 +96,7 @@ export default async function decorate(block) {
     block.replaceChildren(ratingContent);
   } else if (blockType === 'bv_reviews' && productId) {
     decorateReviews(block, productId);
+  } else if (blockType === 'bv_submission_form') {
+    decorateSubmissionForm(block);
   }
 }

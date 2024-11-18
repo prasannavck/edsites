@@ -178,9 +178,12 @@ async function fetchBVOverviewRatingComment(productId) {
   return apiData.Results;
 }
 
-function addBazaarVoiceReviewsScript() {
-  const main = document.querySelector('main');
-  const bvReviewsBlocks = Array.from(main.querySelectorAll('.block.bv-reviews'));
+/**
+ * Add required script to show BV reviews
+ * @param bvReviewsBlocks bazaarvoice-integration block with type = 'BV Reviews'
+ */
+function addBazaarVoiceReviewsScript(bvReviewsBlocks) {
+  if (!bvReviewsBlocks) return;
   bvReviewsBlocks.forEach((block) => {
     const productId = block.getAttribute('data-product-id');
     const script = document.createElement('script');
@@ -192,6 +195,22 @@ function addBazaarVoiceReviewsScript() {
           // If the container is hidden (such as behind a tab), put code here to make it visible
         }
       });
+    `;
+    block.appendChild(script);
+  });
+}
+
+/**
+ * Add required script to show BV submission form
+ * @param bvSubmissionFormBlocks bazaarvoice-integration block with type = 'BV Submission Form'
+ */
+function addBazaarVoiceFormSubmissionScript(bvSubmissionFormBlocks) {
+  if (!bvSubmissionFormBlocks) return;
+  bvSubmissionFormBlocks.forEach((block) => {
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.text = `
+      $BV.container('global', {});
     `;
     block.appendChild(script);
   });
@@ -241,5 +260,6 @@ export {
   fetchBVOverviewRatingComment,
   getEnvType,
   addBazaarVoiceReviewsScript,
+  addBazaarVoiceFormSubmissionScript,
   generateSuperScripts,
 };
