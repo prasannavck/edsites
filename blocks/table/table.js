@@ -81,6 +81,20 @@ function getBgColorByVariant(block, variant) {
   return bgColor;
 }
 
+function handleTableContentHeight(block) {
+  const tableContent = block.querySelector('.table-content');
+  if (tableContent?.classList.contains('open')) {
+    let totalHeight = 0;
+    // Sum up the height of each child element
+    Array.from(tableContent.children).forEach((child) => {
+      totalHeight += child.offsetHeight;
+    });
+    tableContent.style.height = `${totalHeight}px`;
+  } else {
+    tableContent.style.height = '0';
+  }
+}
+
 function decorateIcons(td, block) {
   if (!isListBlockVariant(block)) return;
   const icons = td.querySelectorAll('.icon');
@@ -146,11 +160,7 @@ function decorateTableTitle(tableTitle, block, placeholders) {
     tableTitle.parentElement.classList.toggle('active');
     tableContent.classList.add('collapsable');
     tableContent?.classList.toggle('open');
-    if (tableContent?.classList.contains('open')) {
-      tableContent.style.height = `${tableContent.scrollHeight}px`;
-    } else {
-      tableContent.style.height = '0';
-    }
+    handleTableContentHeight(block);
     showDetail.innerHTML = tableTitle.parentElement.classList.contains('active') ? hideText : showText;
   });
 }
@@ -289,20 +299,6 @@ function decorateTableContent(block) {
     tableContent.classList.add('open');
   } else {
     tableContent.classList.add('collapsable');
-  }
-}
-
-function handleTableContentHeight(block) {
-  const tableContent = block.querySelector('.table-content');
-  if (tableContent?.classList.contains('open')) {
-    let totalHeight = 0;
-    // Sum up the height of each child element
-    Array.from(tableContent.children).forEach((child) => {
-      totalHeight += child.offsetHeight;
-    });
-    tableContent.style.height = `${totalHeight}px`;
-  } else {
-    tableContent.style.height = '0';
   }
 }
 
