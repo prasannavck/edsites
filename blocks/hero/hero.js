@@ -119,10 +119,10 @@ function decorateButtons(block, activeTab) {
 }
 
 function decorateBackgroundImage(block) {
-  const backgroundImageContainer = block.querySelector(':scope > div > div:has(picture)');
-  const backgroundPictures = backgroundImageContainer.querySelectorAll('picture');
-  if (!backgroundPictures || backgroundPictures.length === 0) return '';
-  backgroundPictures.forEach((picture, index) => {
+  const backgroundImageContainer = block.querySelector(':scope > div > div:has(picture)')
+    || block.querySelector(':scope > div > div'); // using first row as a fallback container
+  const backgroundPictures = backgroundImageContainer?.querySelectorAll('picture');
+  backgroundPictures?.forEach((picture, index) => {
     let pictureParent = picture.parentNode;
     if (pictureParent?.nodeName !== 'P') {
       pictureParent = document.createElement('p');
@@ -222,6 +222,6 @@ export default function decorate(block) {
   Array.from(block.querySelectorAll(':scope > div > div')).forEach(((div) => {
     const pTag = div.querySelector('p');
     if ((div.className === '' && div.innerHTML.trim() === '')
-      || (div.className === '' && pTag.className === '' && pTag.innerHTML.trim() === '')) div.parentNode.remove();
+      || (div.className === '' && pTag?.className === '' && pTag?.innerHTML.trim() === '')) div.parentNode.remove();
   }));
 }
