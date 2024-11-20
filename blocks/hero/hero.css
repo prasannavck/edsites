@@ -556,6 +556,7 @@
   align-items: center;
   color: var(--dark-color);
   gap: 0.5rem;
+  margin-bottom: 0.625rem;
 }
 
 .hero.coverage .header .title-wrapper {
