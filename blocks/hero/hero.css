@@ -595,6 +595,10 @@
   filter: unset;
 }
 
+.hero.coverage .description {
+  font-size: 0.75rem;
+}
+
 .hero.coverage .description p {
   margin-top: 0;
   margin-bottom: 0.625rem;
@@ -650,6 +654,7 @@
 
   .hero.coverage .description {
     width: 29rem;
+    font-size: 0.875rem;
   }
 
   .hero.coverage .discount-wrapper {

@@ -4,6 +4,10 @@
   gap: 1.5rem;
 }
 
+.styled-lists .list-columns p {
+  font-size: 0.75rem;
+}
+
 .styled-lists.teal-background .list-columns {
   gap: 0;
 }
@@ -30,6 +34,12 @@
 .styled-lists a.button:any-link {
   width: min-content;
   padding: 0.3125rem 2rem;
+}
+
+@media (width >= 48rem) {
+  .styled-lists .list-columns p {
+    font-size: 0.875rem;
+  }
 }
 
 @media (width >= 62rem) {
