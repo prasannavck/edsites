@@ -273,7 +273,13 @@ function addCategoryTags(tagsWrapper, categories) {
     const categoryTag = document.createElement('a');
     const categoryID = categories[i]['category-id'];
     const categoryText = categories[i]['category-title'];
-    categoryTag.href = `/${ARTICLE_BASE}/${categoryID}`;
+
+    if (categoryID === '') {
+      categoryTag.href = `/${ARTICLE_BASE}`;
+    } else {
+      categoryTag.href = `/${ARTICLE_BASE}/${categoryID}`;
+    }
+
     categoryTag.classList.add('news-tag');
     categoryTag.textContent = categoryText;
     tagsWrapper.append(categoryTag);
