@@ -72,14 +72,18 @@
   color: var(--white);
 }
 
-.table.list table tbody td div:not(.tooltip-content) {
-  display: inline;
-}
-
 .table.list .table-title > div {
   display: flex;
   justify-content: space-between;
   vertical-align: center;
+}
+
+.table.list table div:has(.button-container) {
+  width: 100%;
+}
+
+.table.list table tbody td div:not(.tooltip-content) {
+  display: inline;
 }
 
 .table.list .table-title .heading {
@@ -158,10 +162,6 @@
   text-decoration: none;
 }
 
-.table.list table div:has(.button-container){
-  width: 100%;
-}
-
 .table.description.active .table-description {
   display: block;
   background-color: var(--pale-aqua);
@@ -170,6 +170,7 @@
 .table.description.active .table-description p {
   margin: 0;
   padding: 0.9375rem;
+  font-size: 0.875rem;
 }
 
 .table.list.description.active table {
