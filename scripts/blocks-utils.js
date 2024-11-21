@@ -44,21 +44,6 @@ function closeSearchBar() {
 }
 
 /**
- * Add click listener to open external link in a new window
- * @param link
- */
-function addGenericLinkClickListener(link) {
-  link.addEventListener('click', (event) => {
-    const url = link.href;
-    const isExternal = url.startsWith('http') && !url.includes(window.location.hostname);
-    if (isExternal) {
-      event.preventDefault();
-      window.open(`${url}`, '_blank');
-    }
-  });
-}
-
-/**
  * Generate BV review stars markup.
  * @param aHref the link of star
  */
@@ -276,7 +261,6 @@ export {
   createElement,
   openSearchBar,
   closeSearchBar,
-  addGenericLinkClickListener,
   generateBvStarMarkup,
   fetchBVProductRating,
   fetchBVOverviewRating,

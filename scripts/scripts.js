@@ -396,6 +396,32 @@ async function loadNotificationBanner(main) {
 }
 
 /**
+ * Decorate anchor to handle external and new tab links
+ */
+function decorateAnchors() {
+  const main = document.querySelector('body > main');
+  if (!main) return;
+  const anchors = Array.from(main.querySelectorAll('a'));
+  anchors.forEach((anchor) => {
+    const link = anchor.href;
+    if (!link) return;
+    try {
+      const isExternal = link.startsWith('http') && !link.includes(window.location.hostname);
+      const extensions = ['.pdf', '.doc', '.docx', '.csv', '.xlsx', '.xls', '.jpg', '.zip', '.pptx', '.png'];
+      const url = new URL(link, window.location.origin);
+      const { pathname } = url;
+      if (isExternal || extensions.some((ext) => pathname?.endsWith(ext))) {
+        anchor.setAttribute('target', '_blank');
+        if (isExternal) anchor.setAttribute('rel', 'noopener nofollow');
+      }
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error(`Invalid URL in anchor: ${link}`, error);
+    }
+  });
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -412,6 +438,7 @@ export function decorateMain(main) {
   decorateSectionTableList(main);
   buildSectionBasedAutoBlocks(main);
   requestAnimationFrame(adjustSectionHeight);
+  decorateAnchors();
 }
 
 /**
