@@ -249,6 +249,29 @@ function generateSuperScripts(main) {
   });
 }
 
+function enableAdaptiveTooltip(tooltip) {
+  ['mouseover','focus'].forEach(evt => 
+    tooltip.addEventListener(evt, () => {
+      // Reset any previous position adjustment
+      tooltip.querySelector(':scope .tooltip-content').style.marginLeft = ``;
+      tooltip.classList.remove('tooltip-left');
+      tooltip.classList.remove('tooltip-bottom');
+
+      const tooltipRect = tooltip.getBoundingClientRect();
+      const spaceRight = window.innerWidth - tooltipRect.left + tooltipRect.width;
+      const spaceLeft = tooltipRect.left;
+      const rightAdjustment = spaceLeft / 20;
+
+      if (spaceRight < 275 && spaceLeft < 275) {
+        tooltip.classList.add('tooltip-bottom');
+        tooltip.querySelector(':scope .tooltip-content').style.marginLeft = `-${rightAdjustment}rem`;
+      } else if (spaceRight < 275) {
+        tooltip.classList.add('tooltip-left');
+      }
+    })
+  );
+}
+
 export {
   createElement,
   openSearchBar,
@@ -262,4 +285,5 @@ export {
   addBazaarVoiceReviewsScript,
   addBazaarVoiceFormSubmissionScript,
   generateSuperScripts,
+  enableAdaptiveTooltip
 };
