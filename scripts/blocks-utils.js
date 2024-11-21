@@ -250,10 +250,10 @@ function generateSuperScripts(main) {
 }
 
 function enableAdaptiveTooltip(tooltip) {
-  ['mouseover','focus'].forEach(evt => 
+  ['mouseover', 'focus'].forEach((evt) => {
     tooltip.addEventListener(evt, () => {
       // Reset any previous position adjustment
-      tooltip.querySelector(':scope .tooltip-content').style.marginLeft = ``;
+      tooltip.querySelector(':scope .tooltip-content').style.marginLeft = '';
       tooltip.classList.remove('tooltip-left');
       tooltip.classList.remove('tooltip-bottom');
 
@@ -268,8 +268,8 @@ function enableAdaptiveTooltip(tooltip) {
       } else if (spaceRight < 275) {
         tooltip.classList.add('tooltip-left');
       }
-    })
-  );
+    });
+  });
 }
 
 export {
@@ -285,5 +285,5 @@ export {
   addBazaarVoiceReviewsScript,
   addBazaarVoiceFormSubmissionScript,
   generateSuperScripts,
-  enableAdaptiveTooltip
+  enableAdaptiveTooltip,
 };

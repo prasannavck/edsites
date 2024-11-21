@@ -1,4 +1,4 @@
-import { enableAdaptiveTooltip } from "../../scripts/blocks-utils.js";
+import { enableAdaptiveTooltip } from '../../scripts/blocks-utils.js';
 
 const SHOW_MORE_ICON = `${window.hlx.codeBasePath}/icons/arrow-circle-teal.svg`;
 const TOOLTIP_ICON = `${window.hlx.codeBasePath}/icons/question-teal.svg`;
