@@ -5489,13 +5489,64 @@
         "component": "richtext",
         "name": "title",
         "label": "Tab Title",
-        "valueType": "string"
+        "valueType": "string",
+        "value": "Tab Title"
+      },
+      {
+        "component": "boolean",
+        "label": "Use Description Only",
+        "name": "useDescription",
+        "value": true
       },
       {
         "component": "richtext",
         "name": "description",
         "label": "Description",
-        "valueType": "string"
+        "condition": {
+          "===": [
+            {
+              "var": "useDescription"
+            },
+            true
+          ]
+        }
+      },
+      {
+        "component": "aem-content",
+        "name": "reference",
+        "label": "Reference",
+        "condition": {
+          "===": [
+            {
+              "var": "useDescription"
+            },
+            false
+          ]
+        }
+      },
+      {
+        "component": "select",
+        "label": "List Icon",
+        "name": "listIcon",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Check",
+            "value": ":icon-tick:"
+          },
+          {
+            "name": "Arrow",
+            "value": ":arrow-bullet-teal:"
+          },
+          {
+            "name": "Exclamation",
+            "value": ":icon-exclamation:"
+          }
+        ],
+        "value": ""
       }
     ]
   },
