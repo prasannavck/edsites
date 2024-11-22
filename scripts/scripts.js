@@ -412,7 +412,7 @@ function decorateAnchors() {
       const { pathname } = url;
       if (isExternal || extensions.some((ext) => pathname?.endsWith(ext))) {
         anchor.setAttribute('target', '_blank');
-        if (isExternal) anchor.setAttribute('rel', 'noopener nofollow');
+        anchor.setAttribute('rel', 'noopener nofollow');
       }
     } catch (error) {
       // eslint-disable-next-line no-console
