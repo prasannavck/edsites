@@ -2,8 +2,6 @@ import { fetchPlaceholders } from '../../scripts/aem.js';
 import {
   createElement,
   generateBvStarMarkup,
-  fetchBVOverviewRating,
-  fetchBVOverviewRatingComment,
 } from '../../scripts/blocks-utils.js';
 
 function generateOverviewRatingMarkup(placeholders, reviewLink) {
@@ -18,6 +16,7 @@ function generateOverviewRatingMarkup(placeholders, reviewLink) {
   const ratingReviewLink = createElement('a', 'ts-bv-overview-rating-review-link');
   const ratingReviewNum = createElement('span', 'ts-bv-overview-rating-review-number');
   const ratingComment = createElement('p', 'ts-bv-overview-rating-comment');
+  ratingComment.innerHTML = 'Waiting to display customer comments';
   ratingReviewNum.textContent = ' 0 ';
   ratingReviewLink.href = reviewLink || '#';
   ratingReviewLink.append(readAll);
@@ -32,27 +31,6 @@ function generateOverviewRatingMarkup(placeholders, reviewLink) {
   bvOverviewRating.append(ratingContent);
   bvOverviewRating.append(ratingComment);
   return bvOverviewRating;
-}
-
-async function decorateRating(ratingContent, productId) {
-  const ratingResults = await fetchBVOverviewRating(productId);
-  if (ratingResults) {
-    const overallRating = ratingResults.AverageOverallRating;
-    const totalReviewCount = ratingResults.TotalReviewCount;
-    const rating = ratingContent.querySelector('.ts-bv-filled-star');
-    const starWidth = (overallRating * 100) / 5;
-    rating.style.width = `${starWidth}%`;
-    const reviews = ratingContent.querySelector('.ts-bv-overview-rating-review-number');
-    reviews.textContent = ` ${totalReviewCount} `;
-  }
-  const commentResults = await fetchBVOverviewRatingComment(productId);
-  if (commentResults && commentResults.length > 0) {
-    const randomItem = commentResults[Math.floor(Math.random() * commentResults.length)];
-    const userComment = randomItem.Title;
-    const userName = randomItem.UserNickname;
-    const comment = ratingContent.querySelector('.ts-bv-overview-rating-comment');
-    comment.textContent = `"${userComment}" ${userName}`;
-  }
 }
 
 function decorateReviews(block, productId) {
@@ -86,13 +64,8 @@ export default async function decorate(block) {
   const placeholders = await fetchPlaceholders();
   if (blockType === 'bv_overview_rating' && productId) {
     block.classList.add('bv-overview-rating');
+    block.setAttribute('data-product-id', productId);
     const ratingContent = generateOverviewRatingMarkup(placeholders, reviewLink);
-    try {
-      decorateRating(ratingContent, productId);
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.log('Error on integrate BV overview rating: ', error);
-    }
     block.replaceChildren(ratingContent);
   } else if (blockType === 'bv_reviews' && productId) {
     decorateReviews(block, productId);

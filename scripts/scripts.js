@@ -69,7 +69,7 @@ function createTabs(tabSections) {
  * @param main
  */
 function decorateSectionTabs(main) {
-  const sections = main.querySelectorAll('.section');
+  const sections = main.querySelectorAll(':scope > div.section');
   let tabSections = [];
   const createTabsGroup = () => {
     const newSection = document.createElement('div');
@@ -91,6 +91,8 @@ function decorateSectionTabs(main) {
         newSection.dataset.sidebarLink = sidebarLink;
         newSection.dataset.sidebarMobileView = sidebarMobileView;
         newSection.dataset.sidebarTabletView = sidebarTabletView;
+        const sidebar = section.querySelector('.sidebar');
+        newSection.append(sidebar);
       }
     });
     tabSections = [];
@@ -434,7 +436,6 @@ export function decorateMain(main) {
   decorateSections(main);
   addCategoryTagToArticle(main);
   decorateBlocks(main);
-  decorateSectionTabs(main);
   decorateSectionTableList(main);
   buildSectionBasedAutoBlocks(main);
   requestAnimationFrame(adjustSectionHeight);
@@ -507,6 +508,7 @@ async function loadLazy(doc) {
     loadHeader(doc.querySelector('header'));
     loadFooter(doc.querySelector('footer'));
   }
+  decorateSectionTabs(main);
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
 }

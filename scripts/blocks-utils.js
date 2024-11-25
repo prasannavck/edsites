@@ -164,6 +164,57 @@ async function fetchBVOverviewRatingComment(productId) {
 }
 
 /**
+ * Updates BV overview rating UI
+ * @param main
+ */
+function updateBazaarVoiceRatingBlock(main) {
+  try {
+    const block = main.querySelector('.block.bv-overview-rating');
+    if (!block) return;
+
+    const productId = block.getAttribute('data-product-id');
+    if (!productId) throw new Error('Product ID not found in BV overview rating block.');
+
+    const ratingContent = block.querySelector('.ts-bv-overview-rating');
+    if (!ratingContent) throw new Error('Rating content not found in BV overview rating block.');
+
+    fetchBVOverviewRating(productId)
+      .then((ratingResults) => {
+        if (ratingResults) {
+          const overallRating = ratingResults.AverageOverallRating;
+          const totalReviewCount = ratingResults.TotalReviewCount;
+          const rating = ratingContent.querySelector('.ts-bv-filled-star');
+          const starWidth = (overallRating * 100) / 5;
+          rating.style.width = `${starWidth}%`;
+          const reviews = ratingContent.querySelector('.ts-bv-overview-rating-review-number');
+          reviews.textContent = ` ${totalReviewCount} `;
+        }
+      })
+      .catch((error) => {
+        // eslint-disable-next-line no-console
+        console.error('Error fetching or updating BV overview rating:', error);
+      });
+    fetchBVOverviewRatingComment(productId)
+      .then((commentResults) => {
+        if (commentResults && commentResults.length > 0) {
+          const randomItem = commentResults[Math.floor(Math.random() * commentResults.length)];
+          const userComment = randomItem.Title;
+          const userName = randomItem.UserNickname;
+          const comment = ratingContent.querySelector('.ts-bv-overview-rating-comment');
+          comment.textContent = `"${userComment}" ${userName}`;
+        }
+      })
+      .catch((error) => {
+        // eslint-disable-next-line no-console
+        console.error('Error fetching or updating BV overview comments:', error);
+      });
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error('Error updating BV overview rating block:', error);
+  }
+}
+
+/**
  * Add required script to show BV reviews
  * @param bvReviewsBlocks bazaarvoice-integration block with type = 'BV Reviews'
  */
@@ -263,9 +314,8 @@ export {
   closeSearchBar,
   generateBvStarMarkup,
   fetchBVProductRating,
-  fetchBVOverviewRating,
-  fetchBVOverviewRatingComment,
   getEnvType,
+  updateBazaarVoiceRatingBlock,
   addBazaarVoiceReviewsScript,
   addBazaarVoiceFormSubmissionScript,
   generateSuperScripts,
