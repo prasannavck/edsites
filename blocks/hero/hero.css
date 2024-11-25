@@ -41,6 +41,7 @@
 .hero > div > div,
 .hero > div > div > .hero-menu {
   height: 100%;
+  max-height: fit-content;
 }
 
 .hero.tabs {
