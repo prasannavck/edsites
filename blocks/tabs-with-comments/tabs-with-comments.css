@@ -14,6 +14,10 @@
     margin-top: 1.5rem;
 }
 
+.tabs-with-comments div > ul:has(li > a) {
+    padding: 0;
+}
+
 .tabs-with-comments .tabs-comments p,
 .tabs-with-comments .tabs-comments a,
 .tabs-with-comments .tabs-comments ul {
@@ -59,16 +63,17 @@
     list-style: none;
 }
 
-.tabs-with-comments div > ul:has(li > a) {
-    padding: 0;
-}
-
 .tabs-with-comments div > ol:first-of-type {
     padding: 0.8rem;
 }
 
 .tabs-with-comments .tabs-comments li {
     position: relative;
+}
+
+.tabs-with-comments .tabs-comments li:not(:last-child, :has(li)) {
+    font-size: 0.875rem;
+    padding-bottom: 0.5rem;
 }
 
 .tabs-with-comments .tabs-comments div.icon-list ul {
