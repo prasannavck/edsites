@@ -1,10 +1,13 @@
-import { loadScript } from './aem.js';
+import { loadScript, sampleRUM } from './aem.js';
 import {
   getEnvType,
   addBazaarVoiceReviewsScript,
   addBazaarVoiceFormSubmissionScript,
   updateBazaarVoiceRatingBlock,
 } from './blocks-utils.js';
+
+// Core Web Vitals RUM collection
+sampleRUM('cwv');
 
 const BV_SCRIPT = 'https://display.ugc.bazaarvoice.com/bvstaging/static/terrischeer/en_AU/bvapi.js';
 
