@@ -260,6 +260,7 @@ function createHeadingTabSelectorInMobile(table, block) {
     button.addEventListener('click', () => {
       table.setAttribute('data-active-tab-mob', index);
       updateActiveHeadingTabInMobile(table, block);
+      handleTableContentHeight(block);
     });
   });
 }
