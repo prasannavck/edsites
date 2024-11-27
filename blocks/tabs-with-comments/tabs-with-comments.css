@@ -20,7 +20,8 @@
 
 .tabs-with-comments .tabs-comments p,
 .tabs-with-comments .tabs-comments a,
-.tabs-with-comments .tabs-comments ul {
+.tabs-with-comments .tabs-comments ul,
+.tabs-with-comments .tabs-comments ol {
     font-size: 0.875rem;
     line-height: 1.125rem;
 }
@@ -69,10 +70,10 @@
 
 .tabs-with-comments .tabs-comments li {
     position: relative;
+    font-size: 0.875rem;
 }
 
 .tabs-with-comments .tabs-comments li:not(:last-child, :has(li)) {
-    font-size: 0.875rem;
     padding-bottom: 0.5rem;
 }
 
