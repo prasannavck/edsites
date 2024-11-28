@@ -79,6 +79,9 @@ form:not(.edit-mode) [data-visible="false"] {
 main .form-container {
     background-color: var(--form-background-color);
     width: var(--form-width);
+}
+
+main .rich-text-container.form-container {
     display: flex;
 }
 
