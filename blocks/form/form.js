@@ -119,7 +119,11 @@ const createSelect = withFieldWrapper((fd) => {
   if (ph && optionSelected === false) {
     ph.setAttribute('selected', '');
   }
-  return select;
+  // wrap select in a div for styling
+  const wrapper = document.createElement('div');
+  wrapper.classList.add('select-wrapper');
+  wrapper.append(select);
+  return wrapper;
 });
 
 function createHeading(fd) {
