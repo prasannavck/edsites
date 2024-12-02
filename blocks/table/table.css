@@ -309,6 +309,10 @@
   transition: height 0.5s ease;
 }
 
+.table.list .table-content.collapsable.open {
+  overflow: visible;
+}
+
 @media (width > 26rem) {
   .table.list.active .heading-tabs-mob {
     padding: 0.9375rem;
