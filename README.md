@@ -24,3 +24,7 @@ npm run lint
 1. Start AEM Proxy: `aem up` (opens your browser at `http://localhost:3000`)
 1. Open the `{repo}` directory in your favorite IDE and start coding :)
 ..........CLOSE HERE.......
+=======
+# edsites
+aemsites by adobe for eds
+delete this later..efe04be1cc52410ab696392f989fb6fb700a7dbd
